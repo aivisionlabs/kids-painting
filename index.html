@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junior Art Academy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>">
+</head>
+<body>
+    <div id="app">
+        <!-- Menu Screen -->
+        <div id="menu-screen">
+            <header id="header">
+                <h1>Junior Art Academy</h1>
+                <p class="subtitle">Pick something to draw!</p>
+            </header>
+
+            <nav id="categories" aria-label="Character categories"></nav>
+
+            <div id="card-grid" role="list" aria-label="Drawing choices"></div>
+        </div>
+
+        <!-- Drawing Screen -->
+        <div id="game-screen" class="screen hidden">
+            <div class="game-top-bar">
+                <button id="home-btn" aria-label="Back to menu">
+                    <span>&#8592;</span> Back
+                </button>
+                <div id="drawing-title">
+                    <span id="drawing-emoji"></span>
+                    <span id="drawing-name"></span>
+                </div>
+                <button id="sound-toggle" aria-label="Toggle voice">
+                    <span id="sound-icon"></span>
+                </button>
+            </div>
+
+            <div id="progress" aria-label="Drawing progress"></div>
+
+            <div class="instruction-box" id="instruction" aria-live="polite">Ready?</div>
+
+            <div id="canvas-container">
+                <canvas id="mainCanvas" width="500" height="400"></canvas>
+            </div>
+
+            <div class="controls">
+                <button class="btn btn-repeat" id="repeat-btn">Watch Again</button>
+                <button class="btn btn-next" id="next-btn">Next Step <span class="arrow">&#10132;</span></button>
+            </div>
+            <div class="skip-row">
+                <button class="skip-link" id="skip-to-paint-btn">Skip tutorial &mdash; let me paint!</button>
+            </div>
+        </div>
+
+        <!-- Completion Screen -->
+        <div id="completion-screen" class="screen hidden">
+            <canvas id="confetti-canvas"></canvas>
+            <div class="completion-content">
+                <div class="completion-emoji" id="completion-emoji"></div>
+                <h2>Amazing Work!</h2>
+                <p>You finished your drawing!</p>
+                <div class="completion-buttons">
+                    <button class="btn btn-paint" id="try-paint-btn">Now You Try!</button>
+                    <button class="btn btn-repeat" id="draw-again-btn">Watch Again</button>
+                    <button class="btn btn-next" id="new-drawing-btn">New Drawing</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Paint Screen -->
+        <div id="paint-screen" class="screen hidden">
+            <div class="game-top-bar">
+                <button id="paint-back-btn" class="top-bar-btn" aria-label="Back to menu">
+                    <span>&#8592;</span> Back
+                </button>
+                <div id="paint-title">
+                    <span id="paint-emoji"></span>
+                    <span id="paint-name"></span>
+                </div>
+                <button id="paint-download-btn" class="top-bar-btn" aria-label="Download painting">
+                    &#11015; Save
+                </button>
+            </div>
+
+            <!-- Guided paint step indicator -->
+            <div id="paint-progress" aria-label="Paint progress"></div>
+
+            <div class="paint-instruction-box" id="paint-instruction" aria-live="polite">
+                Now it's your turn &mdash; paint over the guide!
+            </div>
+
+            <!-- Toolbar -->
+            <div id="paint-toolbar">
+                <div class="toolbar-section">
+                    <div id="color-palette" class="color-palette"></div>
+                </div>
+                <div class="toolbar-row">
+                    <div id="size-picker" class="size-picker"></div>
+                    <div class="tool-buttons">
+                        <button class="tool-btn active" id="tool-brush" aria-label="Brush" title="Brush">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg>
+                        </button>
+                        <button class="tool-btn" id="tool-eraser" aria-label="Eraser" title="Eraser">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 20H7L3 16l9-9 8 8-4 4z"/><path d="M6 11l8 8"/></svg>
+                        </button>
+                        <button class="tool-btn" id="tool-undo" aria-label="Undo" title="Undo">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 10h10a5 5 0 0 1 0 10H9"/><path d="M3 10l4-4"/><path d="M3 10l4 4"/></svg>
+                        </button>
+                        <button class="tool-btn" id="tool-clear" aria-label="Clear canvas" title="Clear">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M5 6l1 14h12l1-14"/></svg>
+                        </button>
+                        <button class="tool-btn" id="tool-guide" aria-label="Toggle guide" title="Toggle guide">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Paint Canvas (guide underneath, paint on top) -->
+            <div id="paint-canvas-container">
+                <canvas id="guideCanvas" width="500" height="400"></canvas>
+                <canvas id="paintCanvas" width="500" height="400"></canvas>
+            </div>
+
+            <!-- Guided paint step controls (visible during guided mode) -->
+            <div id="paint-step-controls" class="controls hidden">
+                <button class="btn btn-next" id="paint-done-step-btn">I'm Done! Next Step <span class="arrow">&#10132;</span></button>
+            </div>
+
+            <!-- Free paint note (visible after guided mode completes) -->
+            <div id="free-paint-banner" class="hidden">
+                <div class="free-paint-text">Free paint mode &mdash; add details, colors, anything you like!</div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>

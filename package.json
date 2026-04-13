@@ -1,0 +1,10 @@
+{
+  "name": "junior-art-academy",
+  "version": "1.0.0",
+  "description": "Interactive drawing teacher for kids - learn to draw step by step!",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve ."
+  }
+}
