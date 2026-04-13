@@ -86,7 +86,13 @@
                 </button>
             </div>
 
-            <!-- Guided paint step indicator -->
+            <!-- Phase label + progress -->
+            <div id="paint-phase-label" class="phase-label">
+                <span id="phase-icon"></span>
+                <span id="phase-text">Draw Phase</span>
+                <span class="phase-step-count" id="phase-step-count"></span>
+            </div>
+
             <div id="paint-progress" aria-label="Paint progress"></div>
 
             <div class="paint-instruction-box" id="paint-instruction" aria-live="polite">
@@ -129,6 +135,9 @@
             <!-- Guided paint step controls (visible during guided mode) -->
             <div id="paint-step-controls" class="controls hidden">
                 <button class="btn btn-next" id="paint-done-step-btn">I'm Done! Next Step <span class="arrow">&#10132;</span></button>
+            </div>
+            <div id="paint-skip-row" class="skip-row hidden">
+                <button class="skip-link" id="skip-paint-phase-btn">Skip to free paint</button>
             </div>
 
             <!-- Free paint note (visible after guided mode completes) -->

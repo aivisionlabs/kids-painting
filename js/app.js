@@ -30,13 +30,18 @@ const paintInstruction = document.getElementById('paint-instruction');
 const paintProgress = document.getElementById('paint-progress');
 const paintStepControls = document.getElementById('paint-step-controls');
 const freePaintBanner = document.getElementById('free-paint-banner');
+const phaseLabel = document.getElementById('paint-phase-label');
+const phaseIcon = document.getElementById('phase-icon');
+const phaseText = document.getElementById('phase-text');
+const phaseStepCount = document.getElementById('phase-step-count');
+const paintSkipRow = document.getElementById('paint-skip-row');
 
 // --- State ---
 let currentCharacter = null;
 let currentStep = 0;
 let activeCategory = 'all';
 let paintStep = 0;
-let paintMode = 'guided'; // 'guided' | 'free'
+let paintPhase = 'draw'; // 'draw' | 'color' | 'free'
 let paintToolbarBuilt = false;
 
 // --- Init ---
@@ -62,13 +67,13 @@ document.getElementById('new-drawing-btn').addEventListener('click', () => {
 });
 document.getElementById('try-paint-btn').addEventListener('click', () => {
     hideAll();
-    openPaintMode(currentCharacter, 'guided');
+    openPaintMode(currentCharacter);
 });
 document.getElementById('skip-to-paint-btn').addEventListener('click', () => {
     stopAnimation();
     stopSpeaking();
     hideAll();
-    openPaintMode(currentCharacter, 'guided');
+    openPaintMode(currentCharacter);
 });
 document.getElementById('paint-back-btn').addEventListener('click', () => {
     teardownPainter();
@@ -81,6 +86,10 @@ document.getElementById('paint-download-btn').addEventListener('click', () => {
 });
 document.getElementById('paint-done-step-btn').addEventListener('click', () => {
     advancePaintStep();
+});
+document.getElementById('skip-paint-phase-btn').addEventListener('click', () => {
+    stopSpeaking();
+    enterFreePaintMode();
 });
 
 // --- Categories ---
@@ -202,8 +211,11 @@ function showCompletion() {
     launchConfetti();
 }
 
-// --- Paint Mode ---
-function openPaintMode(character, mode) {
+// ===========================================
+// PAINT MODE — Two phases: Draw → Color → Free
+// ===========================================
+
+function openPaintMode(character) {
     hideAll();
     paintScreen.classList.remove('hidden');
 
@@ -213,7 +225,6 @@ function openPaintMode(character, mode) {
     const paintCanvas = document.getElementById('paintCanvas');
     const guideCanvasEl = document.getElementById('guideCanvas');
 
-    // Only init painter once per session (avoid duplicate event listeners)
     if (!paintToolbarBuilt) {
         initPainter(paintCanvas, guideCanvasEl);
         buildPaintToolbar();
@@ -225,22 +236,43 @@ function openPaintMode(character, mode) {
     setGuideVisible(true);
     document.getElementById('tool-guide').classList.remove('guide-off');
 
-    if (mode === 'guided') {
-        paintMode = 'guided';
-        paintStep = 0;
-        buildPaintProgress();
-        showPaintStep();
-        paintStepControls.classList.remove('hidden');
-        freePaintBanner.classList.add('hidden');
-    } else {
-        enterFreePaintMode();
-    }
+    // Start with draw phase
+    paintPhase = 'draw';
+    paintStep = 0;
+    freePaintBanner.classList.add('hidden');
+    paintStepControls.classList.remove('hidden');
+    paintSkipRow.classList.remove('hidden');
+
+    buildPaintProgressForPhase();
+    showCurrentPaintStep();
+
+    speak(`Let's paint the ${character.name}! First, trace the shapes.`);
 }
 
-function buildPaintProgress() {
-    paintProgress.innerHTML = currentCharacter.steps
+function getCurrentPhaseSteps() {
+    if (paintPhase === 'draw') return currentCharacter.steps;
+    if (paintPhase === 'color') return currentCharacter.paintSteps || [];
+    return [];
+}
+
+function buildPaintProgressForPhase() {
+    const steps = getCurrentPhaseSteps();
+    paintProgress.innerHTML = steps
         .map((_, i) => `<div class="progress-dot${i === 0 ? ' active' : ''}" data-step="${i}"></div>`)
         .join('');
+
+    // Update phase label
+    if (paintPhase === 'draw') {
+        phaseLabel.className = 'phase-label draw-phase';
+        phaseIcon.textContent = '\u{270F}\u{FE0F}';
+        phaseText.textContent = 'Draw Phase';
+        phaseStepCount.textContent = `${steps.length} steps`;
+    } else if (paintPhase === 'color') {
+        phaseLabel.className = 'phase-label color-phase';
+        phaseIcon.textContent = '\u{1F3A8}';
+        phaseText.textContent = 'Color Phase';
+        phaseStepCount.textContent = `${steps.length} steps`;
+    }
 }
 
 function updatePaintProgress() {
@@ -250,63 +282,110 @@ function updatePaintProgress() {
     });
 }
 
-function showPaintStep() {
-    const steps = currentCharacter.steps;
+function showCurrentPaintStep() {
+    const steps = getCurrentPhaseSteps();
+    if (!steps.length) return;
     const step = steps[paintStep];
 
     updatePaintProgress();
 
-    // Update instruction
-    paintInstruction.textContent = `Step ${paintStep + 1}: ${step.text}`;
-    paintInstruction.className = 'paint-instruction-box guided-active';
+    if (paintPhase === 'draw') {
+        // Draw phase: show guide for current shape step
+        paintInstruction.textContent = `Step ${paintStep + 1}: ${step.text}`;
+        paintInstruction.className = 'paint-instruction-box guided-active';
+        drawGuideForStep(currentCharacter.steps, paintStep);
+        speak(step.voice);
+    } else if (paintPhase === 'color') {
+        // Color phase: show full outline guide, auto-select color
+        paintInstruction.textContent = `Step ${paintStep + 1}: ${step.text}`;
+        paintInstruction.className = 'paint-instruction-box color-active';
+        drawGuide(currentCharacter.steps);
 
-    // Draw guide showing current step highlighted
-    drawGuideForStep(steps, paintStep);
+        // Auto-select the suggested color
+        if (step.color) {
+            selectColorInPalette(step.color);
+        }
 
-    // Speak the instruction
-    speak(step.voice);
+        speak(step.voice);
+    }
 
-    // Update button text for last step
+    // Update button text
     const btn = document.getElementById('paint-done-step-btn');
-    if (paintStep === steps.length - 1) {
+    const isLast = paintStep === steps.length - 1;
+
+    if (paintPhase === 'draw' && isLast && currentCharacter.paintSteps?.length) {
+        btn.innerHTML = "Done! Start Coloring <span class='arrow'>&#10132;</span>";
+    } else if (isLast) {
         btn.innerHTML = "I'm Done! Finish <span class='arrow'>&#10132;</span>";
     } else {
         btn.innerHTML = "I'm Done! Next Step <span class='arrow'>&#10132;</span>";
     }
+
+    // Update skip text
+    const skipBtn = document.getElementById('skip-paint-phase-btn');
+    if (paintPhase === 'draw' && currentCharacter.paintSteps?.length) {
+        skipBtn.textContent = 'Skip to coloring phase';
+    } else {
+        skipBtn.textContent = 'Skip to free paint';
+    }
 }
 
 function advancePaintStep() {
+    const steps = getCurrentPhaseSteps();
     paintStep++;
-    if (paintStep >= currentCharacter.steps.length) {
-        // All guided steps done — switch to free paint
-        speak("You did it! Now add your own colors and details!");
+
+    if (paintStep >= steps.length) {
+        // Phase complete — move to next phase
+        if (paintPhase === 'draw' && currentCharacter.paintSteps?.length) {
+            // Transition to color phase
+            paintPhase = 'color';
+            paintStep = 0;
+            speak("Great drawing! Now let's add colors!");
+            buildPaintProgressForPhase();
+            showCurrentPaintStep();
+            return;
+        }
+        // All phases done
+        speak("You did it! Now add your own finishing touches!");
         enterFreePaintMode();
         return;
     }
-    showPaintStep();
+    showCurrentPaintStep();
 }
 
 function enterFreePaintMode() {
-    paintMode = 'free';
+    paintPhase = 'free';
     paintStepControls.classList.add('hidden');
+    paintSkipRow.classList.add('hidden');
     freePaintBanner.classList.remove('hidden');
 
-    // Show full guide
     drawGuide(currentCharacter.steps);
 
-    // Update instruction
-    paintInstruction.textContent = "Free paint mode — add your own colors and details!";
+    paintInstruction.textContent = "Free paint mode — add your own details and creativity!";
     paintInstruction.className = 'paint-instruction-box free-mode';
 
-    // Mark all progress dots as completed
+    phaseLabel.className = 'phase-label';
+    phaseIcon.textContent = '\u{2B50}';
+    phaseText.textContent = 'Free Paint';
+    phaseStepCount.textContent = '';
+
+    // Mark all progress as done
     paintProgress.querySelectorAll('.progress-dot').forEach(dot => {
         dot.classList.add('completed');
         dot.classList.remove('active');
     });
 }
 
+function selectColorInPalette(color) {
+    setColor(color);
+    const palette = document.getElementById('color-palette');
+    palette.querySelectorAll('.color-swatch').forEach(s => {
+        s.classList.toggle('active', s.dataset.color === color);
+    });
+    updateToolButtons('brush');
+}
+
 function buildPaintToolbar() {
-    // Color palette
     const palette = document.getElementById('color-palette');
     palette.innerHTML = COLORS.map(c =>
         `<button class="color-swatch${c === getColor() ? ' active' : ''}" data-color="${c}" style="background:${c};" aria-label="Color ${c}"></button>`
@@ -321,7 +400,6 @@ function buildPaintToolbar() {
         updateToolButtons('brush');
     });
 
-    // Size picker
     const sizePicker = document.getElementById('size-picker');
     sizePicker.innerHTML = SIZES.map(s =>
         `<button class="size-btn${s.value === getSize() ? ' active' : ''}" data-size="${s.value}">${s.label}</button>`
@@ -335,13 +413,10 @@ function buildPaintToolbar() {
         btn.classList.add('active');
     });
 
-    // Tool buttons
     document.getElementById('tool-brush').addEventListener('click', () => updateToolButtons('brush'));
     document.getElementById('tool-eraser').addEventListener('click', () => updateToolButtons('eraser'));
     document.getElementById('tool-undo').addEventListener('click', () => undo());
-    document.getElementById('tool-clear').addEventListener('click', () => {
-        clearPaint();
-    });
+    document.getElementById('tool-clear').addEventListener('click', () => clearPaint());
     document.getElementById('tool-guide').addEventListener('click', () => {
         const visible = !isGuideVisible();
         setGuideVisible(visible);

@@ -503,6 +503,12 @@ canvas {
     color: var(--primary);
 }
 
+.paint-instruction-box.color-active {
+    background: linear-gradient(135deg, #FFF3E0, #FFF8E1);
+    border-left-color: #FFA502;
+    color: #E65100;
+}
+
 .paint-instruction-box.free-mode {
     background: linear-gradient(135deg, #E8F5E9, #F1F8E9);
     border-left-color: var(--secondary);
@@ -667,6 +673,33 @@ canvas {
     touch-action: none;
     background: transparent;
 }
+
+/* Phase label */
+.phase-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-light);
+}
+
+.phase-label.draw-phase { color: var(--accent); }
+.phase-label.color-phase { color: #F57C00; }
+
+.phase-step-count {
+    background: #E2E8F0;
+    padding: 2px 10px;
+    border-radius: var(--radius-pill);
+    font-size: 0.75rem;
+}
+
+.draw-phase .phase-step-count { background: #D6EAFF; color: var(--accent); }
+.color-phase .phase-step-count { background: #FFE0B2; color: #F57C00; }
 
 /* Paint progress dots */
 #paint-progress {
