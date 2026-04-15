@@ -1819,5 +1819,297 @@ export const animals = [
             { text: "Add light purple belly!", voice: "Use light purple to paint the lower part of the head lighter — like a glowing belly!", color: '#D580FF' },
             { text: "Paint dark eyes!", voice: "Use dark color to fill in the big pupils. Octopuses have the most mysterious eyes!", color: '#2F3542' }
         ]
+    },
+    {
+        id: 'bunny',
+        name: 'Bunny',
+        emoji: '🐰',
+        category: 'animals',
+        steps: [
+            {
+                text: "Draw the bunny's round head!",
+                voice: "Let's draw a cute bunny! Start with a big round circle for the head — bunnies have soft chubby faces!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(250, 160, 65 * t, 60 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add two long floppy ears!",
+                voice: "Bunnies have super long ears! Draw two tall ovals on top of the head — make them nice and tall!",
+                draw(ctx, t) {
+                    // Left ear
+                    ctx.beginPath();
+                    ctx.ellipse(220, 80, 18 * t, 55 * t, -0.15, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Left inner ear
+                    ctx.beginPath();
+                    ctx.ellipse(220, 80, 10 * t, 40 * t, -0.15, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right ear
+                    ctx.beginPath();
+                    ctx.ellipse(280, 80, 18 * t, 55 * t, 0.15, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right inner ear
+                    ctx.beginPath();
+                    ctx.ellipse(280, 80, 10 * t, 40 * t, 0.15, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw a chubby round body!",
+                voice: "Now draw a big round oval under the head for the body — bunnies are nice and plump!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(250, 280, 70 * t, 85 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add short legs and a fluffy tail!",
+                voice: "Draw two little feet at the bottom and a cute fluffy cotton ball tail on the side!",
+                draw(ctx, t) {
+                    // Left foot
+                    ctx.beginPath();
+                    ctx.ellipse(215, 365, 22 * t, 12 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right foot
+                    ctx.beginPath();
+                    ctx.ellipse(285, 365, 22 * t, 12 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Fluffy tail — small circle on the right side
+                    ctx.beginPath();
+                    ctx.arc(330, 290, 18 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Tail fluff lines
+                    ctx.beginPath();
+                    ctx.arc(333, 285, 8 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw eyes, nose, whiskers and buck teeth!",
+                voice: "Give the bunny big round eyes, a tiny triangle nose, long whiskers, and two cute buck teeth!",
+                draw(ctx, t) {
+                    // Eyes
+                    ctx.beginPath();
+                    ctx.arc(230, 150, 8 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(270, 150, 8 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Eye highlights
+                    ctx.save();
+                    ctx.fillStyle = '#fff';
+                    ctx.beginPath();
+                    ctx.arc(233, 147, 3 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(273, 147, 3 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.restore();
+                    // Small triangle nose
+                    ctx.beginPath();
+                    ctx.moveTo(250, 168);
+                    ctx.lineTo(244, 168 + 7 * t);
+                    ctx.lineTo(256, 168 + 7 * t);
+                    ctx.closePath();
+                    ctx.fill();
+                    // Whiskers — left
+                    ctx.beginPath();
+                    ctx.moveTo(230, 172);
+                    ctx.lineTo(230 - 40 * t, 168);
+                    ctx.moveTo(230, 176);
+                    ctx.lineTo(230 - 38 * t, 180);
+                    ctx.stroke();
+                    // Whiskers — right
+                    ctx.beginPath();
+                    ctx.moveTo(270, 172);
+                    ctx.lineTo(270 + 40 * t, 168);
+                    ctx.moveTo(270, 176);
+                    ctx.lineTo(270 + 38 * t, 180);
+                    ctx.stroke();
+                    // Buck teeth
+                    ctx.beginPath();
+                    ctx.rect(245, 180, 5 * t, 8 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.rect(251, 180, 5 * t, 8 * t);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: "Color the body light gray!", voice: "Pick a soft light gray and fill in the bunny's round head and chubby body!", color: '#D1D5DB' },
+            { text: "Paint the inner ears pink!", voice: "Use pink to color the inside of those long floppy ears!", color: '#F9A8D4' },
+            { text: "Color the nose pink!", voice: "Paint the little triangle nose a cute pink color!", color: '#F472B6' },
+            { text: "Paint the fluffy tail white!", voice: "Use white to fill in that fluffy cotton ball tail!", color: '#FFFFFF' },
+            { text: "Add dark eyes!", voice: "Use dark color to make those big round bunny eyes shine!", color: '#1F2937' }
+        ]
+    },
+    {
+        id: 'wolf',
+        name: 'Wolf',
+        emoji: '🐺',
+        category: 'animals',
+        steps: [
+            {
+                text: "Draw the wolf's angular head!",
+                voice: "Let's draw a cool wolf! Start with a pointy angular head shape — wolves have a sharp snout!",
+                draw(ctx, t) {
+                    // Main head — slightly angular
+                    ctx.beginPath();
+                    ctx.ellipse(250, 140, 60 * t, 50 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Pointed snout/muzzle
+                    ctx.beginPath();
+                    ctx.moveTo(225, 165);
+                    ctx.lineTo(250, 165 + 35 * t);
+                    ctx.lineTo(275, 165);
+                    ctx.stroke();
+                    // Muzzle bridge
+                    ctx.beginPath();
+                    ctx.ellipse(250, 165, 25 * t, 15 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add two pointy triangle ears!",
+                voice: "Wolves have sharp pointed ears that stand straight up! Draw two tall triangles on top of the head.",
+                draw(ctx, t) {
+                    // Left ear
+                    ctx.beginPath();
+                    ctx.moveTo(215, 105);
+                    ctx.lineTo(200, 105 - 45 * t);
+                    ctx.lineTo(235, 105 - 10 * t);
+                    ctx.closePath();
+                    ctx.stroke();
+                    // Left inner ear
+                    ctx.beginPath();
+                    ctx.moveTo(215, 105);
+                    ctx.lineTo(207, 105 - 30 * t);
+                    ctx.lineTo(228, 105 - 5 * t);
+                    ctx.closePath();
+                    ctx.stroke();
+                    // Right ear
+                    ctx.beginPath();
+                    ctx.moveTo(285, 105);
+                    ctx.lineTo(300, 105 - 45 * t);
+                    ctx.lineTo(265, 105 - 10 * t);
+                    ctx.closePath();
+                    ctx.stroke();
+                    // Right inner ear
+                    ctx.beginPath();
+                    ctx.moveTo(285, 105);
+                    ctx.lineTo(293, 105 - 30 * t);
+                    ctx.lineTo(272, 105 - 5 * t);
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw a strong muscular body!",
+                voice: "Wolves are strong and powerful! Draw a big sturdy body under the head.",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(250, 275, 65 * t, 80 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Chest/lighter patch area
+                    ctx.beginPath();
+                    ctx.ellipse(250, 290, 35 * t, 50 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Neck connection
+                    ctx.beginPath();
+                    ctx.moveTo(225, 185);
+                    ctx.lineTo(218, 185 + 20 * t);
+                    ctx.moveTo(275, 185);
+                    ctx.lineTo(282, 185 + 20 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add four legs and a bushy tail!",
+                voice: "Draw four strong legs and a big bushy tail curving up! Wolves have the fluffiest tails!",
+                draw(ctx, t) {
+                    // Front left leg
+                    ctx.beginPath();
+                    ctx.moveTo(215, 330);
+                    ctx.lineTo(210, 330 + 40 * t);
+                    ctx.lineTo(200, 330 + 45 * t);
+                    ctx.stroke();
+                    // Front right leg
+                    ctx.beginPath();
+                    ctx.moveTo(260, 330);
+                    ctx.lineTo(265, 330 + 40 * t);
+                    ctx.lineTo(275, 330 + 45 * t);
+                    ctx.stroke();
+                    // Back left leg
+                    ctx.beginPath();
+                    ctx.moveTo(200, 340);
+                    ctx.lineTo(190, 340 + 35 * t);
+                    ctx.lineTo(178, 340 + 38 * t);
+                    ctx.stroke();
+                    // Back right leg
+                    ctx.beginPath();
+                    ctx.moveTo(290, 340);
+                    ctx.lineTo(300, 340 + 35 * t);
+                    ctx.lineTo(312, 340 + 38 * t);
+                    ctx.stroke();
+                    // Bushy tail
+                    ctx.beginPath();
+                    ctx.moveTo(315, 260);
+                    ctx.bezierCurveTo(360, 240 * t + 60, 380, 210 * t + 30, 355, 230);
+                    ctx.bezierCurveTo(345, 240, 330, 250, 315, 260);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw fierce eyes, nose and mouth!",
+                voice: "Give the wolf fierce almond-shaped eyes, a dark nose, and a snarling mouth. Awoooo!",
+                draw(ctx, t) {
+                    // Left eye — almond shaped
+                    ctx.beginPath();
+                    ctx.ellipse(232, 135, 10 * t, 6 * t, -0.1, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(232, 135, 4 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Right eye
+                    ctx.beginPath();
+                    ctx.ellipse(268, 135, 10 * t, 6 * t, 0.1, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(268, 135, 4 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Nose
+                    ctx.beginPath();
+                    ctx.ellipse(250, 178, 8 * t, 6 * t, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Mouth / snarl line
+                    ctx.beginPath();
+                    ctx.moveTo(250, 184);
+                    ctx.lineTo(250, 184 + 8 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(250, 192, 12, 0, Math.PI * t);
+                    ctx.stroke();
+                    // Eyebrow lines for fierce look
+                    ctx.beginPath();
+                    ctx.moveTo(222, 125);
+                    ctx.lineTo(232, 128 + 2 * t);
+                    ctx.moveTo(278, 125);
+                    ctx.lineTo(268, 128 + 2 * t);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: "Color the body dark gray!", voice: "Pick a dark gray and fill in the wolf's head and strong body!", color: '#6B7280' },
+            { text: "Paint the chest lighter!", voice: "Use a lighter gray to color the chest patch and muzzle area!", color: '#D1D5DB' },
+            { text: "Color the inner ears pink!", voice: "Use a soft pink to fill in the inner triangles of the ears!", color: '#F9A8D4' },
+            { text: "Paint the nose and eyes dark!", voice: "Use black to fill in the nose and the eye pupils — fierce!", color: '#1F2937' },
+            { text: "Color the bushy tail gray!", voice: "Paint the big bushy tail the same dark gray as the body!", color: '#6B7280' }
+        ]
     }
 ];

@@ -14,14 +14,16 @@
 import { animals } from './animals.js';
 import { vehicles } from './vehicles.js';
 import { fantasy } from './fantasy.js';
+import { cartoon } from './cartoon.js';
 
-export const allCharacters = [...animals, ...vehicles, ...fantasy];
+export const allCharacters = [...animals, ...vehicles, ...fantasy, ...cartoon];
 
 export const categories = [
     { id: 'all', label: 'All' },
     { id: 'animals', label: 'Animals' },
     { id: 'vehicles', label: 'Vehicles' },
     { id: 'fantasy', label: 'Fantasy & Space' },
+    { id: 'cartoon', label: 'Cartoon' },
 ];
 
 export function getCharacter(id) {
