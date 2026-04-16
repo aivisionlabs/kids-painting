@@ -656,5 +656,1159 @@ export const cartoon = [
             { text: "Paint the spikes and horns white!", voice: "The spikes and horns are white — color them in!", color: '#F5F5F5' },
             { text: "Add red hair and eyebrows!", voice: "Bowser has wild red hair! Paint the spiky hair tufts red!", color: '#E53935' }
         ]
+    },
+    {
+        id: 'goomba',
+        name: 'Goomba',
+        emoji: '👾',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw Goomba's big mushroom body!",
+                voice: "Let's draw a Goomba! He's Bowser's trusty foot soldier, shaped like a shiitake mushroom! Draw a big wide mushroom shape!",
+                draw(ctx, t) {
+                    // Main mushroom-shaped body — wider at top, slightly tapered at bottom
+                    ctx.beginPath();
+                    ctx.moveTo(250 - 100 * t, 210);
+                    ctx.bezierCurveTo(250 - 110 * t, 120, 250 - 70 * t, 100, 250, 100 + 5 * (1 - t));
+                    ctx.bezierCurveTo(250 + 70 * t, 100, 250 + 110 * t, 120, 250 + 100 * t, 210);
+                    ctx.bezierCurveTo(250 + 85 * t, 270, 250 + 55 * t, 295, 250, 295 - 5 * (1 - t));
+                    ctx.bezierCurveTo(250 - 55 * t, 295, 250 - 85 * t, 270, 250 - 100 * t, 210);
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw the line separating cap and face!",
+                voice: "Draw a curvy line across the middle — that's where the mushroom cap meets his face!",
+                draw(ctx, t) {
+                    const w = 100 * t;
+                    ctx.beginPath();
+                    ctx.moveTo(250 - w, 210);
+                    ctx.bezierCurveTo(250 - w * 0.5, 230, 250 + w * 0.5, 230, 250 + w, 210);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add two little feet at the bottom!",
+                voice: "Goombas have two tiny feet that peek out below! Draw two small ovals!",
+                draw(ctx, t) {
+                    // Left foot
+                    ctx.beginPath();
+                    ctx.ellipse(215, 310, 28 * t, 13 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right foot
+                    ctx.beginPath();
+                    ctx.ellipse(285, 310, 28 * t, 13 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw his bushy, angry eyebrows!",
+                voice: "Goombas have big bushy eyebrows that make them look grumpy! Draw two thick angled brows!",
+                draw(ctx, t) {
+                    // Left eyebrow — thick angry slope
+                    ctx.beginPath();
+                    ctx.moveTo(195, 160);
+                    ctx.bezierCurveTo(210, 160 - 10 * t, 235, 170 - 3 * t, 245, 185);
+                    ctx.bezierCurveTo(235, 178, 215, 175 + 3 * t, 195, 175);
+                    ctx.closePath();
+                    ctx.stroke();
+                    // Right eyebrow
+                    ctx.beginPath();
+                    ctx.moveTo(305, 160);
+                    ctx.bezierCurveTo(290, 160 - 10 * t, 265, 170 - 3 * t, 255, 185);
+                    ctx.bezierCurveTo(265, 178, 285, 175 + 3 * t, 305, 175);
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw his eyes and two pointy fangs!",
+                voice: "Give him two round eyes under those brows, and two little fangs poking up from his frown!",
+                draw(ctx, t) {
+                    // Left eye
+                    ctx.beginPath();
+                    ctx.ellipse(225, 195, 9 * t, 9 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(225, 195, 4 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Right eye
+                    ctx.beginPath();
+                    ctx.ellipse(275, 195, 9 * t, 9 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(275, 195, 4 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Frown mouth
+                    ctx.beginPath();
+                    ctx.arc(250, 260, 22, Math.PI + 0.2, Math.PI * 2 - 0.2 * t);
+                    ctx.stroke();
+                    // Left fang
+                    ctx.beginPath();
+                    ctx.moveTo(240, 245);
+                    ctx.lineTo(240, 245 + 12 * t);
+                    ctx.lineTo(246, 245);
+                    ctx.closePath();
+                    ctx.stroke();
+                    // Right fang
+                    ctx.beginPath();
+                    ctx.moveTo(260, 245);
+                    ctx.lineTo(260, 245 + 12 * t);
+                    ctx.lineTo(254, 245);
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: "Color Goomba's mushroom cap brown!", voice: "Goombas are a warm chestnut brown — paint his whole mushroom body brown!", color: '#8D5524' },
+            { text: "Paint his face a lighter tan!", voice: "The face area below the line is a lighter tan color!", color: '#E0A878' },
+            { text: "Color his feet dark brown!", voice: "His little feet are a darker brown!", color: '#4E342E' },
+            { text: "Make the fangs white!", voice: "Paint his two sharp fangs white!", color: '#FFFFFF' },
+            { text: "Color his eyebrows black!", voice: "Those bushy eyebrows are jet black!", color: '#212121' }
+        ]
+    },
+    {
+        id: 'koopa',
+        name: 'Koopa Troopa',
+        emoji: '🐢',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw Koopa's round head!",
+                voice: "Let's draw a Koopa Troopa — one of Bowser's shell-shelled soldiers! Start with a round head!",
+                draw(ctx, t) {
+                    // Head
+                    ctx.beginPath();
+                    ctx.ellipse(250, 130, 48 * t, 45 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Beak/mouth protrusion on lower face
+                    ctx.beginPath();
+                    ctx.ellipse(250, 150, 22 * t, 12 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw his round shell body!",
+                voice: "Koopas have a big round shell on their back! Draw a big half-circle shell above his belly!",
+                draw(ctx, t) {
+                    // Shell dome (back rounded part visible behind body)
+                    ctx.beginPath();
+                    ctx.ellipse(250, 250, 75 * t, 60 * t, 0, Math.PI, 0);
+                    ctx.stroke();
+                    // Belly plastron (front cream area)
+                    ctx.beginPath();
+                    ctx.ellipse(250, 270, 45 * t, 45 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Shell rim line (below dome)
+                    ctx.beginPath();
+                    ctx.moveTo(175, 250);
+                    ctx.lineTo(175 + 150 * t, 250);
+                    ctx.stroke();
+                    // Shell segment pattern (2 small curves on shell)
+                    ctx.beginPath();
+                    ctx.ellipse(220, 220, 10 * t, 8 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(280, 220, 10 * t, 8 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(250, 205, 10 * t, 8 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add his arms and hands!",
+                voice: "Give Koopa two short arms with tiny hands sticking out of the shell sides!",
+                draw(ctx, t) {
+                    // Left arm
+                    ctx.beginPath();
+                    ctx.moveTo(208, 255);
+                    ctx.bezierCurveTo(195, 265, 180, 275, 175, 275 + 10 * t);
+                    ctx.stroke();
+                    // Left hand
+                    ctx.beginPath();
+                    ctx.arc(172, 285, 10 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right arm
+                    ctx.beginPath();
+                    ctx.moveTo(292, 255);
+                    ctx.bezierCurveTo(305, 265, 320, 275, 325, 275 + 10 * t);
+                    ctx.stroke();
+                    // Right hand
+                    ctx.beginPath();
+                    ctx.arc(328, 285, 10 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw his legs and big shoes!",
+                voice: "Koopas wear cute little shoes to match their shells! Draw two legs with round shoes!",
+                draw(ctx, t) {
+                    // Left leg
+                    ctx.beginPath();
+                    ctx.moveTo(222, 310);
+                    ctx.lineTo(215, 310 + 25 * t);
+                    ctx.stroke();
+                    // Left shoe
+                    ctx.beginPath();
+                    ctx.ellipse(205, 345, 22 * t, 10 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right leg
+                    ctx.beginPath();
+                    ctx.moveTo(278, 310);
+                    ctx.lineTo(285, 310 + 25 * t);
+                    ctx.stroke();
+                    // Right shoe
+                    ctx.beginPath();
+                    ctx.ellipse(295, 345, 22 * t, 10 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw his friendly face — eyes and smile!",
+                voice: "Finish Koopa with big round eyes, pointy eyebrows, a little nostril dot, and a happy smile!",
+                draw(ctx, t) {
+                    // Eyes
+                    ctx.beginPath();
+                    ctx.ellipse(235, 120, 8 * t, 10 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(237, 122, 4 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.ellipse(265, 120, 8 * t, 10 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(267, 122, 4 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Eyebrows — pointed
+                    ctx.beginPath();
+                    ctx.moveTo(225, 105);
+                    ctx.lineTo(245, 108 + 2 * t);
+                    ctx.moveTo(275, 105);
+                    ctx.lineTo(255, 108 + 2 * t);
+                    ctx.stroke();
+                    // Nostril on beak
+                    ctx.beginPath();
+                    ctx.arc(244, 147, 1.5 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(256, 147, 1.5 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Smile
+                    ctx.beginPath();
+                    ctx.arc(250, 153, 8, 0, Math.PI * t);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: "Color the shell green!", voice: "Koopa's big shell is bright green! Paint the top dome green!", color: '#43A047' },
+            { text: "Paint the shell rim yellow!", voice: "The rim around his shell is golden yellow!", color: '#FDD835' },
+            { text: "Color his body yellow!", voice: "Koopas have a yellow body and head! Paint his head and belly area yellow!", color: '#FFEE58' },
+            { text: "Color the belly cream!", voice: "His tummy is a light cream color!", color: '#FFF59D' },
+            { text: "Paint his shoes green!", voice: "Koopa's shoes match his shell — paint them green!", color: '#2E7D32' }
+        ]
+    },
+    {
+        id: 'bowserjr',
+        name: 'Bowser Jr.',
+        emoji: '👹',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw Bowser Jr.'s big round head!",
+                voice: "Let's draw Bowser Jr., Bowser's mischievous son! Start with a big round head — he has a bigger head than body!",
+                draw(ctx, t) {
+                    // Big head
+                    ctx.beginPath();
+                    ctx.ellipse(250, 150, 65 * t, 58 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Small horns (pointy triangles on top)
+                    ctx.beginPath();
+                    ctx.moveTo(215, 100);
+                    ctx.lineTo(210, 100 - 18 * t);
+                    ctx.lineTo(222, 100);
+                    ctx.closePath();
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(285, 100);
+                    ctx.lineTo(290, 100 - 18 * t);
+                    ctx.lineTo(278, 100);
+                    ctx.closePath();
+                    ctx.stroke();
+                    // Small red ponytail tuft on top
+                    ctx.beginPath();
+                    ctx.moveTo(240, 92);
+                    ctx.lineTo(245, 92 - 15 * t);
+                    ctx.lineTo(250, 92 - 5 * t);
+                    ctx.lineTo(255, 92 - 15 * t);
+                    ctx.lineTo(260, 92);
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw his signature bandana!",
+                voice: "Bowser Jr. wears a white bandana over his mouth with his daddy's fangs drawn on it! Draw a band across the lower face!",
+                draw(ctx, t) {
+                    // Bandana — wide band across lower face
+                    ctx.beginPath();
+                    ctx.moveTo(190, 155);
+                    ctx.bezierCurveTo(200, 170 + 10 * t, 300, 170 + 10 * t, 310, 155);
+                    ctx.bezierCurveTo(305, 200 * t + 5, 285, 215 * t + 10, 250, 215 * t + 10);
+                    ctx.bezierCurveTo(215, 215 * t + 10, 195, 200 * t + 5, 190, 155);
+                    ctx.closePath();
+                    ctx.stroke();
+                    // Drawn-on fangs (two downward triangles on bandana)
+                    ctx.beginPath();
+                    ctx.moveTo(228, 180);
+                    ctx.lineTo(233, 180 + 18 * t);
+                    ctx.lineTo(240, 180);
+                    ctx.closePath();
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(272, 180);
+                    ctx.lineTo(267, 180 + 18 * t);
+                    ctx.lineTo(260, 180);
+                    ctx.closePath();
+                    ctx.stroke();
+                    // Drawn-on mouth line across bandana
+                    ctx.beginPath();
+                    ctx.moveTo(210, 178);
+                    ctx.lineTo(210 + 80 * t, 178);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw his round body and shell!",
+                voice: "Now draw his little round tummy and a spiky shell on his back!",
+                draw(ctx, t) {
+                    // Body
+                    ctx.beginPath();
+                    ctx.ellipse(250, 290, 55 * t, 50 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Shell outline behind body (visible edges on sides)
+                    ctx.beginPath();
+                    ctx.ellipse(250, 280, 70 * t, 55 * t, 0, Math.PI * 1.1, Math.PI * 1.9, true);
+                    ctx.stroke();
+                    // Belly plates (horizontal lines)
+                    ctx.beginPath();
+                    ctx.moveTo(220, 275);
+                    ctx.lineTo(220 + 60 * t, 275);
+                    ctx.moveTo(218, 295);
+                    ctx.lineTo(218 + 64 * t, 295);
+                    ctx.moveTo(222, 315);
+                    ctx.lineTo(222 + 56 * t, 315);
+                    ctx.stroke();
+                    // Spikes on shell (3 small white spikes visible from sides/top)
+                    ctx.beginPath();
+                    ctx.moveTo(195, 250);
+                    ctx.lineTo(190, 250 - 15 * t);
+                    ctx.lineTo(205, 250);
+                    ctx.closePath();
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(295, 250);
+                    ctx.lineTo(310, 250 - 15 * t);
+                    ctx.lineTo(305, 250);
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add his arms with bracelets and feet!",
+                voice: "Bowser Jr. has spiky bracelets and padded feet with claws — draw his arms and legs!",
+                draw(ctx, t) {
+                    // Left arm
+                    ctx.beginPath();
+                    ctx.moveTo(200, 280);
+                    ctx.bezierCurveTo(175, 285, 165, 300, 160, 310 * t + 5);
+                    ctx.stroke();
+                    // Left bracelet (rectangle band)
+                    ctx.beginPath();
+                    ctx.rect(152, 305, 18 * t, 6 * t);
+                    ctx.stroke();
+                    // Left hand
+                    ctx.beginPath();
+                    ctx.arc(160, 325, 11 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right arm
+                    ctx.beginPath();
+                    ctx.moveTo(300, 280);
+                    ctx.bezierCurveTo(325, 285, 335, 300, 340, 310 * t + 5);
+                    ctx.stroke();
+                    // Right bracelet
+                    ctx.beginPath();
+                    ctx.rect(330, 305, 18 * t, 6 * t);
+                    ctx.stroke();
+                    // Right hand
+                    ctx.beginPath();
+                    ctx.arc(340, 325, 11 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Left foot
+                    ctx.beginPath();
+                    ctx.ellipse(215, 355, 20 * t, 10 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Claws on left foot
+                    ctx.beginPath();
+                    ctx.moveTo(200, 358);
+                    ctx.lineTo(198, 358 + 6 * t);
+                    ctx.moveTo(215, 362);
+                    ctx.lineTo(215, 362 + 6 * t);
+                    ctx.moveTo(230, 358);
+                    ctx.lineTo(232, 358 + 6 * t);
+                    ctx.stroke();
+                    // Right foot
+                    ctx.beginPath();
+                    ctx.ellipse(285, 355, 20 * t, 10 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Claws on right foot
+                    ctx.beginPath();
+                    ctx.moveTo(270, 358);
+                    ctx.lineTo(268, 358 + 6 * t);
+                    ctx.moveTo(285, 362);
+                    ctx.lineTo(285, 362 + 6 * t);
+                    ctx.moveTo(300, 358);
+                    ctx.lineTo(302, 358 + 6 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw his big cheeky eyes and eyebrows!",
+                voice: "Now give him two big round eyes and thick eyebrows — he's a cheeky little villain!",
+                draw(ctx, t) {
+                    // Big eyes
+                    ctx.beginPath();
+                    ctx.ellipse(225, 135, 12 * t, 15 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(225, 138, 7 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.ellipse(275, 135, 12 * t, 15 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(275, 138, 7 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Thick eyebrows — angled inward
+                    ctx.beginPath();
+                    ctx.moveTo(208, 115);
+                    ctx.lineTo(208 + 25 * t, 122 + 3 * t);
+                    ctx.lineTo(208 + 25 * t, 115 + 8 * t);
+                    ctx.lineTo(208, 108);
+                    ctx.closePath();
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(292, 115);
+                    ctx.lineTo(292 - 25 * t, 122 + 3 * t);
+                    ctx.lineTo(292 - 25 * t, 115 + 8 * t);
+                    ctx.lineTo(292, 108);
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: "Color his head and body yellow!", voice: "Bowser Jr.'s body is bright yellow — paint his head and tummy!", color: '#FFD54F' },
+            { text: "Paint the top of his head green!", voice: "The top of his head is green like his dad's!", color: '#4CAF50' },
+            { text: "Color the shell green!", voice: "His spiky shell is green too!", color: '#2E7D32' },
+            { text: "Make the bandana white with black fangs!", voice: "The bandana is white — and the fangs drawn on it are black!", color: '#FFFFFF' },
+            { text: "Color the red ponytail!", voice: "His little ponytail tuft is bright red like Bowser's hair!", color: '#E53935' }
+        ]
+    },
+    {
+        id: 'piranha',
+        name: 'Piranha Plant',
+        emoji: '🌱',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw the warp pipe at the bottom!",
+                voice: "Let's draw a Piranha Plant! First draw the green warp pipe it pops out of at the bottom!",
+                draw(ctx, t) {
+                    // Pipe rim (top, wider)
+                    ctx.beginPath();
+                    ctx.rect(170, 340 - 5 * t, 160 * t + (1 - t) * 80, 15 * t);
+                    ctx.stroke();
+                    // Pipe body (narrower under rim)
+                    ctx.beginPath();
+                    ctx.rect(185, 355, 130 * t, 45 * t);
+                    ctx.stroke();
+                    // Pipe rim ellipses (top oval for 3D look)
+                    ctx.beginPath();
+                    ctx.ellipse(250, 340, 80 * t, 8 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw the green stem coming up!",
+                voice: "Now draw a tall green stem growing out of the pipe!",
+                draw(ctx, t) {
+                    // Stem (two parallel lines with slight curve)
+                    ctx.beginPath();
+                    ctx.moveTo(230, 340);
+                    ctx.bezierCurveTo(225, 280, 228, 230, 232, 220 + (1 - t) * 100);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(270, 340);
+                    ctx.bezierCurveTo(275, 280, 272, 230, 268, 220 + (1 - t) * 100);
+                    ctx.stroke();
+                    // Two leaves on stem (one on each side)
+                    ctx.beginPath();
+                    ctx.ellipse(205, 280, 25 * t, 10 * t, -0.4, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(295, 280, 25 * t, 10 * t, 0.4, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw the big bulbous red head!",
+                voice: "Now draw a big round red head on top of the stem — that's the mouth!",
+                draw(ctx, t) {
+                    // Big bulb head
+                    ctx.beginPath();
+                    ctx.ellipse(250, 160, 75 * t, 70 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add the white polka dots on the head!",
+                voice: "Piranha Plants have white polka dots all over their heads! Draw five round spots!",
+                draw(ctx, t) {
+                    // 5 circular spots on head
+                    ctx.beginPath();
+                    ctx.arc(215, 135, 12 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(285, 135, 12 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(250, 110, 12 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(200, 185, 10 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(300, 185, 10 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw the wide open mouth with sharp teeth!",
+                voice: "Now draw a big wide open mouth with zig-zag pointy teeth — CHOMP!",
+                draw(ctx, t) {
+                    // Open mouth — wide arc
+                    ctx.beginPath();
+                    ctx.ellipse(250, 175, 55 * t, 25 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Zig-zag teeth (top row)
+                    const teeth = 6;
+                    ctx.beginPath();
+                    ctx.moveTo(250 - 55 * t, 170);
+                    for (let i = 0; i <= teeth; i++) {
+                        const x = 250 - 55 * t + (110 * t / teeth) * i;
+                        const y = 170 + (i % 2 === 0 ? 0 : 10 * t);
+                        ctx.lineTo(x, y);
+                    }
+                    ctx.stroke();
+                    // Zig-zag teeth (bottom row)
+                    ctx.beginPath();
+                    ctx.moveTo(250 - 55 * t, 180);
+                    for (let i = 0; i <= teeth; i++) {
+                        const x = 250 - 55 * t + (110 * t / teeth) * i;
+                        const y = 180 + (i % 2 === 0 ? 10 * t : 0);
+                        ctx.lineTo(x, y);
+                    }
+                    ctx.stroke();
+                    // Tongue (small curve inside mouth)
+                    ctx.beginPath();
+                    ctx.ellipse(250, 188, 18 * t, 5 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: "Color the head bright red!", voice: "Piranha Plant's big head is vivid red! Fill in the whole head!", color: '#E53935' },
+            { text: "Paint the spots white!", voice: "All those polka dots are snow white!", color: '#FFFFFF' },
+            { text: "Color the stem and leaves green!", voice: "The stem and leaves are bright green!", color: '#66BB6A' },
+            { text: "Paint the pipe dark green!", voice: "The warp pipe is a darker forest green!", color: '#2E7D32' },
+            { text: "Color the teeth white and tongue pink!", voice: "Sharp white teeth and a pink tongue!", color: '#FFFFFF' }
+        ]
+    },
+    {
+        id: 'yoshi',
+        name: 'Yoshi',
+        emoji: '🦖',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw Yoshi's round head!",
+                voice: "Let's draw Yoshi, Mario's best dinosaur friend! Start with a round head!",
+                draw(ctx, t) {
+                    // Head — round
+                    ctx.beginPath();
+                    ctx.ellipse(230, 140, 55 * t, 50 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Big muzzle/snout protruding to the right
+                    ctx.beginPath();
+                    ctx.ellipse(285, 160, 45 * t, 30 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Nostrils on snout
+                    ctx.beginPath();
+                    ctx.arc(310, 152, 2.5 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(318, 158, 2.5 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            },
+            {
+                text: "Add the spines on his head!",
+                voice: "Yoshi has a row of orange spines on the back of his head — draw three little triangles!",
+                draw(ctx, t) {
+                    // Row of 3 orange spines along head top/back
+                    ctx.beginPath();
+                    ctx.moveTo(185, 100);
+                    ctx.lineTo(180, 100 - 15 * t);
+                    ctx.lineTo(197, 100);
+                    ctx.closePath();
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(210, 92);
+                    ctx.lineTo(208, 92 - 18 * t);
+                    ctx.lineTo(222, 92);
+                    ctx.closePath();
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(235, 92);
+                    ctx.lineTo(235, 92 - 15 * t);
+                    ctx.lineTo(248, 92);
+                    ctx.closePath();
+                    ctx.stroke();
+                    // Eye (big oval on top of head)
+                    ctx.beginPath();
+                    ctx.ellipse(235, 105, 14 * t, 20 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Pupil
+                    ctx.beginPath();
+                    ctx.arc(237, 110, 7 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Smile line on snout
+                    ctx.beginPath();
+                    ctx.arc(290, 170, 25, 0, Math.PI * 0.6 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw his round body with white belly!",
+                voice: "Now draw a nice round body — he has a white tummy area in front!",
+                draw(ctx, t) {
+                    // Body
+                    ctx.beginPath();
+                    ctx.ellipse(240, 260, 65 * t, 70 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // White belly (inner oval)
+                    ctx.beginPath();
+                    ctx.ellipse(245, 270, 40 * t, 50 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Neck line connecting head to body
+                    ctx.beginPath();
+                    ctx.moveTo(205, 180);
+                    ctx.lineTo(200, 180 + 20 * t);
+                    ctx.moveTo(260, 185);
+                    ctx.lineTo(265, 185 + 15 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add his red saddle shell!",
+                voice: "Yoshi has a red saddle on his back — that's actually his shell! Draw a red bump with white trim!",
+                draw(ctx, t) {
+                    // Red saddle (visible as a bump on back — left side of body)
+                    ctx.beginPath();
+                    ctx.ellipse(190, 230, 30 * t, 22 * t, -0.3, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Saddle trim (inner ellipse)
+                    ctx.beginPath();
+                    ctx.ellipse(190, 232, 20 * t, 14 * t, -0.3, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Two little arms
+                    ctx.beginPath();
+                    ctx.moveTo(180, 250);
+                    ctx.bezierCurveTo(160, 260, 150, 275, 150, 275 + 10 * t);
+                    ctx.stroke();
+                    // Left hand (glove-like)
+                    ctx.beginPath();
+                    ctx.arc(147, 290, 10 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right arm (shorter, toward front)
+                    ctx.beginPath();
+                    ctx.moveTo(300, 250);
+                    ctx.bezierCurveTo(315, 258, 320, 270, 318, 270 + 10 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(318, 285, 10 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw his legs with big orange shoes!",
+                voice: "Yoshi wears big orange shoes to zoom around fast! Draw his two legs and shoes!",
+                draw(ctx, t) {
+                    // Left leg
+                    ctx.beginPath();
+                    ctx.moveTo(210, 325);
+                    ctx.lineTo(205, 325 + 20 * t);
+                    ctx.stroke();
+                    // Left big shoe (orange)
+                    ctx.beginPath();
+                    ctx.moveTo(175, 345);
+                    ctx.lineTo(175, 345 + 20 * t);
+                    ctx.bezierCurveTo(175, 385, 190, 385, 210, 385);
+                    ctx.lineTo(230, 385);
+                    ctx.lineTo(230, 355 + 5 * (1 - t));
+                    ctx.lineTo(175, 345);
+                    ctx.closePath();
+                    ctx.stroke();
+                    // Right leg
+                    ctx.beginPath();
+                    ctx.moveTo(275, 325);
+                    ctx.lineTo(280, 325 + 20 * t);
+                    ctx.stroke();
+                    // Right big shoe
+                    ctx.beginPath();
+                    ctx.moveTo(255, 345);
+                    ctx.lineTo(255, 355 + 5 * (1 - t));
+                    ctx.lineTo(255, 385);
+                    ctx.lineTo(290, 385);
+                    ctx.bezierCurveTo(310, 385, 315, 385, 315, 345 + 20 * t);
+                    ctx.lineTo(315, 345);
+                    ctx.closePath();
+                    ctx.stroke();
+                    // Tail tip (small curl behind)
+                    ctx.beginPath();
+                    ctx.moveTo(180, 300);
+                    ctx.bezierCurveTo(160, 310, 155, 320, 150, 310);
+                    ctx.lineTo(155, 302 + 3 * (1 - t));
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: "Color Yoshi green!", voice: "Yoshi is lime green! Paint his head, body, arms and legs green!", color: '#66BB6A' },
+            { text: "Paint his belly and snout white!", voice: "His belly, snout, and hand gloves are all white!", color: '#FFFFFF' },
+            { text: "Color the saddle red!", voice: "Yoshi's saddle shell on his back is red with white trim!", color: '#E53935' },
+            { text: "Paint the spines orange!", voice: "Those little spines on his head are bright orange!", color: '#FF9800' },
+            { text: "Color the shoes orange!", voice: "His big speedy shoes are orange too!", color: '#F57C00' }
+        ]
+    },
+    {
+        id: 'toad',
+        name: 'Toad',
+        emoji: '🍄',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw Toad's big mushroom cap!",
+                voice: "Let's draw Toad — Princess Peach's loyal helper! Start with his big round mushroom cap!",
+                draw(ctx, t) {
+                    // Big mushroom cap (wider than body)
+                    ctx.beginPath();
+                    ctx.moveTo(250 - 95 * t, 155);
+                    ctx.bezierCurveTo(250 - 110 * t, 100, 250 - 70 * t, 70, 250, 70 + 5 * (1 - t));
+                    ctx.bezierCurveTo(250 + 70 * t, 70, 250 + 110 * t, 100, 250 + 95 * t, 155);
+                    // Bottom curl of cap
+                    ctx.bezierCurveTo(250 + 70 * t, 165, 250 + 40 * t, 160, 250, 160);
+                    ctx.bezierCurveTo(250 - 40 * t, 160, 250 - 70 * t, 165, 250 - 95 * t, 155);
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add the big white spots on the cap!",
+                voice: "Paint round white spots all over his cap! Draw 4 big round circles!",
+                draw(ctx, t) {
+                    // 4 white spots on cap
+                    ctx.beginPath();
+                    ctx.arc(205, 115, 16 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(295, 115, 16 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(250, 90, 17 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(245, 140, 14 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw his small round face!",
+                voice: "Toad has a tiny face below his cap! Draw a small round face shape!",
+                draw(ctx, t) {
+                    // Face — small round face under cap
+                    ctx.beginPath();
+                    ctx.ellipse(250, 195, 40 * t, 35 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Pointy ears on side of face
+                    ctx.beginPath();
+                    ctx.moveTo(215, 190);
+                    ctx.lineTo(210, 190 - 8 * t);
+                    ctx.lineTo(215, 195);
+                    ctx.closePath();
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(285, 190);
+                    ctx.lineTo(290, 190 - 8 * t);
+                    ctx.lineTo(285, 195);
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw his body with blue vest!",
+                voice: "Toad wears a cute blue vest! Draw his little body with a V-shape vest on top!",
+                draw(ctx, t) {
+                    // Body (small rounded rectangle)
+                    ctx.beginPath();
+                    ctx.moveTo(215, 230);
+                    ctx.lineTo(215, 230 + 80 * t);
+                    ctx.bezierCurveTo(215, 320, 250, 325, 250, 325);
+                    ctx.bezierCurveTo(250, 325, 285, 320, 285, 230 + 80 * t);
+                    ctx.lineTo(285, 230);
+                    ctx.stroke();
+                    // V-shape vest collar
+                    ctx.beginPath();
+                    ctx.moveTo(220, 235);
+                    ctx.lineTo(220 + 28 * t, 235 + 35 * t);
+                    ctx.lineTo(220 + 56 * t, 235);
+                    ctx.stroke();
+                    // Vest golden trim lines (two vertical)
+                    ctx.beginPath();
+                    ctx.moveTo(220, 240);
+                    ctx.lineTo(220, 240 + 70 * t);
+                    ctx.moveTo(280, 240);
+                    ctx.lineTo(280, 240 + 70 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add his arms, shoes, and happy face!",
+                voice: "Finish with little arms, brown shoes, and his happy smiling eyes!",
+                draw(ctx, t) {
+                    // Left arm
+                    ctx.beginPath();
+                    ctx.moveTo(215, 260);
+                    ctx.bezierCurveTo(200, 265, 190, 280, 188, 290 * t + 5);
+                    ctx.stroke();
+                    // Left hand
+                    ctx.beginPath();
+                    ctx.arc(186, 300, 9 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right arm
+                    ctx.beginPath();
+                    ctx.moveTo(285, 260);
+                    ctx.bezierCurveTo(300, 265, 310, 280, 312, 290 * t + 5);
+                    ctx.stroke();
+                    // Right hand
+                    ctx.beginPath();
+                    ctx.arc(314, 300, 9 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Left shoe
+                    ctx.beginPath();
+                    ctx.ellipse(225, 335, 18 * t, 9 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right shoe
+                    ctx.beginPath();
+                    ctx.ellipse(275, 335, 18 * t, 9 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Eyes — two small black ovals
+                    ctx.beginPath();
+                    ctx.ellipse(237, 190, 4 * t, 7 * t, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.ellipse(263, 190, 4 * t, 7 * t, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Happy smile
+                    ctx.beginPath();
+                    ctx.arc(250, 205, 10, 0.1 * Math.PI, (0.1 + 0.8 * t) * Math.PI);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: "Color his cap white!", voice: "Toad's mushroom cap is mostly white — paint the background!", color: '#FFFFFF' },
+            { text: "Paint the spots bright red!", voice: "Those round spots on his cap are cherry red!", color: '#E53935' },
+            { text: "Paint his vest blue!", voice: "Toad's cute vest is royal blue!", color: '#1E88E5' },
+            { text: "Color the vest trim gold!", voice: "The trim on his vest is shiny gold!", color: '#FFC107' },
+            { text: "Paint his shoes brown!", voice: "His little shoes are brown!", color: '#6D4C41' }
+        ]
+    },
+    {
+        id: 'kamek',
+        name: 'Kamek',
+        emoji: '🧙',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw Kamek's wizard hat!",
+                voice: "Let's draw Kamek, Bowser's wise Magikoopa wizard! Start with his tall pointy wizard hat!",
+                draw(ctx, t) {
+                    // Pointy wizard hat
+                    ctx.beginPath();
+                    ctx.moveTo(220, 110);
+                    ctx.lineTo(250, 110 - 70 * t);
+                    ctx.lineTo(280, 110);
+                    ctx.closePath();
+                    ctx.stroke();
+                    // Hat brim (white band at bottom)
+                    ctx.beginPath();
+                    ctx.rect(210, 108, 80 * t, 10 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw his Koopa face!",
+                voice: "Now draw his Koopa-like head with a pointy beak!",
+                draw(ctx, t) {
+                    // Head
+                    ctx.beginPath();
+                    ctx.ellipse(250, 160, 48 * t, 42 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Beak/snout
+                    ctx.beginPath();
+                    ctx.moveTo(250, 165);
+                    ctx.lineTo(250 + 28 * t, 170);
+                    ctx.lineTo(250, 180);
+                    ctx.stroke();
+                    // Little fang
+                    ctx.beginPath();
+                    ctx.moveTo(258, 178);
+                    ctx.lineTo(258, 178 + 6 * t);
+                    ctx.lineTo(263, 178);
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add his round spectacles!",
+                voice: "Kamek wears big round glasses — draw two circles with a bridge between them!",
+                draw(ctx, t) {
+                    // Left lens
+                    ctx.beginPath();
+                    ctx.arc(232, 155, 14 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right lens
+                    ctx.beginPath();
+                    ctx.arc(268, 155, 14 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Bridge
+                    ctx.beginPath();
+                    ctx.moveTo(246, 155);
+                    ctx.lineTo(246 + 8 * t, 155);
+                    ctx.stroke();
+                    // Eyes inside lenses
+                    ctx.beginPath();
+                    ctx.arc(232, 155, 4 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(268, 155, 4 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            },
+            {
+                text: "Draw his long wizard robe!",
+                voice: "Now draw his flowing blue wizard robe — a big triangle going all the way down!",
+                draw(ctx, t) {
+                    // Robe — wide triangle/bell shape
+                    ctx.beginPath();
+                    ctx.moveTo(220, 200);
+                    ctx.bezierCurveTo(210, 220, 170, 320 * t + 30, 160, 380 * t + 10);
+                    ctx.lineTo(340, 380 * t + 10);
+                    ctx.bezierCurveTo(330, 320 * t + 30, 290, 220, 280, 200);
+                    ctx.stroke();
+                    // Collar line (between head and robe)
+                    ctx.beginPath();
+                    ctx.moveTo(222, 205);
+                    ctx.lineTo(222 + 56 * t, 205);
+                    ctx.stroke();
+                    // Bottom edge ruffle
+                    ctx.beginPath();
+                    ctx.moveTo(160, 385);
+                    ctx.bezierCurveTo(200, 378 - 5 * t, 250, 388 + 3 * t, 300, 378 - 5 * t);
+                    ctx.lineTo(340, 385);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add the sleeves, hand, and magic staff!",
+                voice: "Finish with his wide sleeves, a little hand holding a staff, and a red jewel on top!",
+                draw(ctx, t) {
+                    // Left sleeve (wider at end)
+                    ctx.beginPath();
+                    ctx.moveTo(215, 220);
+                    ctx.lineTo(190, 220 + 50 * t);
+                    ctx.lineTo(165, 220 + 50 * t);
+                    ctx.lineTo(190, 215);
+                    ctx.closePath();
+                    ctx.stroke();
+                    // White sleeve cuff
+                    ctx.beginPath();
+                    ctx.moveTo(165, 270);
+                    ctx.lineTo(165, 270 + 8 * t);
+                    ctx.lineTo(190, 270 + 8 * t);
+                    ctx.lineTo(190, 270);
+                    ctx.stroke();
+                    // Left hand
+                    ctx.beginPath();
+                    ctx.arc(177, 290, 10 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right sleeve
+                    ctx.beginPath();
+                    ctx.moveTo(285, 220);
+                    ctx.lineTo(310, 220 + 50 * t);
+                    ctx.lineTo(335, 220 + 50 * t);
+                    ctx.lineTo(310, 215);
+                    ctx.closePath();
+                    ctx.stroke();
+                    // White cuff right
+                    ctx.beginPath();
+                    ctx.moveTo(310, 270);
+                    ctx.lineTo(310, 270 + 8 * t);
+                    ctx.lineTo(335, 270 + 8 * t);
+                    ctx.lineTo(335, 270);
+                    ctx.stroke();
+                    // Right hand holding staff
+                    ctx.beginPath();
+                    ctx.arc(323, 290, 10 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Magic staff (vertical rod)
+                    ctx.beginPath();
+                    ctx.moveTo(335, 290);
+                    ctx.lineTo(335, 290 - 100 * t);
+                    ctx.stroke();
+                    // Red jewel on top (star shape)
+                    ctx.beginPath();
+                    ctx.arc(335, 185, 10 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Small magic sparkles
+                    ctx.beginPath();
+                    ctx.moveTo(355, 175);
+                    ctx.lineTo(355 + 8 * t, 175 - 8 * t);
+                    ctx.moveTo(355, 195);
+                    ctx.lineTo(355 + 8 * t, 195 + 8 * t);
+                    ctx.moveTo(315, 175);
+                    ctx.lineTo(315 - 8 * t, 175 - 8 * t);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: "Color the hat and robe blue!", voice: "Kamek's robes and hat are deep wizard blue!", color: '#1565C0' },
+            { text: "Paint his face yellow!", voice: "His Koopa face is yellow like other Magikoopas!", color: '#FFD54F' },
+            { text: "Color the hat brim and cuffs white!", voice: "The trim on the hat and sleeve cuffs is white!", color: '#FFFFFF' },
+            { text: "Paint the jewel red!", voice: "The magic jewel on his staff glows bright red!", color: '#E53935' },
+            { text: "Color the staff gold!", voice: "His staff is made of shiny gold!", color: '#FFC107' }
+        ]
+    },
+    {
+        id: 'star',
+        name: 'Super Star',
+        emoji: '⭐',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw the big 5-pointed star!",
+                voice: "Let's draw the Super Star — it makes Mario invincible! Start with a big 5-pointed star shape!",
+                draw(ctx, t) {
+                    const cx = 250, cy = 200;
+                    const outerR = 115 * t;
+                    const innerR = 48 * t;
+                    const points = 5;
+                    ctx.beginPath();
+                    for (let i = 0; i < points * 2; i++) {
+                        const r = i % 2 === 0 ? outerR : innerR;
+                        const angle = (Math.PI / points) * i - Math.PI / 2;
+                        const x = cx + r * Math.cos(angle);
+                        const y = cy + r * Math.sin(angle);
+                        if (i === 0) ctx.moveTo(x, y);
+                        else ctx.lineTo(x, y);
+                    }
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw two big round eyes!",
+                voice: "The Super Star has a friendly face! Draw two big round eyes!",
+                draw(ctx, t) {
+                    // Left eye (white oval)
+                    ctx.beginPath();
+                    ctx.ellipse(225, 185, 14 * t, 20 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right eye
+                    ctx.beginPath();
+                    ctx.ellipse(275, 185, 14 * t, 20 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Fill in the black pupils!",
+                voice: "Draw two big black pupils inside — the Super Star is looking right at you!",
+                draw(ctx, t) {
+                    // Left pupil
+                    ctx.beginPath();
+                    ctx.ellipse(225, 188, 8 * t, 13 * t, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Right pupil
+                    ctx.beginPath();
+                    ctx.ellipse(275, 188, 8 * t, 13 * t, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                    // White highlight on left pupil
+                    ctx.beginPath();
+                    ctx.arc(228, 183, 3 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // White highlight on right pupil
+                    ctx.beginPath();
+                    ctx.arc(278, 183, 3 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw the big happy smile!",
+                voice: "Now finish with a big wide smile — the Super Star is always ready to power up!",
+                draw(ctx, t) {
+                    // Big smile arc
+                    ctx.beginPath();
+                    ctx.arc(250, 215, 28, 0.1 * Math.PI, (0.1 + 0.8 * t) * Math.PI);
+                    ctx.stroke();
+                    // Tongue/lip line inside mouth
+                    ctx.beginPath();
+                    ctx.moveTo(230, 227);
+                    ctx.lineTo(230 + 40 * t, 227);
+                    ctx.stroke();
+                    // Little cheek blush marks
+                    ctx.beginPath();
+                    ctx.arc(198, 210, 5 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(302, 210, 5 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: "Color the star bright yellow!", voice: "The Super Star is shining yellow — paint the whole star!", color: '#FDD835' },
+            { text: "Add a golden orange glow!", voice: "Add a warm orange glow around the inner edges!", color: '#FF9800' },
+            { text: "Paint the eyes white!", voice: "Fill in the eye whites!", color: '#FFFFFF' },
+            { text: "Make the pupils black!", voice: "Paint the big pupils jet black!", color: '#212121' },
+            { text: "Color the smile red!", voice: "Make the Super Star's happy mouth red!", color: '#E53935' }
+        ]
     }
 ];
