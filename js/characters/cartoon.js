@@ -1810,5 +1810,720 @@ export const cartoon = [
             { text: "Make the pupils black!", voice: "Paint the big pupils jet black!", color: '#212121' },
             { text: "Color the smile red!", voice: "Make the Super Star's happy mouth red!", color: '#E53935' }
         ]
+    },
+    {
+        id: 'sonic',
+        name: 'Sonic',
+        emoji: '\u{1F4A8}',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw Sonic's head and snout (muzzle)!",
+                voice: "Let's draw Sonic! Start with a big round head. Add a round snout on the front — the lighter fuzzy part is called his muzzle!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(250, 155, 52 * t, 46 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(250, 185, 36 * t, 20 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add his two huge cartoon eyes!",
+                voice: "Sonic has big, connected cartoon eyes! Draw two big ovals side by side — they almost look like a pair of eggs!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(230, 162, 22 * t, 28 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(270, 162, 22 * t, 28 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw the spiky quills and pointy ears!",
+                voice: "Sonic is a hedgehog! Add curved spiky quills that sweep back like wind — and two tall triangle ears. That's his speedy look!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.moveTo(198, 120);
+                    ctx.bezierCurveTo(130, 100 - 15 * t, 100 + 25 * t, 85, 90 + 40 * t, 100 + 30 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(210, 112);
+                    ctx.bezierCurveTo(145, 75, 120 + 20 * t, 60, 110 + 45 * t, 80 + 10 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(250, 105);
+                    ctx.lineTo(250, 50 + 20 * (1 - t) + 25 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(302, 120);
+                    ctx.bezierCurveTo(370, 100 - 15 * t, 400 - 25 * t, 85, 410 - 40 * t, 100 + 30 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(290, 112);
+                    ctx.bezierCurveTo(355, 75, 380 - 20 * t, 60, 390 - 45 * t, 80 + 10 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(210, 128);
+                    ctx.lineTo(180 - 12 * t, 100 - 15 * t);
+                    ctx.lineTo(196, 118);
+                    ctx.closePath();
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(290, 128);
+                    ctx.lineTo(320 + 12 * t, 100 - 15 * t);
+                    ctx.lineTo(304, 118);
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw his small body, gloves, and red shoes!",
+                voice: "Add a small oval for his body, white cartoon gloves, and his famous big red running shoes. Gotta go fast!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(250, 280, 40 * t, 48 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(250, 270, 18 * t, 22 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(215, 245);
+                    ctx.bezierCurveTo(175, 255, 168, 275, 165, 290 * t + 5);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(162, 295, 14 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(285, 245);
+                    ctx.bezierCurveTo(325, 255, 332, 275, 335, 290 * t + 5);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(338, 295, 14 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(230, 315);
+                    ctx.lineTo(225, 320 + 28 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(270, 315);
+                    ctx.lineTo(275, 320 + 28 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(220, 355, 26 * t, 13 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(280, 355, 26 * t, 13 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(210, 350);
+                    ctx.lineTo(230, 350);
+                    ctx.moveTo(270, 350);
+                    ctx.lineTo(290, 350);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add nose, green eyes, and a confident smile!",
+                voice: "Finish with a little oval nose, green eyes, tiny eyebrows, and a smile. That's Sonic the Hedgehog!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(250, 192, 7 * t, 5 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(230, 165, 10 * t, 16 * t, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.ellipse(270, 165, 10 * t, 16 * t, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.moveTo(220, 145);
+                    ctx.lineTo(225 - 2 * t, 140 - 2 * t);
+                    ctx.moveTo(280, 145);
+                    ctx.lineTo(275 + 2 * t, 140 - 2 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(250, 210, 18, 0.05 * Math.PI, (0.05 + 0.85 * t) * Math.PI);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: "Paint the quills and body blue!", voice: "Sonic is bright blue from head to toe — use a bold blue for his spiky quills and body!", color: '#1E5AFF' },
+            { text: "Color the muzzle and stomach peach!", voice: "His snout, inner ears, and tummy are soft peachy tan — paint those areas!", color: '#FDBA91' },
+            { text: "Color the big eyes green!", voice: "Fill the eyes with Sonic's cool green! Leave a small white highlight if you can!", color: '#43A047' },
+            { text: "Paint the gloves and shoe stripes white!", voice: "His gloves are clean white! Add a white strap on the red shoes too!", color: '#FAFAFA' },
+            { text: "Make the running shoes red!", voice: "Power up the classic red and add a little yellow buckle if you like!", color: '#E53935' }
+        ]
+    },
+    {
+        id: 'knuckles',
+        name: 'Knuckles',
+        emoji: '\u{1F4AA}',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw Knuckles' strong head and muzzle!",
+                voice: "Let's draw Knuckles the Echidna! He has a strong, wide head. Draw a wide oval, then a smaller rounded snout on the front!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(250, 155, 50 * t, 48 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(250, 190, 32 * t, 18 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add his long dreadlock spines!",
+                voice: "Echidnas have thick spines that look like long dreadlocks! Draw four chunky curved locks hanging down the sides and back.",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.moveTo(215, 110);
+                    ctx.bezierCurveTo(195, 110 + 60 * t, 200, 110 + 120 * t, 208, 110 + 180 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(230, 102);
+                    ctx.bezierCurveTo(220, 102 + 70 * t, 230, 102 + 130 * t, 235, 102 + 190 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(250, 100);
+                    ctx.bezierCurveTo(250, 100 + 80 * t, 250, 100 + 150 * t, 250, 100 + 200 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(270, 102);
+                    ctx.bezierCurveTo(280, 102 + 70 * t, 270, 102 + 130 * t, 265, 102 + 190 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(285, 110);
+                    ctx.bezierCurveTo(305, 110 + 60 * t, 300, 110 + 120 * t, 292, 110 + 180 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw his big fists and white gloves!",
+                voice: "Knuckles is famous for huge punching gloves! Add round arms and the biggest, roundest fists you can draw — with little spike bumps on the knuckles!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(250, 280, 42 * t, 50 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(210, 245);
+                    ctx.bezierCurveTo(155, 250, 130, 265, 125, 285 * t + 5);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(118, 290, 22 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(135, 275);
+                    ctx.lineTo(135 - 5 * t, 268 - 5 * t);
+                    ctx.moveTo(120, 285);
+                    ctx.lineTo(110 - 5 * t, 278 - 2 * t);
+                    ctx.moveTo(128, 300);
+                    ctx.lineTo(118 - 4 * t, 305);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(290, 245);
+                    ctx.bezierCurveTo(345, 250, 370, 265, 375, 285 * t + 5);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(382, 290, 22 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(365, 275);
+                    ctx.lineTo(365 + 5 * t, 268 - 5 * t);
+                    ctx.moveTo(380, 285);
+                    ctx.lineTo(390 + 5 * t, 278 - 2 * t);
+                    ctx.moveTo(372, 300);
+                    ctx.lineTo(382 + 4 * t, 305);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add legs, shoes, and the chest crescent!",
+                voice: "Draw short legs, tough shoes, and a little moon-shaped mark on the front of his body — that is the Master Emerald crest!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(250, 255, 16 * t, 18 * t, 0, 0, Math.PI * 2);
+                    ctx.moveTo(250 - 6 * t, 260);
+                    ctx.bezierCurveTo(250, 255 + 8 * t, 250, 255 + 8 * t, 250 + 6 * t, 260);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(230, 320);
+                    ctx.lineTo(220, 320 + 32 * t);
+                    ctx.moveTo(270, 320);
+                    ctx.lineTo(280, 320 + 32 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(215, 355, 24 * t, 12 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(285, 355, 24 * t, 12 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw eyes, trapezoid brows, and a small smile!",
+                voice: "Add serious purple eyes, thick angled eyebrows, and a tough little smile. Knuckles does not back down from a challenge!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(232, 165, 12 * t, 18 * t, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.ellipse(268, 165, 12 * t, 18 * t, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.moveTo(215, 135);
+                    ctx.lineTo(240, 128 - 3 * t);
+                    ctx.lineTo(240, 135);
+                    ctx.closePath();
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(285, 135);
+                    ctx.lineTo(260, 128 - 3 * t);
+                    ctx.lineTo(260, 135);
+                    ctx.closePath();
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(250, 195, 6 * t, 4 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(250, 212, 12, 0.2 * Math.PI, (0.2 + 0.55 * t) * Math.PI);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: "Color Knuckles red and crimson!", voice: "His fur and spines are deep red — use a strong red and a darker crimson in the shadows!", color: '#C62828' },
+            { text: "Paint the muzzle and chest mark!", voice: "His snout and crescent are peach — paint them lighter than the red fur!", color: '#FDBA91' },
+            { text: "Fill the eyes purple!", voice: "His eyes are glowing purple! Cover the ovals in purple, then a darker dot for pupils if you like!", color: '#7E57C2' },
+            { text: "White gloves and shoe accents!", voice: "Gloves and shoe cuffs are clean white! Add a green stripe on the shoes if you want the classic look!", color: '#F5F5F5' },
+            { text: "Yellow-green shoe stripes!", voice: "Add bright yellow-green for the details on the shoes and gloves!", color: '#CDDC39' }
+        ]
+    },
+    {
+        id: 'eggman',
+        name: 'Dr. Eggman',
+        emoji: '\u{1F95A}',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw the big round body and dome head!",
+                voice: "Dr. Eggman is shaped like an egg! Draw one very big round outline — that is his head and body together!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(250, 205, 78 * t, 92 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add his round pince-nez glasses!",
+                voice: "He wears small round spectacles! Draw two circles for lenses and a little bridge in the middle — like tiny goggles!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.arc(225, 175, 22 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(275, 175, 22 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(247, 175);
+                    ctx.lineTo(253, 175);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw the bushy mustache and bald top!",
+                voice: "Under the glasses, add a big fluffy mustache. Leave the top of the head smooth — he is very proud of his bald dome! Add little round poofs for sideburns on the sides.",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.moveTo(200, 192);
+                    ctx.bezierCurveTo(215, 188 + 15 * t, 220, 195 + 10 * t, 250, 198);
+                    ctx.bezierCurveTo(280, 195 + 10 * t, 285, 188 + 15 * t, 300, 192);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(195, 195);
+                    ctx.bezierCurveTo(185, 200 + 20 * t, 200, 210 + 20 * t, 250, 215);
+                    ctx.bezierCurveTo(300, 210 + 20 * t, 315, 200 + 20 * t, 305, 195);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(188, 165, 12 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(312, 165, 12 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add short arms, legs, and white gloves!",
+                voice: "Draw short stubby arms in white gloves, and two tiny legs with little shoes at the bottom of the big round body.",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.moveTo(200, 250);
+                    ctx.bezierCurveTo(150, 255, 130, 265, 125, 285 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(120, 295, 20 * t, 15 * t, -0.2, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(300, 250);
+                    ctx.bezierCurveTo(350, 255, 370, 265, 375, 285 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(380, 295, 20 * t, 15 * t, 0.2, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(220, 290);
+                    ctx.bezierCurveTo(218, 300 + 25 * t, 220, 310 + 40 * t, 220, 330 + 15 * t);
+                    ctx.moveTo(280, 290);
+                    ctx.bezierCurveTo(282, 300 + 25 * t, 280, 310 + 40 * t, 280, 330 + 15 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(220, 345, 18 * t, 10 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(280, 345, 18 * t, 10 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw nose, angry brows, and jacket buttons!",
+                voice: "Add a bumpy little nose, thick angry eyebrows, a smug grin, and a few little circles down the front for coat buttons. There is the evil genius!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(250, 182, 10 * t, 9 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(225, 155, 10 * t, 5 * t, -0.1, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.ellipse(275, 155, 10 * t, 5 * t, 0.1, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(250, 220, 22, 0.1 * Math.PI, (0.1 + 0.75 * t) * Math.PI);
+                    ctx.stroke();
+                    for (let i = 0; i < 4; i++) {
+                        const y = 240 + i * 22;
+                        ctx.beginPath();
+                        ctx.arc(250, y, 4 * t, 0, Math.PI * 2);
+                        ctx.stroke();
+                    }
+                }
+            }
+        ],
+        paintSteps: [
+            { text: "Color the face and hands yellow!", voice: "Eggman has a yellowy skin tone on his face and those round hands!", color: '#FDD835' },
+            { text: "Paint the coat and legs red!", voice: "Fill his jacket and the lower part of the egg body in dark red or bright red — like a fancy suit!", color: '#C62828' },
+            { text: "Black mustache and brows!", voice: "Use solid black for that huge mustache and the sharp eyebrows!", color: '#1A1A1A' },
+            { text: "White gloves!", voice: "The gloves and sleeve cuffs are bright white.", color: '#FFFFFF' },
+            { text: "Add gray glasses and black shoes!", voice: "Lightly shade the round glasses. Dark gray or black for the tiny shoes!", color: '#616161' }
+        ]
+    },
+    {
+        id: 'tails',
+        name: 'Tails',
+        emoji: '\u{1F98A}',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw the fox head and muzzle!",
+                voice: "This is Tails! He is a fox with two fluffy tails! Start with a round head and a small oval for his snout.",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(250, 150, 48 * t, 44 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(255, 182, 30 * t, 16 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add big fox ears and hair tuft!",
+                voice: "Draw two tall pointy ears on top. Add a little spiky clump of hair in the center — Tails is super cute and fluffy!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.moveTo(215, 125);
+                    ctx.lineTo(200 - 8 * t, 60 + 20 * t);
+                    ctx.lineTo(225, 108);
+                    ctx.closePath();
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(285, 125);
+                    ctx.lineTo(300 + 8 * t, 60 + 20 * t);
+                    ctx.lineTo(275, 108);
+                    ctx.closePath();
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(250, 100);
+                    ctx.lineTo(242 - 4 * t, 80 - 5 * t);
+                    ctx.lineTo(250, 90);
+                    ctx.lineTo(258 + 4 * t, 80 - 5 * t);
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw big friendly eyes and cheek fur!",
+                voice: "Add two very big ovals for eyes, and a little zig-zag or puff on each cheek where his side fur sticks out.",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(230, 155, 20 * t, 26 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(270, 155, 20 * t, 26 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(200, 175);
+                    ctx.lineTo(192 - 6 * t, 180 + 3 * t);
+                    ctx.lineTo(198, 186);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(300, 175);
+                    ctx.lineTo(308 + 6 * t, 180 + 3 * t);
+                    ctx.lineTo(302, 186);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw the body, tiny legs, and TWO big tails!",
+                voice: "Add a small round body, short legs, and two big fluffy fox tails with lots of curve — the twin tails are his special power!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(250, 275, 38 * t, 42 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(250, 270, 20 * t, 24 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(230, 308);
+                    ctx.lineTo(225, 308 + 25 * t);
+                    ctx.moveTo(270, 308);
+                    ctx.lineTo(275, 308 + 25 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(220, 340, 22 * t, 11 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(280, 340, 22 * t, 11 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(200, 270);
+                    ctx.bezierCurveTo(120 + 40 * t, 260, 40 + 30 * t, 200 + 30 * t, 30 + 25 * t, 160 + 20 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(220, 275);
+                    ctx.bezierCurveTo(130 + 40 * t, 280, 50 + 30 * t, 240, 50 + 25 * t, 200);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add blue eyes, small nose, and a happy smile!",
+                voice: "Put bright blue ovals in the eyes, a tiny black nose, and a sweet smile. Tails is ready to fly beside Sonic!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(250, 193, 6 * t, 5 * t, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.ellipse(230, 160, 12 * t, 18 * t, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.ellipse(270, 160, 12 * t, 18 * t, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(250, 210, 16, 0.15 * Math.PI, (0.15 + 0.75 * t) * Math.PI);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: "Paint the fur warm orange and yellow!", voice: "Tails is covered in warm orange and golden yellow fur — use orange on the body and a lighter yellow on the muzzle and tail tips if you can!", color: '#FF9800' },
+            { text: "Color the muzzle, belly, and ear insides white!", voice: "The belly patch, ear insides, and snout are creamy white and fluffy!", color: '#FFF3E0' },
+            { text: "Bright blue for the eyes!", voice: "Fill his big eye shapes with bright blue!", color: '#42A5F5' },
+            { text: "Red and white for the shoes!", voice: "His sneakers are red and white in most games — have fun with stripes!", color: '#E53935' },
+            { text: "Use dark brown for the nose!", voice: "A small dark brown or black for that fox nose gives a cute finish.", color: '#4E342E' }
+        ]
+    },
+    {
+        id: 'shadow',
+        name: 'Shadow',
+        emoji: '\u{1F319}',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw Shadow's head, muzzle, and short torso!",
+                voice: "Shadow looks a bit like Sonic, but in dark colors! Draw a similar round head, muzzle, and a compact body for his strong stance.",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(250, 150, 50 * t, 45 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(250, 182, 34 * t, 19 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(250, 275, 38 * t, 46 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add sharp swept-back quills and red stripes!",
+                voice: "His quills point more upward and back — a wilder, fiercer look! Add short red stripe marks along a few of the spines, like his game design.",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.moveTo(202, 118);
+                    ctx.bezierCurveTo(120 + 20 * t, 85, 100 + 30 * t, 70, 88 + 35 * t, 95);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(210, 108);
+                    ctx.bezierCurveTo(140, 60 + 5 * t, 120, 50 + 10 * t, 100 + 25 * t, 75);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(250, 100);
+                    ctx.lineTo(250, 100 - 48 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(244, 88 - 5 * t);
+                    ctx.lineTo(244 - 3 * t, 72);
+                    ctx.moveTo(256, 88 - 5 * t);
+                    ctx.lineTo(256 + 3 * t, 72);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(298, 118);
+                    ctx.bezierCurveTo(380 - 20 * t, 85, 400 - 30 * t, 70, 412 - 35 * t, 95);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(290, 108);
+                    ctx.bezierCurveTo(360, 60 + 5 * t, 380, 50 + 10 * t, 400 - 25 * t, 75);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(208, 128);
+                    ctx.lineTo(178 - 10 * t, 100 - 8 * t);
+                    ctx.lineTo(196, 120);
+                    ctx.closePath();
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(292, 128);
+                    ctx.lineTo(322 + 10 * t, 100 - 8 * t);
+                    ctx.lineTo(304, 120);
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw the big red-trimmed eyes!",
+                voice: "Shadow has intense, narrow red eyes! Draw the same big cartoon eye shapes, but a bit sharper on the inside corners.",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(230, 160, 21 * t, 26 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(270, 160, 21 * t, 26 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add arms, white cuffs, and hover-shoes!",
+                voice: "Draw arms with big white rings at the wrist. His shoes are thick hover skates with gold-yellow soles — a bit blockier than Sonic's sneakers!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.moveTo(213, 245);
+                    ctx.bezierCurveTo(170, 255, 160, 275, 158, 295 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(155, 288);
+                    ctx.lineTo(155, 300 + 5 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(152, 302, 14 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(137, 295);
+                    ctx.lineTo(137, 300 + 2 * t);
+                    ctx.lineTo(167, 300 + 2 * t);
+                    ctx.lineTo(167, 295);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(287, 245);
+                    ctx.bezierCurveTo(330, 255, 340, 275, 342, 295 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(345, 288);
+                    ctx.lineTo(345, 300 + 5 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(348, 302, 14 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(333, 295);
+                    ctx.lineTo(333, 300 + 2 * t);
+                    ctx.lineTo(363, 300 + 2 * t);
+                    ctx.lineTo(363, 295);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(230, 315);
+                    ctx.lineTo(222, 315 + 28 * t);
+                    ctx.moveTo(270, 315);
+                    ctx.lineTo(278, 315 + 28 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.rect(198, 333 + 5 * t, 40 * t, 22 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.rect(262, 333 + 5 * t, 40 * t, 22 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(198, 345 + 5 * t);
+                    ctx.lineTo(198 - 2 * t, 350 + 8 * t);
+                    ctx.lineTo(238, 350 + 8 * t);
+                    ctx.lineTo(238, 345);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(262, 345 + 5 * t);
+                    ctx.lineTo(262 - 2 * t, 350 + 8 * t);
+                    ctx.lineTo(302, 350 + 8 * t);
+                    ctx.lineTo(302, 345);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add red irises, brows, and a cool smirk!",
+                voice: "Fill the eyes with deep red, add sharp angled brows, a tiny nose, and a smirk — the ultimate life form, drawn by you!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(250, 194, 7 * t, 5 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(230, 163, 9 * t, 16 * t, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.ellipse(270, 163, 9 * t, 16 * t, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.moveTo(210, 142);
+                    ctx.lineTo(235, 130 - 2 * t);
+                    ctx.lineTo(235, 140);
+                    ctx.closePath();
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(290, 142);
+                    ctx.lineTo(265, 130 - 2 * t);
+                    ctx.lineTo(265, 140);
+                    ctx.closePath();
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(240, 215);
+                    ctx.quadraticCurveTo(250, 220 + 5 * t, 270, 210);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: "Black and dark gray fur!", voice: "Shadow is mostly deep black and charcoal gray. Leave some lighter gray highlights on the quills!", color: '#1A1A1A' },
+            { text: "Red and crimson details!", voice: "Add crimson and bright red to his stripes, shoe accents, and around the eyes!", color: '#D32F2F' },
+            { text: "Peach muzzle and ear insides!", voice: "Like other hedgehogs, the snout and inner ears are soft peach, but a bit more muted.", color: '#D7A78E' },
+            { text: "White gloves and cuff rings!", voice: "White for the big glove cuffs, with gold-yellow rings in the center!", color: '#ECEFF1' },
+            { text: "Gold and yellow for hover skates!", voice: "The bottoms of the hover skates are bright yellow and gold — make them glow like boost energy!", color: '#FBC02D' }
+        ]
     }
 ];
