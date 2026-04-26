@@ -2525,5 +2525,405 @@ export const cartoon = [
             { text: "White gloves and cuff rings!", voice: "White for the big glove cuffs, with gold-yellow rings in the center!", color: '#ECEFF1' },
             { text: "Gold and yellow for hover skates!", voice: "The bottoms of the hover skates are bright yellow and gold — make them glow like boost energy!", color: '#FBC02D' }
         ]
+    },
+
+    // ===== PIKACHU =====
+    {
+        id: 'pikachu',
+        name: 'Pikachu',
+        emoji: '⚡',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw Pikachu's big round head!",
+                voice: "Pika pika! Let's draw Pikachu! Start with a big round oval for the head — Pikachu has the chubbiest, cutest face!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(250, 150, 70 * t, 64 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add the round tummy!",
+                voice: "Now draw a round oval below for the tummy — Pikachu has a nice plump little belly!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(250, 268, 52 * t, 55 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw the tall pointy ears!",
+                voice: "Pikachu's ears are tall and pointy with black tips — draw two big triangles on top of the head!",
+                draw(ctx, t) {
+                    // Left ear — grows from base center (210, 105)
+                    ctx.beginPath();
+                    ctx.moveTo(210 - 13 * t, 105);
+                    ctx.lineTo(210 - 26 * t, 105 - 65 * t);
+                    ctx.lineTo(210 + 13 * t, 105);
+                    ctx.closePath();
+                    ctx.stroke();
+                    // Right ear — grows from base center (290, 105)
+                    ctx.beginPath();
+                    ctx.moveTo(290 - 13 * t, 105);
+                    ctx.lineTo(290 + 26 * t, 105 - 65 * t);
+                    ctx.lineTo(290 + 13 * t, 105);
+                    ctx.closePath();
+                    ctx.stroke();
+                    // Black tip — left ear
+                    ctx.beginPath();
+                    ctx.moveTo(210 - 11 * t, 105 - 44 * t);
+                    ctx.lineTo(210 - 26 * t, 105 - 65 * t);
+                    ctx.lineTo(210 + 11 * t, 105 - 44 * t);
+                    ctx.closePath();
+                    ctx.fill();
+                    // Black tip — right ear
+                    ctx.beginPath();
+                    ctx.moveTo(290 - 11 * t, 105 - 44 * t);
+                    ctx.lineTo(290 + 26 * t, 105 - 65 * t);
+                    ctx.lineTo(290 + 11 * t, 105 - 44 * t);
+                    ctx.closePath();
+                    ctx.fill();
+                }
+            },
+            {
+                text: "Draw the cute face!",
+                voice: "Time for Pikachu's face! Big shiny eyes, a tiny nose, a happy smile, and two round red electric cheeks!",
+                draw(ctx, t) {
+                    // Left eye
+                    ctx.fillStyle = '#2F3542';
+                    ctx.beginPath();
+                    ctx.arc(222, 148, 12 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Right eye
+                    ctx.beginPath();
+                    ctx.arc(278, 148, 12 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Eye shines
+                    ctx.fillStyle = '#ffffff';
+                    ctx.beginPath();
+                    ctx.arc(217, 143, 4 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(273, 143, 4 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Nose
+                    ctx.fillStyle = '#2F3542';
+                    ctx.beginPath();
+                    ctx.arc(250, 163, 4 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Smile
+                    ctx.beginPath();
+                    ctx.arc(250, 165, 16, Math.PI * 0.1, Math.PI * 0.1 + Math.PI * 0.8 * t);
+                    ctx.stroke();
+                    // Red cheeks
+                    ctx.fillStyle = '#FF4136';
+                    ctx.beginPath();
+                    ctx.arc(206, 172, 16 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(294, 172, 16 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            },
+            {
+                text: "Add arms, legs and stripes!",
+                voice: "Pikachu has tiny little arms and stubby legs — so cute! And two brown stripes on the back!",
+                draw(ctx, t) {
+                    // Left arm
+                    ctx.beginPath();
+                    ctx.moveTo(200, 252);
+                    ctx.lineTo(200 - 32 * t, 252 + 28 * t);
+                    ctx.stroke();
+                    // Right arm
+                    ctx.beginPath();
+                    ctx.moveTo(300, 252);
+                    ctx.lineTo(300 + 32 * t, 252 + 28 * t);
+                    ctx.stroke();
+                    // Left leg
+                    ctx.beginPath();
+                    ctx.moveTo(225, 318);
+                    ctx.lineTo(218, 318 + 32 * t);
+                    ctx.stroke();
+                    // Right leg
+                    ctx.beginPath();
+                    ctx.moveTo(275, 318);
+                    ctx.lineTo(282, 318 + 32 * t);
+                    ctx.stroke();
+                    // Back stripes (two brown lines on body)
+                    ctx.beginPath();
+                    ctx.moveTo(237, 224);
+                    ctx.lineTo(225, 224 + 24 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(263, 224);
+                    ctx.lineTo(275, 224 + 24 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw the lightning bolt tail!",
+                voice: "Pikachu's tail is a zigzag lightning bolt — just like real electricity! Draw it coming out from behind!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.moveTo(296, 295);
+                    ctx.lineTo(296 + 22 * t, 295 - 28 * t);
+                    ctx.lineTo(296 + 12 * t, 295 - 28 * t);
+                    ctx.lineTo(296 + 40 * t, 295 - 60 * t);
+                    ctx.lineTo(296 + 28 * t, 295 - 60 * t);
+                    ctx.lineTo(296 + 58 * t, 295 - 92 * t);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: "Color Pikachu yellow!", voice: "Pikachu is bright sunshine yellow! Fill in the whole head and body with yellow!", color: '#FFD700' },
+            { text: "Paint the ear tips black!", voice: "The tips of Pikachu's ears are black — carefully color just the top tips!", color: '#1a1a1a' },
+            { text: "Add the red electric cheeks!", voice: "Pikachu has two big round red cheeks — those store all his electric power!", color: '#FF4136' },
+            { text: "Color the lightning tail!", voice: "The tail is bright orange-yellow — color in the whole zigzag lightning bolt!", color: '#FFA500' },
+            { text: "Paint the eyes and nose dark!", voice: "Use dark color for the big shiny eyes and the tiny button nose!", color: '#2F3542' },
+            { text: "Add brown back stripes!", voice: "Two little brown stripes on Pikachu's back — color them in!", color: '#8B4513' }
+        ]
+    },
+    {
+        id: 'nerf_gun',
+        name: 'Nerf Blaster',
+        emoji: '🎯',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw the big blaster body!",
+                voice: "Let's draw an awesome Nerf blaster! Start with a big chunky rectangle for the main body — it's the heart of the blaster!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.rect(115, 148, 165 * t, 82);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add the long barrel!",
+                voice: "Time for the barrel — that's where the dart shoots out! Draw a long rectangle pointing right, and a circle at the tip!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.rect(280, 158, 115 * t, 30);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(395, 173, 15 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw the handle and trigger guard!",
+                voice: "Every blaster needs a handle! Draw the grip going down, then add a curved trigger guard to protect the trigger — just like a real blaster!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.moveTo(183, 230);
+                    ctx.lineTo(176, 230 + 80 * t);
+                    ctx.lineTo(216, 230 + 80 * t);
+                    ctx.lineTo(228, 230);
+                    ctx.closePath();
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(183, 233);
+                    ctx.bezierCurveTo(168, 233 + 52 * t, 282, 233 + 52 * t, 282, 233);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add the top rail and scope!",
+                voice: "Nerf blasters have a cool rail on top! Draw a flat rectangle on top of the body, then add a little oval scope — just like a spy gadget!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.rect(120, 132, 155 * t, 17);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(195, 126, 26 * t, 12 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(195, 126, 8 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            },
+            {
+                text: "Add vents, trigger, and details!",
+                voice: "Final touches — add cool vents on the barrel, the trigger inside the guard, grip lines on the handle, and the Nerf logo oval. Your blaster is ready to fire!",
+                draw(ctx, t) {
+                    for (let i = 0; i < 3; i++) {
+                        ctx.beginPath();
+                        ctx.moveTo(298 + i * 23, 162);
+                        ctx.lineTo(298 + i * 23, 162 + 22 * t);
+                        ctx.stroke();
+                    }
+                    ctx.beginPath();
+                    ctx.moveTo(228, 236);
+                    ctx.lineTo(242, 236 + 26 * t);
+                    ctx.stroke();
+                    for (let i = 0; i < 3; i++) {
+                        ctx.beginPath();
+                        ctx.moveTo(184, 250 + i * 16);
+                        ctx.lineTo(184 + 24 * t, 250 + i * 16);
+                        ctx.stroke();
+                    }
+                    ctx.beginPath();
+                    ctx.ellipse(210, 190, 32 * t, 14 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: "Paint the body orange!", voice: "Nerf blasters are famous for bright orange! Fill in the big body with orange!", color: '#FF6600' },
+            { text: "Color the barrel yellow!", voice: "Paint the long barrel bright yellow — that's where the dart shoots out!", color: '#FFD700' },
+            { text: "Color the top rail yellow!", voice: "Fill in the top rail yellow to match — Nerf loves yellow and orange together!", color: '#FFD700' },
+            { text: "Paint the handle dark!", voice: "The grip handle is dark for a cool look — use dark gray or black!", color: '#2F3542' },
+            { text: "Add orange to the barrel tip!", voice: "Color the round barrel tip the same bright orange as the body!", color: '#FF6600' },
+            { text: "Color the details black!", voice: "Use black for the vents, trigger, grip lines, and the logo oval — nice and sharp!", color: '#1a1a1a' }
+        ]
+    },
+    {
+        id: 'goa_beach_memories',
+        name: 'Goa beach',
+        emoji: '🇮🇳',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw the sky and the sea!",
+                voice: "Let's go to Goa! First draw a long line where the sky meets the water — that is the horizon! Add some wavy lines in the water!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.moveTo(20, 145);
+                    ctx.lineTo(20 + 460 * t, 145);
+                    ctx.stroke();
+                    for (let w = 0; w < 3; w++) {
+                        const y0 = 165 + w * 32;
+                        ctx.beginPath();
+                        ctx.moveTo(30, y0);
+                        for (let i = 0; i < 6; i++) {
+                            const nx = 30 + (i + 1) * 78 * t;
+                            const midx = (ax + nx) / 2;
+                            const midy = y0 + 6 * t * (i % 2 === 0 ? 1 : -1);
+                            ctx.quadraticCurveTo(midx, midy, nx, y0);
+                        }
+                        ctx.stroke();
+                    }
+                }
+            },
+            {
+                text: "Add the warm sandy beach!",
+                voice: "Goa is famous for soft sand! Curve a wavy line where the water touches the beach, just like a postcard!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.moveTo(15, 248);
+                    ctx.bezierCurveTo(110, 236 - 10 * t, 390, 256 + 8 * t, 15 + 470 * t, 268);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Write the big word GOA!",
+                voice: "It is a picture of Goa — draw the letters G O A nice and big up in the sky, like a fun holiday sign!",
+                draw(ctx, t) {
+                    const fs = Math.max(0.1, 44 * t);
+                    ctx.save();
+                    ctx.font = `800 ${fs}px system-ui, sans-serif`;
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'alphabetic';
+                    ctx.lineWidth = Math.max(1, 4 * t);
+                    ctx.strokeText('G O A', 250, 60);
+                    ctx.restore();
+                }
+            },
+            {
+                text: "Add the sun and more waves!",
+                voice: "Draw a big round sun where it shines over the water, and a few more gentle waves in the blue sea!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.arc(415, 60, 26 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    for (const y of [175, 205, 230]) {
+                        ctx.beginPath();
+                        ctx.moveTo(45, y);
+                        ctx.bezierCurveTo(130, y - 6 * t, 200, y + 6 * t, 20 + 430 * t, y);
+                        ctx.stroke();
+                    }
+                }
+            },
+            {
+                text: "A palm and birds in the air!",
+                voice: "A tall palm tree sways in Goa! Draw a trunk and wiggly fronds! Put little birds flying like tiny letter V in the sky!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.moveTo(72, 400);
+                    ctx.lineTo(60 + 8 * t, 288);
+                    ctx.stroke();
+                    const cx = 60;
+                    const cy = 278;
+                    for (let a = 0; a < 5; a++) {
+                        const ang = -0.4 * Math.PI - a * 0.2 * Math.PI - 0.1;
+                        const len = 44 * t;
+                        ctx.beginPath();
+                        ctx.moveTo(cx, cy);
+                        ctx.quadraticCurveTo(
+                            cx + Math.cos(ang) * len * 0.4,
+                            cy + Math.sin(ang) * len * 0.3,
+                            cx + Math.cos(ang) * len,
+                            cy + Math.sin(ang) * len
+                        );
+                        ctx.stroke();
+                    }
+                    const birds = [
+                        [200, 85],
+                        [255, 72],
+                        [315, 88]
+                    ];
+                    for (const [bx, by] of birds) {
+                        ctx.beginPath();
+                        ctx.moveTo(bx - 10 * t, by);
+                        ctx.quadraticCurveTo(bx, by - 4 * t, bx + 10 * t, by);
+                        ctx.stroke();
+                    }
+                }
+            },
+            {
+                text: "Mumma, Papa, and Nirvan!",
+                voice: "The family is on the beach! Draw three happy people with names — Mumma, Papa, and Nirvan — and say hi to the sea!",
+                draw(ctx, t) {
+                    const fam = [
+                        { x: 120, n: 'Mumma' },
+                        { x: 250, n: 'Papa' },
+                        { x: 380, n: 'Nirvan' }
+                    ];
+                    for (const { x, n } of fam) {
+                        ctx.beginPath();
+                        ctx.arc(x, 312, 10 * t, 0, Math.PI * 2);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.moveTo(x, 322);
+                        ctx.lineTo(x, 360 + 8 * t);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.moveTo(x, 338);
+                        ctx.lineTo(x - 18 * t, 352);
+                        ctx.moveTo(x, 338);
+                        ctx.lineTo(x + 18 * t, 352);
+                        ctx.stroke();
+                        const fsn = Math.max(0.1, 12 * t);
+                        ctx.save();
+                        ctx.font = `700 ${fsn}px system-ui, sans-serif`;
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'top';
+                        ctx.lineWidth = Math.max(0.5, 1.5 * t);
+                        ctx.strokeText(n, x, 370);
+                        ctx.restore();
+                    }
+                }
+            }
+        ],
+        paintSteps: [
+            { text: "Color the warm sunset sky!", voice: "Paint the top part with warm sunset colors — like orange, pink, or light blue!", color: '#FDB99D' },
+            { text: "Fill the sea with blue!", voice: "Goa's sea is sparkling! Use happy bright blue in the water below the horizon!", color: '#29B6F6' },
+            { text: "Paint the sandy beach!", voice: "Fill the big beach at the bottom with light tan or golden sand color!", color: '#E4CFA1' },
+            { text: "Color the big sun yellow!", voice: "Make the sun a bright ball of warm yellow, like a Goa afternoon!", color: '#FFEB3B' },
+            { text: "Color the green palm fronds!", voice: "Palm tree leaves are bright green — the trunk is brown if you have another color!", color: '#43A047' },
+            { text: "Mumma, Papa, Nirvan, and details!", voice: "Use a darker color for the family, the sea birds, and the GOA letters to finish your postcard picture!", color: '#263238' }
+        ]
     }
 ];

@@ -1300,6 +1300,161 @@ export const vehicles = [
             { text: "Paint the waves blue!", voice: "Deep blue ocean waves for the pirates to sail on!", color: '#1E90FF' },
             { text: "Paint the portholes gold!", voice: "Golden portholes — maybe there is treasure inside!", color: '#FFA502' }
         ]
+    },
+    {
+        id: 'beach_buggy',
+        name: 'Beach Buggy',
+        emoji: '\u{1F3D6}',
+        category: 'vehicles',
+        steps: [
+            {
+                text: "Draw the open tub body!",
+                voice: "Let's draw a beach buggy! Start with the big open tub body — it sits up high on the sand, like a bathtub on wheels, ready for sunshine!",
+                draw(ctx, t) {
+                    const flx = 100, fly = 280;
+                    const bw = 300 * t, bh = 70 * t;
+                    ctx.beginPath();
+                    ctx.moveTo(flx, fly);
+                    ctx.lineTo(flx + 0.78 * bw, fly);
+                    ctx.lineTo(flx + 0.86 * bw, fly - 0.12 * bh);
+                    ctx.lineTo(flx + bw, fly - 0.38 * bh);
+                    ctx.lineTo(flx + 0.96 * bw, fly - 0.55 * bh);
+                    ctx.lineTo(flx + 0.5 * bw, fly - 0.68 * bh);
+                    ctx.lineTo(flx + 0.2 * bw, fly - 0.62 * bh);
+                    ctx.lineTo(flx + 0.05 * bw, fly - 0.42 * bh);
+                    ctx.lineTo(flx, fly - 0.18 * bh);
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add the strong roll bar!",
+                voice: "Bumpy beach rides need a strong roll bar! Draw two tall posts and a bar across the top, like a jungle gym for your buggy!",
+                draw(ctx, t) {
+                    // Left post
+                    ctx.beginPath();
+                    ctx.moveTo(280, 242);
+                    ctx.lineTo(280, 242 - 78 * t);
+                    ctx.stroke();
+                    // Right post
+                    ctx.beginPath();
+                    ctx.moveTo(352, 242);
+                    ctx.lineTo(352, 242 - 78 * t);
+                    ctx.stroke();
+                    // Top crossbar
+                    ctx.beginPath();
+                    ctx.moveTo(280, 242 - 78 * t);
+                    ctx.lineTo(280 + 72 * t, 242 - 78 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add the windshield and seat!",
+                voice: "A little windscreen keeps the sand out of your eyes! Add the angled window and a seat shape behind it — the driver is ready to cruise the shore!",
+                draw(ctx, t) {
+                    // Windshield — angled quad
+                    ctx.beginPath();
+                    ctx.moveTo(128, 248);
+                    ctx.lineTo(128 + 8 * t, 248 - 42 * t);
+                    ctx.lineTo(128 + 75 * t, 248 - 48 * t);
+                    ctx.lineTo(128 + 82 * t, 248);
+                    ctx.closePath();
+                    ctx.stroke();
+                    // Seat back — simple curve
+                    ctx.beginPath();
+                    ctx.moveTo(255, 248);
+                    ctx.quadraticCurveTo(255 + 35 * t, 248 - 5 * t, 255 + 50 * t, 248);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw the big bumpy wheels!",
+                voice: "Sandy paths need big knobby tires! Draw two wide circles for the front and back wheels — they are almost as big as the buggy!",
+                draw(ctx, t) {
+                    // Front wheel
+                    ctx.beginPath();
+                    ctx.arc(150, 298, 34 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(150, 298, 15 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    for (let i = 0; i < 6; i++) {
+                        const a = (i / 6) * Math.PI * 2;
+                        ctx.beginPath();
+                        ctx.moveTo(150 + 5 * t * Math.cos(a), 298 + 5 * t * Math.sin(a));
+                        ctx.lineTo(150 + 12 * t * Math.cos(a), 298 + 12 * t * Math.sin(a));
+                        ctx.stroke();
+                    }
+                    // Rear wheel
+                    ctx.beginPath();
+                    ctx.arc(360, 298, 36 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(360, 298, 16 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    for (let i = 0; i < 6; i++) {
+                        const a = (i / 6) * Math.PI * 2;
+                        ctx.beginPath();
+                        ctx.moveTo(360 + 5 * t * Math.cos(a), 298 + 5 * t * Math.sin(a));
+                        ctx.lineTo(360 + 12 * t * Math.cos(a), 298 + 12 * t * Math.sin(a));
+                        ctx.stroke();
+                    }
+                }
+            },
+            {
+                text: "Add lights and a surfboard!",
+                voice: "This buggy is ready for the beach! A round headlight, a bumpy fender, and a surfboard on top of the bar — vroom, let's hit the waves after we drive!",
+                draw(ctx, t) {
+                    // Fender over front wheel
+                    ctx.beginPath();
+                    ctx.arc(150, 280, 44 * t, Math.PI, Math.PI * 2);
+                    ctx.stroke();
+                    // Headlight
+                    ctx.beginPath();
+                    ctx.arc(98, 252, 8 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Surfboard on roll bar
+                    ctx.beginPath();
+                    ctx.ellipse(316, 150, 55 * t, 8 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(310 - 20 * t, 150);
+                    ctx.lineTo(310 + 20 * t, 150);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Finishing touches to roll!",
+                voice: "Add the simple front bumper, a little grille line, a round taillight, and racing stripes! Your beach buggy is ready to zoom across the dunes — wheee!",
+                draw(ctx, t) {
+                    // Front bumper / skid
+                    roundRect(ctx, 85, 268, 32 * t, 14, 4);
+                    ctx.stroke();
+                    // Grille slot
+                    ctx.beginPath();
+                    ctx.moveTo(100, 265);
+                    ctx.lineTo(100 + 20 * t, 265);
+                    ctx.stroke();
+                    // Taillight
+                    ctx.beginPath();
+                    ctx.arc(400, 248, 6 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Side racing stripe
+                    ctx.beginPath();
+                    ctx.moveTo(140, 258);
+                    ctx.lineTo(140 + 220 * t, 258);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: "Color the body orange!", voice: "A sunny bright orange body — the classic beach bug color! Fill in the whole open tub and hood!", color: '#FF6B35' },
+            { text: "Fill the big tires black!", voice: "Knobby off-road tires are black rubber — make them nice and dark!", color: '#2F3542' },
+            { text: "Paint the roll bar steel gray!", voice: "The roll bar and bumper metal are cool gray, like a shiny jungle gym bar!", color: '#95A5A6' },
+            { text: "Paint the windshield light blue!", voice: "A light blue windshield so the driver can see the ocean and sky!", color: '#87CEEB' },
+            { text: "Add pink surfboard stripes!", voice: "A cute pink and white style for the surfboard on top — beach ready!", color: '#FF6B81' },
+            { text: "Paint the big round headlight!", voice: "A bright yellow headlight so you can cruise the beach at sunset and still look cool!", color: '#F1C40F' }
+        ]
     }
 ];
 
