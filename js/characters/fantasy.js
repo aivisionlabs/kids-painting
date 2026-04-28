@@ -2084,5 +2084,172 @@ export const fantasy = [
             { text: "Paint the buttons black!", voice: "The coal buttons are shiny black!", color: '#2F3542' },
             { text: "Paint the snowflakes blue!", voice: "The falling snowflakes are icy light blue!", color: '#70A1FF' }
         ]
+    },
+    {
+        id: 'diwali_gun',
+        name: 'Diwali Gun',
+        emoji: '\u{1F9E8}',
+        category: 'fantasy',
+        steps: [
+            {
+                text: 'Draw the plump main body of the gun!',
+                voice: "Happy Diwali! Let's draw a festive cracker gun! First make a chubby rectangle shape — that is the colorful plastic body in the middle!",
+                draw(ctx, t) {
+                    const w = 95 * t;
+                    const h = 42 * t;
+                    const cx = 200;
+                    const cy = 198;
+                    const r = 14 * t;
+                    ctx.beginPath();
+                    ctx.moveTo(cx - w + r, cy - h);
+                    ctx.lineTo(cx + w - r, cy - h);
+                    ctx.quadraticCurveTo(cx + w, cy - h, cx + w, cy - h + r);
+                    ctx.lineTo(cx + w, cy + h - r);
+                    ctx.quadraticCurveTo(cx + w, cy + h, cx + w - r, cy + h);
+                    ctx.lineTo(cx - w + r, cy + h);
+                    ctx.quadraticCurveTo(cx - w, cy + h, cx - w, cy + h - r);
+                    ctx.lineTo(cx - w, cy - h + r);
+                    ctx.quadraticCurveTo(cx - w, cy - h, cx - w + r, cy - h);
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add a long front barrel to the muzzle!",
+                voice: "Now the long front tube! Real toy barrels point forward just like a tiny tunnel where the cap rings pop! Stretch it to the right!",
+                draw(ctx, t) {
+                    const startX = 280;
+                    const y = 198;
+                    const len = 100 * t;
+                    const th = 18 * t;
+                    ctx.beginPath();
+                    ctx.moveTo(startX, y - th);
+                    ctx.lineTo(startX + len, y - th);
+                    ctx.lineTo(startX + len, y + th);
+                    ctx.lineTo(startX, y + th);
+                    ctx.closePath();
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(startX + len, y, 3 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add the hand grip and trigger guard below!",
+                voice: "This is the handle! Draw a bent grip so your hand can hold the toy safely, and a nice rounded trigger guard on top! Easy peasy!",
+                draw(ctx, t) {
+                    // Grip (kiddie style — flared, rounded)
+                    const gy = 218;
+                    const gl = 52 * t;
+                    const gx = 150;
+                    ctx.beginPath();
+                    ctx.moveTo(gx - 15, gy);
+                    ctx.lineTo(gx - 25, gy + gl);
+                    ctx.quadraticCurveTo(gx - 22, gy + gl + 10 * t, gx + 5, gy + gl + 8 * t);
+                    ctx.lineTo(gx + 35, gy + gl);
+                    ctx.lineTo(gx + 45, gy);
+                    ctx.quadraticCurveTo(gx + 28, gy - 5, gx, gy);
+                    ctx.closePath();
+                    ctx.stroke();
+                    // Trigger guard (semicircle, grows with t)
+                    ctx.beginPath();
+                    ctx.arc(195, 210, 18 * t, 0.1 * Math.PI, 0.9 * Math.PI, false);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add the dimpled roll-cap wheel on top!",
+                voice: "The tiny wheel on top is where the roll caps go — click click pop! Add a circle with little bumps so it looks like a real cracker cap toy!",
+                draw(ctx, t) {
+                    const cx = 200;
+                    const cy = 165;
+                    ctx.beginPath();
+                    ctx.ellipse(cx, cy, 32 * t, 12 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    for (let i = 0; i < 6; i++) {
+                        const a = (i / 6) * Math.PI * 2;
+                        const x1 = cx + Math.cos(a) * 18;
+                        const y1 = cy + Math.sin(a) * 6;
+                        ctx.beginPath();
+                        ctx.moveTo(x1, y1);
+                        ctx.lineTo(
+                            x1 + Math.cos(a) * 8 * t,
+                            y1 + Math.sin(a) * 2.5 * t
+                        );
+                        ctx.stroke();
+                    }
+                }
+            },
+            {
+                text: "Draw a shiny star and little rivets for decoration!",
+                voice: "Festival time needs sparkle! Draw a star and two dots on the side so your gun looks like a real Diwali toy in the bazaar! So bright!",
+                draw(ctx, t) {
+                    // Star (center 208, 198) — only scale the outer radius
+                    const sx = 208;
+                    const sy = 198;
+                    const outer = 12 * t;
+                    const spikes = 5;
+                    const inner = outer * 0.4;
+                    ctx.beginPath();
+                    for (let i = 0; i < 2 * spikes; i++) {
+                        const a = (i * Math.PI) / spikes - Math.PI / 2;
+                        const rad = i % 2 === 0 ? outer : inner;
+                        const px = sx + Math.cos(a) * rad;
+                        const py = sy + Math.sin(a) * rad;
+                        if (i === 0) ctx.moveTo(px, py);
+                        else ctx.lineTo(px, py);
+                    }
+                    ctx.closePath();
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(160, 195, 2.5 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(175, 200, 2.5 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            },
+            {
+                text: "Add spark puffs and stars at the muzzle!",
+                voice: "The last pop of joy! Add tiny light streaks and mini stars at the muzzle, like a safe toy sparkle for Diwali night! Yippee! Happy Diwali!",
+                draw(ctx, t) {
+                    // Muzzle at fixed tip (matches barrel from startX 280, length 100, cap at +3)
+                    const mx = 383;
+                    const my = 198;
+                    const rays = 7;
+                    for (let r = 0; r < rays; r++) {
+                        const a = (r / rays) * Math.PI * 1.4 - 0.35 * Math.PI;
+                        const len = 12 + (r % 2) * 4;
+                        ctx.beginPath();
+                        ctx.moveTo(mx, my);
+                        ctx.lineTo(
+                            mx + Math.cos(a) * len * t,
+                            my + Math.sin(a) * len * t
+                        );
+                        ctx.stroke();
+                    }
+                    const mini = [
+                        [405, 185], [420, 205], [432, 188]
+                    ];
+                    mini.forEach(([fx, fy]) => {
+                        const s = 3 * t;
+                        ctx.beginPath();
+                        ctx.moveTo(fx, fy - s);
+                        ctx.lineTo(fx, fy + s);
+                        ctx.moveTo(fx - s, fy);
+                        ctx.lineTo(fx + s, fy);
+                        ctx.stroke();
+                    });
+                }
+            }
+        ],
+        paintSteps: [
+            { text: "Color the main body red!", voice: "First paint the big main body a bright happy red — the color of every Diwali bazaar toy!", color: '#E63946' },
+            { text: "Paint the barrel and roll-cap silver!", voice: "The long barrel and the bumpy top wheel are shiny silvery metal gray!", color: '#B8B8C8' },
+            { text: "Fill the hand grip green!", voice: "The curved grip is a jolly deep green, like a festive bunting!", color: '#1B8A4C' },
+            { text: "Paint the muzzle and sparks gold!", voice: "Make the puffs and muzzle end glittery gold like Diwali firework sparkles in the sky!", color: '#F4C430' },
+            { text: "Color the star and rivets gold-yellow!", voice: "Fill the little star and dots with a sunny gold yellow to match the fun!", color: '#FFD700' },
+            { text: "Paint the trigger and outlines dark gray!", voice: "Use a soft dark gray for the trigger, guard lines, and tiny details in the cracker design!", color: '#3D3D4A' }
+        ]
     }
 ];

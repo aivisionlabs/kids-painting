@@ -2798,6 +2798,7 @@ export const cartoon = [
                         ctx.beginPath();
                         ctx.moveTo(30, y0);
                         for (let i = 0; i < 6; i++) {
+                            const ax = 30 + i * 78 * t;
                             const nx = 30 + (i + 1) * 78 * t;
                             const midx = (ax + nx) / 2;
                             const midy = y0 + 6 * t * (i % 2 === 0 ? 1 : -1);
@@ -2924,6 +2925,639 @@ export const cartoon = [
             { text: "Color the big sun yellow!", voice: "Make the sun a bright ball of warm yellow, like a Goa afternoon!", color: '#FFEB3B' },
             { text: "Color the green palm fronds!", voice: "Palm tree leaves are bright green — the trunk is brown if you have another color!", color: '#43A047' },
             { text: "Mumma, Papa, Nirvan, and details!", voice: "Use a darker color for the family, the sea birds, and the GOA letters to finish your postcard picture!", color: '#263238' }
+        ]
+    },
+    {
+        id: 'soldier_big_gun',
+        name: 'Soldier (Big Gun)',
+        emoji: '\u{1FA96}',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Helmet and round face!",
+                voice: "Time for a brave adventure hero! Start with a round face and a strong helmet on top, like a toy action figure!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(250, 140, 28 * t, 32 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(250, 108, 40 * t, 24 * t, 0, Math.PI, 0);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(218, 120);
+                    ctx.lineTo(218 + 64 * t, 120);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Big tough body and vest!",
+                voice: "Now add a big oval for the chest and vest — it looks like a padded suit that keeps a soldier safe and ready!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(250, 240, 46 * t, 58 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(200, 195);
+                    ctx.lineTo(200 + 50 * t, 195);
+                    ctx.moveTo(300, 195);
+                    ctx.lineTo(300 - 50 * t, 195);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Sturdy legs and boots!",
+                voice: "Let’s add two strong legs marching forward, and big puffy boots at the bottom, like a cartoon paratrooper!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.moveTo(228, 285);
+                    ctx.lineTo(228, 285 + 58 * t);
+                    ctx.moveTo(272, 285);
+                    ctx.lineTo(272, 285 + 58 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(218, 348, 20 * t, 11 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(282, 348, 20 * t, 11 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "A huge long rifle!",
+                voice: "This is the star — draw a long rifle with a stock at the back and a super long barrel! Our soldier is holding it like a true hero!",
+                draw(ctx, t) {
+                    // Stock
+                    ctx.beginPath();
+                    ctx.moveTo(175, 228);
+                    ctx.lineTo(175 + 48 * t, 220);
+                    ctx.lineTo(175 + 50 * t, 236);
+                    ctx.closePath();
+                    ctx.stroke();
+                    // Receiver
+                    ctx.beginPath();
+                    ctx.moveTo(223, 220);
+                    ctx.lineTo(223 + 50 * t, 215);
+                    ctx.lineTo(223 + 50 * t, 235);
+                    ctx.lineTo(223, 240);
+                    ctx.closePath();
+                    ctx.stroke();
+                    // Long barrel + muzzle
+                    ctx.beginPath();
+                    ctx.moveTo(273, 220);
+                    ctx.lineTo(273 + 150 * t, 215);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(423, 213, 8 * t, 5 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Mag / grip
+                    ctx.beginPath();
+                    ctx.moveTo(248, 240);
+                    ctx.lineTo(248, 240 + 28 * t);
+                    ctx.moveTo(255, 248);
+                    ctx.lineTo(255 - 8 * t, 248);
+                    ctx.stroke();
+                    // Arms
+                    ctx.beginPath();
+                    ctx.moveTo(205, 248);
+                    ctx.lineTo(205 + 58 * t, 218);
+                    ctx.moveTo(300, 258);
+                    ctx.lineTo(300 - 48 * t, 228);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Brave face and details!",
+                voice: "Add little eyes and a smile under the visor! Draw a belt across the middle so the uniform looks ready for any mission!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.arc(242, 140, 5 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(262, 140, 5 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(252, 150, 3.5 * t, 2 * t, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(252, 160, 10, 0, Math.PI * 0.85 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(205, 252);
+                    ctx.lineTo(205 + 90 * t, 252);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Kneepads and last touches!",
+                voice: "Finish with kneepads on the legs, a tiny front sight on the big gun, and a pocket line on the chest — you did amazing!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(228, 320, 12 * t, 8 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(272, 320, 12 * t, 8 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(288, 212);
+                    ctx.lineTo(288 + 15 * t, 208);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(235, 240);
+                    ctx.lineTo(235, 255 + 4 * t);
+                    ctx.moveTo(265, 240);
+                    ctx.lineTo(265, 255 + 4 * t);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: "Paint the uniform olive green!", voice: "Use olive or army green to fill the helmet, body, and vest — that is a classic adventure uniform!", color: '#4B5F32' },
+            { text: "Add tan skin to the face!", voice: "Choose a light peach or tan for the small bit of face under the visor, where the eyes and smile are!", color: '#E8C4A0' },
+            { text: "Color the big gun dark gray!", voice: "The rifle and stock are dark metal gray — fill the long barrel, stock, and the boxy middle part!", color: '#5C6670' },
+            { text: "Black boots and belt!", voice: "Color the big boots and the belt line with a deep black or dark brown so they look tough!", color: '#1E2329' },
+            { text: "Paint the visor and kneepads!", voice: "Use a slightly different green or dark gray for the visor line and the kneepads, so the outfit pops a little!", color: '#3A4728' },
+            { text: "Bright eyes and smile line!", voice: "Use a dark color for the eyes, mouth, and the tiny details on the gun, so the hero can see you smile back!", color: '#2A2A2A' }
+        ]
+    },
+    {
+        id: 'nirvan_diwali_family',
+        name: "Nirvan's Diwali with family",
+        emoji: '🪔',
+        category: 'cartoon',
+        steps: [
+            {
+                text: 'The Diwali night sky and floor!',
+                voice: "Shubh Diwali! Let's start with a soft line for the floor, the dark sky above, and a few twinkly stars like real Diwali night — so magical!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.moveTo(15, 100);
+                    ctx.lineTo(15 + 470 * t, 100);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(10, 300);
+                    ctx.bezierCurveTo(130, 292, 360, 308, 10 + 480 * t, 300);
+                    ctx.stroke();
+                    const st = [
+                        [80, 64],
+                        [200, 48],
+                        [340, 56],
+                        [420, 40]
+                    ];
+                    for (const [sx, sy] of st) {
+                        ctx.beginPath();
+                        ctx.moveTo(sx, sy);
+                        ctx.lineTo(sx + 2 * t, sy - 3 * t);
+                        ctx.lineTo(sx + 4 * t, sy);
+                        ctx.lineTo(sx + 2 * t, sy + 2.5 * t);
+                        ctx.closePath();
+                        ctx.stroke();
+                    }
+                }
+            },
+            {
+                text: 'A row of family up high!',
+                voice: "At the back are lots of people who love you! Draw seven small round heads in a row — that is part of your big family tree cheering for Diwali!",
+                draw(ctx, t) {
+                    const xs = [55, 115, 175, 235, 300, 365, 430];
+                    for (const bx of xs) {
+                        ctx.beginPath();
+                        ctx.arc(bx, 120, 8.5 * t, 0, Math.PI * 2);
+                        ctx.stroke();
+                    }
+                }
+            },
+            {
+                text: 'More relatives in the middle!',
+                voice: "Closer up come more cousins and grown-ups! A second row of simple stick bodies under those heads, like a big happy crowd at home for Diwali!",
+                draw(ctx, t) {
+                    const mid = [115, 175, 250, 325, 400];
+                    for (const x of mid) {
+                        ctx.beginPath();
+                        ctx.arc(x, 170, 10 * t, 0, Math.PI * 2);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.moveTo(x, 180);
+                        ctx.lineTo(x, 235 + 15 * t);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.moveTo(x, 200);
+                        ctx.lineTo(x - 18 * t, 218);
+                        ctx.moveTo(x, 200);
+                        ctx.lineTo(x + 18 * t, 218);
+                        ctx.stroke();
+                    }
+                }
+            },
+            {
+                text: 'Mumma, Papa, and Nirvan!',
+                voice: "Right in front, draw the three stars of the day — a bigger Nirvan in the middle, Mumma on one side, Papa on the other, all dressed up to celebrate together!",
+                draw(ctx, t) {
+                    for (const [x, w] of [
+                        [150, 12],
+                        [250, 16],
+                        [350, 12]
+                    ]) {
+                        ctx.beginPath();
+                        ctx.ellipse(x, 205, w * t, (w * 0.9) * t, 0, 0, Math.PI * 2);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.moveTo(x, 215 + w * 0.1 * t);
+                        ctx.lineTo(x, 268 + 25 * t);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.moveTo(x, 240);
+                        ctx.lineTo(x - 22 * t, 255);
+                        ctx.moveTo(x, 240);
+                        ctx.lineTo(x + 22 * t, 255);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.moveTo(x, 280);
+                        ctx.lineTo(x - 12 * t, 300);
+                        ctx.moveTo(x, 280);
+                        ctx.lineTo(x + 12 * t, 300);
+                        ctx.stroke();
+                    }
+                }
+            },
+            {
+                text: 'Diyas, lights, and sparkles!',
+                voice: "Diwali is the festival of lights! Add a big clay diya in front, a bouncy little flame, swirly string lights, and a star burst like a safe, happy firework!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(250, 322, 38 * t, 14 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(250, 300, 14 * t, 18 * t, 0, Math.PI, 0);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(250, 282);
+                    ctx.lineTo(250, 272 - 22 * t);
+                    ctx.stroke();
+                    for (const ang of [0, 0.4, 0.8, 1.2, 1.5]) {
+                        ctx.beginPath();
+                        ctx.moveTo(250 + Math.cos(ang) * 8 * t, 272 - 22 * t);
+                        ctx.lineTo(250 + Math.cos(ang) * 18 * t, 262 - 32 * t);
+                        ctx.stroke();
+                    }
+                    for (const dx of [110, 390]) {
+                        ctx.beginPath();
+                        ctx.ellipse(dx, 335, 9 * t, 5 * t, 0, 0, Math.PI * 2);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.moveTo(dx, 328);
+                        ctx.lineTo(dx, 318 - 10 * t);
+                        ctx.stroke();
+                    }
+                    ctx.beginPath();
+                    ctx.moveTo(30, 85);
+                    for (let i = 0; i < 7; i++) {
+                        const px = 30 + i * 64 * t;
+                        ctx.lineTo(px, 80 + 6 * t * (i % 2));
+                    }
+                    ctx.lineTo(30 + 6 * 64 * t, 80);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(470, 82);
+                    ctx.lineTo(470 - 20 * t, 72);
+                    ctx.moveTo(470, 82);
+                    ctx.lineTo(460 - 15 * t, 90);
+                    ctx.moveTo(470, 82);
+                    ctx.lineTo(455 - 5 * t, 78);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: 'Smiles and the whole family list!',
+                voice: "Add sweet dot eyes and smiles! Then read the names: Dadu, Dadi, Bade Papa, Prisha, D two, Badi Mammi, Mumma, Papa, and everyone you love. Happy Diwali, Nirvan!",
+                draw(ctx, t) {
+                    for (const [x, ey, sy] of [
+                        [150, 198, 212],
+                        [250, 198, 215],
+                        [350, 198, 212]
+                    ]) {
+                        ctx.beginPath();
+                        ctx.arc(x - 4, ey, 3.5 * t, 0, Math.PI * 2);
+                        ctx.fill();
+                        ctx.beginPath();
+                        ctx.arc(x + 4, ey, 3.5 * t, 0, Math.PI * 2);
+                        ctx.fill();
+                        ctx.beginPath();
+                        ctx.arc(x, sy, 5 * t, 0, Math.PI * 0.95 * t);
+                        ctx.stroke();
+                    }
+                    const fsn = Math.max(0.1, 7.5 * t);
+                    const lines = [
+                        'Dadu, Dadi, Bade Papa, Prisha, D2, Badi Mammi,',
+                        'Mumma, Papa, Kunnu Mamu, Mishu Mami, Nanu, Nani,',
+                        'Chotu Chachu, Siya Chachi, and Veer — Shubh Diwali!'
+                    ];
+                    ctx.save();
+                    ctx.font = `600 ${fsn}px system-ui, sans-serif`;
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'top';
+                    ctx.lineWidth = Math.max(0.2, 0.8 * t);
+                    for (let i = 0; i < lines.length; i++) {
+                        ctx.strokeText(lines[i], 250, 358 + i * 12 * 0.85);
+                    }
+                    ctx.restore();
+                }
+            }
+        ],
+        paintSteps: [
+            {
+                text: 'Color the night sky and stars!',
+                voice: "Start with a deep indigo or purple for the top sky — the stars and lights will glow on it like real Diwali night!",
+                color: '#1A237E'
+            },
+            {
+                text: 'Fill the ground deep brown!',
+                voice: "The floor in front is a warm deep brown, like a cozy home courtyard where everyone stands together to celebrate.",
+                color: '#4E342E'
+            },
+            {
+                text: 'Color kurta, dupattas, and Nirvan!',
+                voice: "Use bright saffron, peacock blue, and festive pinks and greens for the rows of clothes and Nirvan's special outfit in the center!",
+                color: '#E53935'
+            },
+            {
+                text: 'Add golden clay diyas and oil!',
+                voice: "Diyas are warm earthen brown or orange clay — fill the bowls, then leave a puddle of yellow-gold in each for the oil, like real lamps on Diwali night!",
+                color: '#C87E4B'
+            },
+            {
+                text: 'Flames and string lights — yellow, orange!',
+                voice: "The flames are happy orange and yellow! Add gold on the string lights in the sky — think of your whole family, including Prisha, D2, and Veer, glowing together with you!",
+                color: '#FFCA28'
+            },
+            {
+                text: "Skin, smiles, and the names line!",
+                voice: "Add warm skin for faces, a soft bindi or tilak on Nirvan, and a dark line over the names: Dadu, Dadi, Bade Papa, Badi Mammi, Kunnu Mamu, Mishu Mami, Nanu, Nani, Chotu Chachu, and Siya Chachi — the whole list — Happy Diwali!",
+                color: '#2F3542'
+            }
+        ]
+    },
+    {
+        id: 'police_bike_chase',
+        name: 'Police Bike Chase',
+        emoji: '👮',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw the big bicycle wheels!",
+                voice: "Zoom zoom! Let's draw a super fast police bicycle! Start with two big round wheels — make them nice and round like donuts!",
+                draw(ctx, t) {
+                    ctx.lineWidth = 3;
+                    // Rear wheel
+                    ctx.beginPath();
+                    ctx.arc(125, 280, 38 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Rear hub
+                    ctx.beginPath();
+                    ctx.arc(125, 280, 5 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Front wheel
+                    ctx.beginPath();
+                    ctx.arc(248, 280, 38 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Front hub
+                    ctx.beginPath();
+                    ctx.arc(248, 280, 5 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.lineWidth = 1;
+                }
+            },
+            {
+                text: "Connect the wheels with a frame!",
+                voice: "Time to build the bicycle frame! Draw the triangle shape in the middle, the fork at the front, and the handlebars on top!",
+                draw(ctx, t) {
+                    ctx.lineWidth = 2.5;
+                    // Main triangle: seat-top to bottom-bracket
+                    ctx.beginPath();
+                    ctx.moveTo(168, 235);
+                    ctx.lineTo(168 + (192 - 168) * t, 235 + (280 - 235) * t);
+                    ctx.stroke();
+                    // Bottom bracket to head tube
+                    ctx.beginPath();
+                    ctx.moveTo(192, 280);
+                    ctx.lineTo(192 + (242 - 192) * t, 280 + (243 - 280) * t);
+                    ctx.stroke();
+                    // Top tube (seat to head tube)
+                    ctx.beginPath();
+                    ctx.moveTo(168, 235);
+                    ctx.lineTo(168 + (242 - 168) * t, 235 + (243 - 235) * t);
+                    ctx.stroke();
+                    // Chain stay (BB to rear axle)
+                    ctx.beginPath();
+                    ctx.moveTo(192, 280);
+                    ctx.lineTo(192 + (125 - 192) * t, 280);
+                    ctx.stroke();
+                    // Seat stay (seat-top to rear axle)
+                    ctx.beginPath();
+                    ctx.moveTo(168, 235);
+                    ctx.lineTo(168 + (125 - 168) * t, 235 + (280 - 235) * t);
+                    ctx.stroke();
+                    // Fork (head tube to front axle)
+                    ctx.beginPath();
+                    ctx.moveTo(242, 243);
+                    ctx.lineTo(242, 243 + (280 - 243) * t);
+                    ctx.stroke();
+                    // Handlebar post
+                    ctx.beginPath();
+                    ctx.moveTo(242, 243);
+                    ctx.lineTo(242, 243 - 24 * t);
+                    ctx.stroke();
+                    // Handlebar horizontal
+                    ctx.beginPath();
+                    ctx.moveTo(232, 219);
+                    ctx.lineTo(232 + 20 * t, 219);
+                    ctx.stroke();
+                    // Seat horizontal
+                    ctx.beginPath();
+                    ctx.moveTo(155, 232);
+                    ctx.lineTo(155 + 26 * t, 232);
+                    ctx.stroke();
+                    ctx.lineWidth = 1;
+                }
+            },
+            {
+                text: "Add the policeman riding the bike!",
+                voice: "Here comes our brave police officer! Draw the body leaning forward on the bike, with arms reaching the handlebars and legs pedaling fast!",
+                draw(ctx, t) {
+                    // Torso leaning forward
+                    ctx.beginPath();
+                    ctx.ellipse(192, 215, 20 * t, 26 * t, -0.3, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right arm to handlebar
+                    ctx.beginPath();
+                    ctx.moveTo(206, 205);
+                    ctx.lineTo(206 + (240 - 206) * t, 205 + (222 - 205) * t);
+                    ctx.stroke();
+                    // Left arm to handlebar
+                    ctx.beginPath();
+                    ctx.moveTo(200, 202);
+                    ctx.lineTo(200 + (230 - 200) * t, 202 + (222 - 202) * t);
+                    ctx.stroke();
+                    // Front leg (pedaling forward and down)
+                    ctx.beginPath();
+                    ctx.moveTo(190, 234);
+                    ctx.lineTo(190 + (208 - 190) * t, 234 + (274 - 234) * t);
+                    ctx.stroke();
+                    // Back leg (pedaling up behind)
+                    ctx.beginPath();
+                    ctx.moveTo(184, 232);
+                    ctx.lineTo(184 + (162 - 184) * t, 232 + (256 - 232) * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw the police hat and face!",
+                voice: "Every police officer needs their special hat! Draw a round head, then add the peaked cap with a wide brim — and don't forget the shiny badge on the chest!",
+                draw(ctx, t) {
+                    // Head
+                    ctx.beginPath();
+                    ctx.arc(172, 183, 22 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Hat brim
+                    ctx.beginPath();
+                    ctx.ellipse(172, 163, 28 * t, 5 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Hat dome (upper half ellipse)
+                    ctx.beginPath();
+                    ctx.ellipse(172, 163, 22 * t, 15 * t, 0, Math.PI, Math.PI * 2);
+                    ctx.stroke();
+                    // Eyes
+                    ctx.beginPath();
+                    ctx.arc(166, 184, 3 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(178, 184, 3 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Smile
+                    ctx.beginPath();
+                    ctx.arc(172, 189, 7, 0.1, 0.1 + Math.PI * 0.8 * t);
+                    ctx.stroke();
+                    // Badge circle on chest
+                    ctx.beginPath();
+                    ctx.arc(196, 218, 6 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Badge cross lines
+                    ctx.beginPath();
+                    ctx.moveTo(196, 212);
+                    ctx.lineTo(196, 212 + 12 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(190, 218);
+                    ctx.lineTo(190 + 12 * t, 218);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw the sneaky thief running away!",
+                voice: "Oh no, a thief is running away with a bag! Draw a little running figure on the right — with a round head, a body leaning forward, and two legs taking big steps!",
+                draw(ctx, t) {
+                    // Thief head
+                    ctx.beginPath();
+                    ctx.arc(400, 175, 18 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Body leaning forward
+                    ctx.beginPath();
+                    ctx.ellipse(400, 213, 14 * t, 20 * t, 0.2, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Front arm (stretched forward holding bag)
+                    ctx.beginPath();
+                    ctx.moveTo(412, 205);
+                    ctx.lineTo(412 + (438 - 412) * t, 205 + (192 - 205) * t);
+                    ctx.stroke();
+                    // Money bag
+                    ctx.beginPath();
+                    ctx.arc(448, 188, 14 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Back arm (swinging behind)
+                    ctx.beginPath();
+                    ctx.moveTo(388, 208);
+                    ctx.lineTo(388 + (368 - 388) * t, 208 + (200 - 208) * t);
+                    ctx.stroke();
+                    // Front leg (stepping forward)
+                    ctx.beginPath();
+                    ctx.moveTo(393, 230);
+                    ctx.lineTo(393 + (370 - 393) * t, 230 + (278 - 230) * t);
+                    ctx.stroke();
+                    // Back leg (kicked up behind)
+                    ctx.beginPath();
+                    ctx.moveTo(407, 230);
+                    ctx.lineTo(407 + (430 - 407) * t, 230 + (255 - 230) * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add zoom lines and action details!",
+                voice: "Let's make it look super fast and exciting! Draw zoom lines behind the bike, a sneaky mask on the thief, and a dollar sign on the bag!",
+                draw(ctx, t) {
+                    // Speed lines to the left of the bike
+                    [[18, 262], [5, 278], [20, 294], [8, 308]].forEach(([x, y]) => {
+                        ctx.beginPath();
+                        ctx.moveTo(x, y);
+                        ctx.lineTo(x + 52 * t, y);
+                        ctx.stroke();
+                    });
+                    // Thief bandit mask (upper half of face)
+                    ctx.beginPath();
+                    ctx.ellipse(400, 173, 19 * t, 10 * t, 0, Math.PI, Math.PI * 2);
+                    ctx.stroke();
+                    // Mask eye holes
+                    ctx.beginPath();
+                    ctx.arc(392, 173, 4 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(408, 173, 4 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Dollar sign vertical bar
+                    ctx.beginPath();
+                    ctx.moveTo(448, 180);
+                    ctx.lineTo(448, 180 + 16 * t);
+                    ctx.stroke();
+                    // Action exclamation mark
+                    ctx.beginPath();
+                    ctx.moveTo(310, 148);
+                    ctx.lineTo(310, 148 + 22 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(310, 176, 3 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+        ],
+        paintSteps: [
+            {
+                text: "Color the police uniform blue!",
+                voice: "Police officers wear dark blue uniforms — fill in the policeman's body, hat, and legs with dark blue!",
+                color: '#1565C0'
+            },
+            {
+                text: "Paint the bicycle gray!",
+                voice: "Bicycles have shiny metal frames — color the wheels and the frame with cool silver gray!",
+                color: '#757575'
+            },
+            {
+                text: "Color the thief's clothes dark!",
+                voice: "The sneaky thief wears dark clothes so nobody can see him — fill in his body with dark gray!",
+                color: '#37474F'
+            },
+            {
+                text: "Paint the money bag gold!",
+                voice: "That thief is carrying a big bag of gold coins — color it shiny bright yellow!",
+                color: '#FFD700'
+            },
+            {
+                text: "Add skin color to the faces!",
+                voice: "Color both the policeman's and the thief's faces with a warm peach color!",
+                color: '#FFCC80'
+            },
+            {
+                text: "Color the police badge yellow!",
+                voice: "The police badge is shiny gold — color that little star shape on the policeman's chest!",
+                color: '#FFC107'
+            }
         ]
     }
 ];

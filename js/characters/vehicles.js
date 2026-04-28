@@ -200,6 +200,118 @@ export const vehicles = [
         ]
     },
     {
+        id: 'police_gun',
+        name: 'Police Water Gun',
+        emoji: '\u{1F52B}',
+        category: 'vehicles',
+        steps: [
+            {
+                text: "Draw the big water tank body!",
+                voice: "Splat! Let's draw a play police water gun! Start with the big rounded main part — that is where the water sloshes inside, like a tiny water tank on its side.",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    roundRect(ctx, 118, 180, 210 * t, 52 * t, 12 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add the top pump bar!",
+                voice: "The pump bar on top slides so you can squish water through — it looks like a little drawbridge! Draw a smooth bar across the top.",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    roundRect(ctx, 200, 162, 100 * t, 16 * t, 5 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add the bumpy hand grip!",
+                voice: "Under the back is the grip for your hand — wiggle your fingers! Draw a rounded grip so it is comfy to hold, like a bicycle handle in mini size.",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    roundRect(ctx, 120, 232, 40 * t, 58 * t, 8 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add the long barrel and nozzle!",
+                voice: "Out front comes the long barrel, then a tiny round nozzle where the water squirts! Water blasters are toys for the yard on hot days.",
+                draw(ctx, t) {
+                    // Barrel (sits in front of the main tank; slight overlap is OK for a solid toy look)
+                    ctx.beginPath();
+                    roundRect(ctx, 320, 195, 52 * t, 22 * t, 5 * t);
+                    ctx.stroke();
+                    // Tapering nozzle
+                    const bx = 320 + 52 * t;
+                    const hw = 18 * t;
+                    const nm = 206;
+                    ctx.beginPath();
+                    ctx.moveTo(bx, nm - 4 * t);
+                    ctx.lineTo(bx + 14 * t, nm - 4 * t);
+                    ctx.lineTo(bx + hw, nm);
+                    ctx.lineTo(bx + 14 * t, nm + 4 * t);
+                    ctx.lineTo(bx, nm + 4 * t);
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add trigger, star, and spout lines!",
+                voice: "The trigger fits inside a little U-shaped guard — beep boop! Add a small police star on the body and three wavy squirt lines so everyone knows the water is on its way!",
+                draw(ctx, t) {
+                    // Trigger guard (U opening upward)
+                    ctx.beginPath();
+                    ctx.moveTo(220, 232);
+                    ctx.lineTo(220, 252);
+                    ctx.lineTo(220 + 38 * t, 252);
+                    ctx.lineTo(220 + 38 * t, 232);
+                    ctx.stroke();
+                    // Trigger
+                    ctx.beginPath();
+                    ctx.moveTo(248, 232);
+                    ctx.lineTo(250, 232 + 18 * t);
+                    ctx.lineTo(254, 230 + 18 * t);
+                    ctx.stroke();
+                    // Police star on body
+                    const scx = 200;
+                    const scy = 204;
+                    const oR = 9 * t;
+                    const iR = 3.5 * t;
+                    ctx.beginPath();
+                    for (let i = 0; i < 10; i++) {
+                        const a = (i * Math.PI) / 5 - Math.PI / 2;
+                        const r = (i % 2 === 0) ? oR : iR;
+                        const x = scx + r * Math.cos(a);
+                        const y = scy + r * Math.sin(a);
+                        if (i === 0) {
+                            ctx.moveTo(x, y);
+                        } else {
+                            ctx.lineTo(x, y);
+                        }
+                    }
+                    ctx.closePath();
+                    ctx.stroke();
+                    // Spritz lines (growing out from the small nozzle)
+                    for (let i = 0; i < 3; i++) {
+                        const dy = (i - 1) * 4;
+                        ctx.beginPath();
+                        const nx = 390;
+                        ctx.moveTo(nx, 206 + dy);
+                        ctx.lineTo(nx + 22 * t, 206 + dy);
+                        ctx.stroke();
+                    }
+                }
+            }
+        ],
+        paintSteps: [
+            { text: "Color the body police blue!", voice: "Use strong police blue on the main tank so it matches a hero officer on patrol — splash!", color: '#1E3A5F' },
+            { text: "Fill the top pump and grip!", voice: "Paint the pump on top and the bumpy side grip a darker color so they look rubbery and easy to hold!", color: '#263238' },
+            { text: "Color the long barrel silver!", voice: "The metal-looking barrel and nozzle are light silver gray — that is the pipe where the fun squirt comes out!", color: '#B0BEC5' },
+            { text: "Paint the trigger and guard!", voice: "Use a dark color on the little trigger and the guard around it — that is the squeeze spot!", color: '#37474F' },
+            { text: "Add a shiny gold star badge!", voice: "Paint the small star on the water tank bright gold — a hero badge, just for pretend playtime!", color: '#FFC107' },
+            { text: "Add dark squirt lines and outline!", voice: "Use a dark line color on the spritz lines in front and any last outlines so your drawing pops on the page!", color: '#1a1a1a' }
+        ]
+    },
+    {
         id: 'bus',
         name: 'School Bus',
         emoji: '\u{1F68C}',
@@ -1454,6 +1566,242 @@ export const vehicles = [
             { text: "Paint the windshield light blue!", voice: "A light blue windshield so the driver can see the ocean and sky!", color: '#87CEEB' },
             { text: "Add pink surfboard stripes!", voice: "A cute pink and white style for the surfboard on top — beach ready!", color: '#FF6B81' },
             { text: "Paint the big round headlight!", voice: "A bright yellow headlight so you can cruise the beach at sunset and still look cool!", color: '#F1C40F' }
+        ]
+    },
+    {
+        id: 'monster_truck',
+        name: 'Monster Truck',
+        emoji: '🚛',
+        category: 'vehicles',
+        steps: [
+            {
+                text: "Draw the big truck body!",
+                voice: "Vroom vroom! Let's build a monster truck! Start with a big wide rectangle for the body — it's like a giant lunchbox on wheels!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.rect(250 - 170 * t, 195, 340 * t, 90);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add the cab and windshield!",
+                voice: "Now put the cab on top — that's where the brave driver sits! Draw a box with a big window so they can see everything!",
+                draw(ctx, t) {
+                    // Cab roof
+                    ctx.beginPath();
+                    ctx.rect(250 - 130 * t, 148, 260 * t, 47);
+                    ctx.stroke();
+                    // Windshield window
+                    ctx.beginPath();
+                    ctx.rect(250 - 112 * t, 156, 224 * t, 35);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw the HUGE monster wheels!",
+                voice: "Monster trucks have the BIGGEST wheels ever! Draw two giant circles — they're so huge they can crush cars flat!",
+                draw(ctx, t) {
+                    // Left wheel
+                    ctx.beginPath();
+                    ctx.arc(148, 315, 65 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right wheel
+                    ctx.beginPath();
+                    ctx.arc(352, 315, 65 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add the axle and wheel hubs!",
+                voice: "Every monster truck wheel has a hub in the middle like a bullseye! Draw small circles inside the wheels and connect them with a strong axle rod!",
+                draw(ctx, t) {
+                    // Axle rod
+                    ctx.beginPath();
+                    ctx.moveTo(148, 315);
+                    ctx.lineTo(148 + 204 * t, 315);
+                    ctx.stroke();
+                    // Left hub
+                    ctx.beginPath();
+                    ctx.arc(148, 315, 22 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right hub
+                    ctx.beginPath();
+                    ctx.arc(352, 315, 22 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Give it a fierce face!",
+                voice: "Monster trucks have a super fierce face! Add two big headlight eyes on the sides and a growling grille in the middle!",
+                draw(ctx, t) {
+                    // Left headlight
+                    ctx.beginPath();
+                    ctx.ellipse(125, 225, 22 * t, 16 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right headlight
+                    ctx.beginPath();
+                    ctx.ellipse(375, 225, 22 * t, 16 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Grille rectangle
+                    ctx.beginPath();
+                    ctx.rect(250 - 55 * t, 213, 110 * t, 50);
+                    ctx.stroke();
+                    // Grille slat lines
+                    ctx.beginPath();
+                    ctx.moveTo(250 - 55 * t, 230);
+                    ctx.lineTo(250 + 55 * t, 230);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(250 - 55 * t, 247);
+                    ctx.lineTo(250 + 55 * t, 247);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add roof lights and bumper!",
+                voice: "Last step — add three flashing lights on the roof and a tough bumper up front! Now this monster truck is ready to RACE!",
+                draw(ctx, t) {
+                    // Three roof lights
+                    ctx.beginPath();
+                    ctx.arc(192, 148, 10 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(250, 148, 10 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(308, 148, 10 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Front bumper
+                    ctx.beginPath();
+                    ctx.rect(250 - 100 * t, 282, 200 * t, 14);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: "Paint the body bright blue!", voice: "Pick a bold bright blue and fill in the whole truck body and cab — monster trucks love wild colors!", color: '#1E90FF' },
+            { text: "Color the giant wheels black!", voice: "Monster truck tires are super dark and tough — fill in both huge wheels with black!", color: '#1a1a1a' },
+            { text: "Paint the wheel hubs silver!", voice: "The hub in the middle of each wheel shines like metal — fill those circles silver!", color: '#C0C0C0' },
+            { text: "Make the headlights glow yellow!", voice: "Headlights shine bright yellow so the truck can see at night — fill in those oval headlights!", color: '#FFD700' },
+            { text: "Color the grille fierce red!", voice: "Give the truck a powerful red grille — it makes the front look really mean and tough!", color: '#FF4136' },
+            { text: "Paint the roof lights orange!", voice: "Last step — color the three roof lights bright orange, like flashing warning lights on a real race truck!", color: '#FF8C00' }
+        ]
+    },
+    {
+        id: 'racer_bike',
+        name: 'Racer Bike',
+        emoji: '🏍️',
+        category: 'vehicles',
+        steps: [
+            {
+                text: "Draw the sleek racing body!",
+                voice: "Vroom vroom! Let's draw a super fast racing bike! Start with a big oval for the body — racers are low and super speedy!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(248, 235, 115 * t, 52 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add the big round wheels!",
+                voice: "Racing bikes have two big strong wheels! Draw a circle on each side — the back wheel is a little bigger for extra power!",
+                draw(ctx, t) {
+                    // Rear wheel (left)
+                    ctx.beginPath();
+                    ctx.arc(148, 290, 54 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Rear hub ring
+                    ctx.beginPath();
+                    ctx.arc(148, 290, 15 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Front wheel (right)
+                    ctx.beginPath();
+                    ctx.arc(348, 290, 50 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Front hub ring
+                    ctx.beginPath();
+                    ctx.arc(348, 290, 13 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw the seat on top!",
+                voice: "The racing driver sits here! Draw a smooth oval on top of the body — the rider crouches low to go blazing fast!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(235, 186, 67 * t, 23 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add handlebars and front fork!",
+                voice: "Time to steer! Draw the handlebars sticking up at the front, then two lines going down to the wheel — those are called the fork!",
+                draw(ctx, t) {
+                    // Left handlebar grip
+                    ctx.beginPath();
+                    ctx.moveTo(315, 178);
+                    ctx.lineTo(315 - 32 * t, 178 - 10 * t);
+                    ctx.stroke();
+                    // Right handlebar grip
+                    ctx.beginPath();
+                    ctx.moveTo(315, 178);
+                    ctx.lineTo(315 + 26 * t, 178 - 4 * t);
+                    ctx.stroke();
+                    // Front fork - inner line
+                    ctx.beginPath();
+                    ctx.moveTo(322, 215);
+                    ctx.lineTo(322 + 26 * t, 215 + 75 * t);
+                    ctx.stroke();
+                    // Front fork - outer line
+                    ctx.beginPath();
+                    ctx.moveTo(335, 215);
+                    ctx.lineTo(335 + 13 * t, 215 + 75 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw the headlight and windscreen!",
+                voice: "Every racer needs a bright headlight to light the way! Draw a small oval for the light and a swooping curve for the windscreen!",
+                draw(ctx, t) {
+                    // Headlight
+                    ctx.beginPath();
+                    ctx.ellipse(362, 232, 15 * t, 11 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Windscreen
+                    ctx.beginPath();
+                    ctx.moveTo(302, 175);
+                    ctx.bezierCurveTo(
+                        302, 175 - 30 * t,
+                        330, 175 - 35 * t,
+                        302 + 50 * t, 175 - 20 * t
+                    );
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add exhaust pipe and racing stripe!",
+                voice: "The exhaust pipe makes that awesome vroom sound! Add a pipe at the back, then a racing stripe across the middle — now it's a true champion racer!",
+                draw(ctx, t) {
+                    // Exhaust pipe extending from rear
+                    ctx.beginPath();
+                    ctx.moveTo(178, 258);
+                    ctx.lineTo(178 - 68 * t, 258 + 12 * t);
+                    ctx.stroke();
+                    // Racing stripe across body
+                    ctx.beginPath();
+                    ctx.moveTo(145, 228);
+                    ctx.lineTo(145 + 205 * t, 228);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: "Paint the body bright red!", voice: "Racing bikes are bold and fierce! Fill the whole body with a fiery red color — vroom vroom!", color: '#FF1E00' },
+            { text: "Color the wheels black!", voice: "Tires are always black! Fill in both big round wheels with dark black!", color: '#1a1a1a' },
+            { text: "Paint the seat orange!", voice: "The seat is a sporty orange! Fill in the oval on top of the body with bright orange!", color: '#FF8C00' },
+            { text: "Make the headlight shine yellow!", voice: "Light the way with a bright yellow headlight — just like a real racing bike zooming at night!", color: '#FFE000' },
+            { text: "Color the fork and exhaust silver!", voice: "Metal parts are shiny silver! Color the front fork lines and the exhaust pipe with silver!", color: '#C0C0C0' },
+            { text: "Paint the stripe and hubs white!", voice: "Add white to the racing stripe and the center circles of the wheels — now it looks like a champion!", color: '#FFFFFF' }
         ]
     }
 ];
