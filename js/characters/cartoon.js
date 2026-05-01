@@ -3559,5 +3559,631 @@ export const cartoon = [
                 color: '#FFC107'
             }
         ]
+    },
+    {
+        id: 'sri_lanka_beach_hotel',
+        name: 'Sri Lanka beach hotel',
+        emoji: '\u{1F3DD}',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw the sky and the sparkling sea!",
+                voice: "Aloha from beautiful Sri Lanka! First draw the horizon where the sky kisses the ocean, then add soft waves in the water!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.moveTo(20, 142);
+                    ctx.lineTo(20 + 460 * t, 142);
+                    ctx.stroke();
+                    for (let w = 0; w < 3; w++) {
+                        const y0 = 162 + w * 30;
+                        ctx.beginPath();
+                        ctx.moveTo(35, y0);
+                        for (let i = 0; i < 6; i++) {
+                            const ax = 35 + i * 78 * t;
+                            const nx = 35 + (i + 1) * 78 * t;
+                            const midx = (ax + nx) / 2;
+                            const midy = y0 + 5 * t * (i % 2 === 0 ? 1 : -1);
+                            ctx.quadraticCurveTo(midx, midy, nx, y0);
+                        }
+                        ctx.stroke();
+                    }
+                }
+            },
+            {
+                text: "Add the soft sandy beach!",
+                voice: "Sri Lanka has famous golden beaches! Draw a gentle curved line where the waves roll onto the sand in front!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.moveTo(12, 252);
+                    ctx.bezierCurveTo(130, 238 - 8 * t, 370, 252 + 10 * t, 12 + 476 * t, 272);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw the beach hotel building!",
+                voice: "Now the resort hotel — draw a tall rectangle for the walls, then a pointy roof on top like a tropical cabin greeting the sea!",
+                draw(ctx, t) {
+                    const bottom = 276;
+                    const bh = 108 * t;
+                    const bw = 74 * t;
+                    const top = bottom - bh;
+                    const left = 250 - bw;
+                    const right = 250 + bw;
+                    ctx.beginPath();
+                    ctx.moveTo(left, bottom);
+                    ctx.lineTo(right, bottom);
+                    ctx.lineTo(right, top);
+                    ctx.lineTo(left, top);
+                    ctx.closePath();
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(left, top);
+                    ctx.lineTo(250, top - 36 * t);
+                    ctx.lineTo(right, top);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Windows and a welcome door!",
+                voice: "Hotels have lots of windows to see the ocean! Draw three square windows and a big rectangle door where guests walk in!",
+                draw(ctx, t) {
+                    const bottom = 276;
+                    const bh = 108;
+                    const bw = 74;
+                    const top = bottom - bh;
+                    for (let i = 0; i < 3; i++) {
+                        const cx = 196 + i * 54;
+                        ctx.beginPath();
+                        ctx.rect(cx - 15 * t, top + 18, 30 * t, 26 * t);
+                        ctx.stroke();
+                    }
+                    ctx.beginPath();
+                    ctx.moveTo(250 - 18 * t, bottom);
+                    ctx.lineTo(250 - 18 * t, bottom - 42 * t);
+                    ctx.lineTo(250 + 18 * t, bottom - 42 * t);
+                    ctx.lineTo(250 + 18 * t, bottom);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "A tall coconut palm!",
+                voice: "Every Sri Lanka beach picture needs a palm! Draw a curvy trunk and big leafy fronds swaying over the sand!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.moveTo(88, 400);
+                    ctx.quadraticCurveTo(78 + 6 * t, 320, 72 + 10 * t, 248);
+                    ctx.stroke();
+                    const cx = 72;
+                    const cy = 238;
+                    for (let a = 0; a < 6; a++) {
+                        const ang = -0.35 * Math.PI - a * 0.18 * Math.PI;
+                        const len = 48 * t;
+                        ctx.beginPath();
+                        ctx.moveTo(cx, cy);
+                        ctx.quadraticCurveTo(
+                            cx + Math.cos(ang) * len * 0.45,
+                            cy + Math.sin(ang) * len * 0.35,
+                            cx + Math.cos(ang) * len,
+                            cy + Math.sin(ang) * len
+                        );
+                        ctx.stroke();
+                    }
+                }
+            },
+            {
+                text: 'Write "SRI LANKA" and the sun!',
+                voice: "Let's label our picture! Write SRI LANKA big in the sky — then add a bright sun shining over the Indian Ocean!",
+                draw(ctx, t) {
+                    const fs = Math.max(0.1, 28 * t);
+                    ctx.save();
+                    ctx.font = `800 ${fs}px system-ui, sans-serif`;
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'alphabetic';
+                    ctx.lineWidth = Math.max(1, 3 * t);
+                    ctx.strokeText('SRI LANKA', 250, 54);
+                    ctx.restore();
+                    ctx.beginPath();
+                    ctx.arc(418, 56, 22 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            {
+                text: "Paint the sky light blue!",
+                voice: "Fill the sky above the horizon with soft light blue — like a sunny day on the coast!",
+                color: '#81D4FA'
+            },
+            {
+                text: "Color the ocean turquoise!",
+                voice: "The sea near Sri Lanka looks amazing — use bright aqua or turquoise under the horizon line!",
+                color: '#26C6DA'
+            },
+            {
+                text: "Golden beach sand!",
+                voice: "Paint the beach strip with warm golden sand — the kind that feels soft under your toes!",
+                color: '#E6CEA5'
+            },
+            {
+                text: "Hotel walls and roof!",
+                voice: "Try cream or white for the hotel walls, and a warm orange or brown for the roof tiles!",
+                color: '#FFF8E1'
+            },
+            {
+                text: "Green palm and yellow sun!",
+                voice: "Palms love green fronds and brown trunks — and make the sun a happy yellow circle!",
+                color: '#43A047'
+            },
+            {
+                text: "Outline SRI LANKA and details!",
+                voice: "Use a darker color for the letters SRI LANKA and the window outlines so your postcard pops!",
+                color: '#37474F'
+            }
+        ]
+    },
+    // ===== TAJ HOTEL GOA (Taj Fort Aguada–style resort) =====
+    {
+        id: 'taj_hotel_goa',
+        name: 'Taj hotel, Goa',
+        emoji: '\u{1F3E8}',
+        category: 'cartoon',
+        steps: [
+            {
+                text: 'Sky, sea, and sunny Goa beach!',
+                voice:
+                    "Welcome to sunny Goa! Let's draw the horizon where the Arabian Sea meets the sky, then gentle waves and a soft sandy curve along the shore!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.moveTo(15, 128);
+                    ctx.lineTo(15 + 470 * t, 128);
+                    ctx.stroke();
+                    for (let w = 0; w < 4; w++) {
+                        const y0 = 148 + w * 22;
+                        ctx.beginPath();
+                        ctx.moveTo(28, y0);
+                        for (let i = 0; i < 7; i++) {
+                            const ax = 28 + i * 68 * t;
+                            const nx = 28 + (i + 1) * 68 * t;
+                            const midx = (ax + nx) / 2;
+                            const midy = y0 + 4 * t * (i % 2 === 0 ? 1 : -1);
+                            ctx.quadraticCurveTo(midx, midy, nx, y0);
+                        }
+                        ctx.stroke();
+                    }
+                    ctx.beginPath();
+                    ctx.moveTo(10, 268);
+                    ctx.bezierCurveTo(
+                        140,
+                        248 - 10 * t,
+                        360,
+                        278 + 12 * t,
+                        10 + 480 * t,
+                        288
+                    );
+                    ctx.stroke();
+                }
+            },
+            {
+                text: 'Big hotel wings and tall center!',
+                voice:
+                    "Now the Taj resort shape — like Portuguese palaces in Goa! Draw a tall middle block and two side wings so our hotel feels huge and welcoming!",
+                draw(ctx, t) {
+                    const base = 312;
+                    const hc = 122 * t;
+                    const hs = 98 * t;
+                    ctx.beginPath();
+                    ctx.rect(206, base - hc, 88, hc);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.rect(138, base - hs, 62, hs);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.rect(300, base - hs, 62, hs);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: 'Terracotta roofs and tiny chimneys!',
+                voice:
+                    "Classic Goa roofs are orange-red clay tiles! Add three pointed roofs over each wing and two tiny chimney bumps — hotels need kitchens and cozy fireplaces!",
+                draw(ctx, t) {
+                    const base = 312;
+                    const hc = 122;
+                    const hs = 98;
+                    const tc = base - hc;
+                    const ts = base - hs;
+                    ctx.beginPath();
+                    ctx.moveTo(138, ts);
+                    ctx.lineTo(169, ts - 36 * t);
+                    ctx.lineTo(200, ts);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(300, ts);
+                    ctx.lineTo(331, ts - 36 * t);
+                    ctx.lineTo(362, ts);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(206, tc);
+                    ctx.lineTo(250, tc - 42 * t);
+                    ctx.lineTo(294, tc);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(218, tc - 42 * t);
+                    ctx.lineTo(218, tc - (42 + 14) * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(282, tc - 42 * t);
+                    ctx.lineTo(282, tc - (42 + 14) * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: 'Arches, columns, and grand entrance!',
+                voice:
+                    "Under the arches guests stroll like royalty! Draw curved Portuguese arches along the ground floor, little columns, and wide entrance steps at the center!",
+                draw(ctx, t) {
+                    const base = 312;
+                    const hs = 98;
+                    const ts = base - hs;
+                    const archCenters = [154, 184, 214, 286, 316, 346];
+                    for (let i = 0; i < archCenters.length; i++) {
+                        const cx = archCenters[i];
+                        ctx.beginPath();
+                        ctx.arc(cx, ts + 2, 13 * t, Math.PI, Math.PI * 2);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.moveTo(cx - 13 * t, ts + 2);
+                        ctx.lineTo(cx - 13 * t, base);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.moveTo(cx + 13 * t, ts + 2);
+                        ctx.lineTo(cx + 13 * t, base);
+                        ctx.stroke();
+                    }
+                    ctx.beginPath();
+                    ctx.moveTo(232, base);
+                    ctx.lineTo(232, ts + 18 * t);
+                    ctx.lineTo(268, ts + 18 * t);
+                    ctx.lineTo(268, base);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(238, base);
+                    ctx.lineTo(238 + 24 * t, base + 18 * t);
+                    ctx.lineTo(262 - 24 * t, base + 18 * t);
+                    ctx.lineTo(262, base);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: 'Rows of windows, balconies, railings!',
+                voice:
+                    "Hotels sparkle with tiny squares of light! Pack in rows of windows on every floor, thin balcony lines, and short railings — lots of little rectangles make it feel real!",
+                draw(ctx, t) {
+                    const rows = [
+                        { y: 196, xs: [148, 164, 180, 308, 324, 340] },
+                        { y: 216, xs: [148, 164, 180, 308, 324, 340] },
+                        { y: 236, xs: [154, 178, 322, 346] },
+                        { y: 218, xs: [218, 234, 266, 282] },
+                        { y: 198, xs: [226, 274] }
+                    ];
+                    for (const row of rows) {
+                        for (const x of row.xs) {
+                            ctx.beginPath();
+                            ctx.rect(x - 7 * t, row.y, 14 * t, 12 * t);
+                            ctx.stroke();
+                        }
+                    }
+                    ctx.beginPath();
+                    ctx.moveTo(212, 188);
+                    ctx.lineTo(288, 188);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(212, 208);
+                    ctx.lineTo(288, 208);
+                    ctx.stroke();
+                    for (let gx = 216; gx <= 284; gx += 17) {
+                        ctx.beginPath();
+                        ctx.moveTo(gx, 188);
+                        ctx.lineTo(gx, 188 + 8 * t);
+                        ctx.stroke();
+                    }
+                    ctx.beginPath();
+                    ctx.moveTo(212, 252);
+                    ctx.lineTo(288, 252);
+                    ctx.stroke();
+                    for (let gx = 218; gx <= 282; gx += 10) {
+                        ctx.beginPath();
+                        ctx.moveTo(gx, 252);
+                        ctx.lineTo(gx, 252 + 6 * t);
+                        ctx.stroke();
+                    }
+                }
+            },
+            {
+                text: 'Palms, sun, and “hello Goa” sparkle!',
+                voice:
+                    "Finish with swaying coconut palms and a bright sun — your Taj in Goa is ready for vacation selfies and endless mango juice!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.moveTo(72, 402);
+                    ctx.quadraticCurveTo(62 + 8 * t, 318, 58 + 12 * t, 248);
+                    ctx.stroke();
+                    const lx = 58;
+                    const ly = 238;
+                    for (let a = 0; a < 7; a++) {
+                        const ang = -0.32 * Math.PI - a * 0.15 * Math.PI;
+                        const len = 52 * t;
+                        ctx.beginPath();
+                        ctx.moveTo(lx, ly);
+                        ctx.quadraticCurveTo(
+                            lx + Math.cos(ang) * len * 0.5,
+                            ly + Math.sin(ang) * len * 0.35,
+                            lx + Math.cos(ang) * len,
+                            ly + Math.sin(ang) * len
+                        );
+                        ctx.stroke();
+                    }
+                    ctx.beginPath();
+                    ctx.moveTo(428, 398);
+                    ctx.quadraticCurveTo(438 - 8 * t, 312, 442 - 12 * t, 252);
+                    ctx.stroke();
+                    const rx = 442;
+                    const ry = 242;
+                    for (let a = 0; a < 7; a++) {
+                        const ang = -0.68 * Math.PI + a * 0.15 * Math.PI;
+                        const len = 52 * t;
+                        ctx.beginPath();
+                        ctx.moveTo(rx, ry);
+                        ctx.quadraticCurveTo(
+                            rx + Math.cos(ang) * len * 0.5,
+                            ry + Math.sin(ang) * len * 0.35,
+                            rx + Math.cos(ang) * len,
+                            ry + Math.sin(ang) * len
+                        );
+                        ctx.stroke();
+                    }
+                    ctx.beginPath();
+                    ctx.arc(418, 58, 26 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    for (let r = 0; r < 10; r++) {
+                        const ang = (r / 10) * Math.PI * 2;
+                        ctx.beginPath();
+                        ctx.moveTo(418 + Math.cos(ang) * 26 * t, 58 + Math.sin(ang) * 26 * t);
+                        ctx.lineTo(418 + Math.cos(ang) * 38 * t, 58 + Math.sin(ang) * 38 * t);
+                        ctx.stroke();
+                    }
+                    ctx.save();
+                    ctx.font = `700 ${Math.max(1, 14 * t)}px system-ui, sans-serif`;
+                    ctx.textAlign = 'center';
+                    ctx.strokeText('GOA', 250, 118);
+                    ctx.restore();
+                }
+            }
+        ],
+        paintSteps: [
+            {
+                text: 'Soft blue sky!',
+                voice: 'Paint the sky a happy light blue — perfect tropical Goa weather!',
+                color: '#90CAF9'
+            },
+            {
+                text: 'Turquoise Arabian Sea!',
+                voice: 'Below the horizon, use aqua or turquoise for the sparkling sea!',
+                color: '#26C6DA'
+            },
+            {
+                text: 'Warm beach sand!',
+                voice: 'Color the shore sandy beige or golden — warm under bare feet!',
+                color: '#E8D4B0'
+            },
+            {
+                text: 'Creamy hotel walls!',
+                voice: 'Try ivory or soft cream on the big walls — like sun-bleached limestone!',
+                color: '#FFFDE7'
+            },
+            {
+                text: 'Terracotta roof tiles!',
+                voice: 'Roofs love rusty orange-red terracotta — classic Portuguese Goa style!',
+                color: '#D84315'
+            },
+            {
+                text: 'Green palms & yellow sun!',
+                voice: 'Palms get rich green, and make the sun bright lemon yellow with orange rays!',
+                color: '#FFC107'
+            }
+        ]
+    },
+    // ===== RADISSON HOTEL SRI LANKA (modern Colombo-style tower) =====
+    {
+        id: 'radisson_hotel_sri_lanka',
+        name: 'Radisson hotel, Sri Lanka',
+        emoji: '\u{1F3E8}',
+        category: 'cartoon',
+        steps: [
+            {
+                text: 'Indian Ocean sky and shore!',
+                voice:
+                    "Let's visit Sri Lanka! Draw the horizon where the sky meets the Indian Ocean, soft waves, and a sunny curve of beach — perfect for a seaside city hotel!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.moveTo(16, 130);
+                    ctx.lineTo(16 + 468 * t, 130);
+                    ctx.stroke();
+                    for (let w = 0; w < 3; w++) {
+                        const y0 = 150 + w * 28;
+                        ctx.beginPath();
+                        ctx.moveTo(28, y0);
+                        for (let i = 0; i < 6; i++) {
+                            const ax = 28 + i * 76 * t;
+                            const nx = 28 + (i + 1) * 76 * t;
+                            const midx = (ax + nx) / 2;
+                            const midy = y0 + 5 * t * (i % 2 === 0 ? 1 : -1);
+                            ctx.quadraticCurveTo(midx, midy, nx, y0);
+                        }
+                        ctx.stroke();
+                    }
+                    ctx.beginPath();
+                    ctx.moveTo(10, 282);
+                    ctx.bezierCurveTo(
+                        145,
+                        262 - 10 * t,
+                        355,
+                        292 + 12 * t,
+                        10 + 480 * t,
+                        302
+                    );
+                    ctx.stroke();
+                }
+            },
+            {
+                text: 'Lobby base and glass tower!',
+                voice:
+                    "Radisson hotels feel tall and welcoming! Draw a wide rectangle for the lobby and ballroom floors, then a slim tower rising straight up — like the shiny hotels in Colombo!",
+                draw(ctx, t) {
+                    const base = 318;
+                    const ph = 54 * t;
+                    const tw = 94 * t;
+                    const th = 172 * t;
+                    const towerLeft = 203;
+                    ctx.beginPath();
+                    ctx.rect(112, base - ph, 276, ph);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.rect(towerLeft, base - ph - th, tw, th);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: 'Rooftop crown and antenna!',
+                voice:
+                    "Way up top, add a flat rooftop crown — that's where restaurants and pools sometimes hide! A tiny pole or antenna marks the very peak!",
+                draw(ctx, t) {
+                    const base = 318;
+                    const ph = 54;
+                    const th = 172;
+                    const towerTop = base - ph - th;
+                    ctx.beginPath();
+                    ctx.rect(178, towerTop - 20 * t, 144, 20 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(250, towerTop - 20 * t);
+                    ctx.lineTo(250, towerTop - (20 + 28) * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(250, towerTop - (20 + 28) * t, 4 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: 'Floor lines on the tower!',
+                voice:
+                    "Glass towers have rows of floors! Draw smooth horizontal lines across the tall part — each line is like a stack of guest-room windows!",
+                draw(ctx, t) {
+                    const base = 318;
+                    const ph = 54;
+                    const th = 172;
+                    const towerTop = base - ph - th;
+                    const left = 203;
+                    const w = 94;
+                    for (let i = 1; i <= 8; i++) {
+                        const y = towerTop + (th / 9) * i;
+                        ctx.beginPath();
+                        ctx.moveTo(left, y);
+                        ctx.lineTo(left + w * t, y);
+                        ctx.stroke();
+                    }
+                }
+            },
+            {
+                text: 'Windows and Grand Entrance!',
+                voice:
+                    "Fill the tower with neat rectangles for windows! Down at street level, draw a wide glass entrance — that's where travelers roll their suitcases inside!",
+                draw(ctx, t) {
+                    const base = 318;
+                    const ph = 54;
+                    const th = 172;
+                    const towerTop = base - ph - th;
+                    const left = 203;
+                    const cols = [218, 238, 258, 278];
+                    const rows = [towerTop + 22, towerTop + 52, towerTop + 82, towerTop + 112, towerTop + 142];
+                    for (const y of rows) {
+                        for (const cx of cols) {
+                            ctx.beginPath();
+                            ctx.rect(cx - 9 * t, y - 8 * t, 18 * t, 14 * t);
+                            ctx.stroke();
+                        }
+                    }
+                    ctx.beginPath();
+                    ctx.moveTo(250 - 48 * t, base);
+                    ctx.lineTo(250 - 48 * t, base - 38 * t);
+                    ctx.quadraticCurveTo(250, base - 46 * t, 250 + 48 * t, base - 38 * t);
+                    ctx.lineTo(250 + 48 * t, base);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(232, base);
+                    ctx.lineTo(232, base - 32 * t);
+                    ctx.lineTo(268, base - 32 * t);
+                    ctx.lineTo(268, base);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: 'Write “SRI LANKA” in the sky!',
+                voice:
+                    "Let's celebrate the island! Stroke the big words SRI LANKA above the waves — then a sunny circle so everyone knows this postcard is from beautiful Sri Lanka!",
+                draw(ctx, t) {
+                    const fs = Math.max(0.1, 22 * t);
+                    ctx.save();
+                    ctx.font = `800 ${fs}px system-ui, sans-serif`;
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'alphabetic';
+                    ctx.lineWidth = Math.max(1, 2.5 * t);
+                    ctx.strokeText('SRI LANKA', 250, 62);
+                    ctx.restore();
+                    ctx.beginPath();
+                    ctx.arc(412, 58, 20 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    for (let r = 0; r < 8; r++) {
+                        const ang = (r / 8) * Math.PI * 2 - Math.PI / 2;
+                        ctx.beginPath();
+                        ctx.moveTo(412 + Math.cos(ang) * 22 * t, 58 + Math.sin(ang) * 22 * t);
+                        ctx.lineTo(412 + Math.cos(ang) * 34 * t, 58 + Math.sin(ang) * 34 * t);
+                        ctx.stroke();
+                    }
+                }
+            }
+        ],
+        paintSteps: [
+            {
+                text: 'Soft blue sky!',
+                voice: 'Paint the sky a cheerful light blue — sunny Sri Lanka weather!',
+                color: '#81D4FA'
+            },
+            {
+                text: 'Turquoise ocean!',
+                voice: 'Below the horizon, use bright aqua for the Indian Ocean!',
+                color: '#26C6DA'
+            },
+            {
+                text: 'Warm beach sand!',
+                voice: 'Color the shore golden beige — tropical coastline!',
+                color: '#E8D4B0'
+            },
+            {
+                text: 'Glassy tower blues!',
+                voice: 'Try icy blue-gray on the tower glass, a bit lighter on the podium — modern hotel shine!',
+                color: '#B0BEC5'
+            },
+            {
+                text: 'Deep entrance glass!',
+                voice: 'The canopy and door glass can be darker teal or navy so the entrance pops!',
+                color: '#006064'
+            },
+            {
+                text: 'Yellow sun & letter outlines!',
+                voice: 'Make the sun lemon yellow with orange rays, and use a dark teal or gray for the SRI LANKA letters!',
+                color: '#FFC107'
+            }
+        ]
     }
 ];
