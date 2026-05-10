@@ -2251,5 +2251,133 @@ export const fantasy = [
             { text: "Color the star and rivets gold-yellow!", voice: "Fill the little star and dots with a sunny gold yellow to match the fun!", color: '#FFD700' },
             { text: "Paint the trigger and outlines dark gray!", voice: "Use a soft dark gray for the trigger, guard lines, and tiny details in the cracker design!", color: '#3D3D4A' }
         ]
+    },
+
+    // ===== B'ZORP (Beach Buggy Racing) =====
+    {
+        id: 'bzorp_bbr',
+        name: "B'ZORP",
+        emoji: '👽',
+        category: 'fantasy',
+        steps: [
+            {
+                text: "Draw B'ZORP's green alien head!",
+                voice: "Let's draw B'ZORP the alien racer from outer space! Start with a round green head!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.arc(250, 160, 55 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add the glass dome brain!",
+                voice: "B'ZORP has a big glass dome on top of his head where his brain lives! Draw a bubble dome!",
+                draw(ctx, t) {
+                    // Glass dome
+                    ctx.beginPath();
+                    ctx.ellipse(250, 120, 50 * t, 45 * t, 0, 0, Math.PI);
+                    ctx.stroke();
+                    // Dome base circle
+                    ctx.beginPath();
+                    ctx.ellipse(250, 122, 50 * t, 8 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw his orange space suit!",
+                voice: "B'ZORP wears a cool orange space suit! Draw his body with the suit outline!",
+                draw(ctx, t) {
+                    // Neck
+                    ctx.beginPath();
+                    ctx.moveTo(240, 210);
+                    ctx.lineTo(240, 210 + 15 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(260, 210);
+                    ctx.lineTo(260, 210 + 15 * t);
+                    ctx.stroke();
+                    // Suit body
+                    ctx.beginPath();
+                    ctx.moveTo(195, 225);
+                    ctx.lineTo(195, 225 + 65 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(305, 225);
+                    ctx.lineTo(305, 225 + 65 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(195, 290);
+                    ctx.lineTo(195 + 110 * t, 290);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add antenna and arms!",
+                voice: "B'ZORP has an antenna sticking up from his head! Draw the antenna and his grey gloved arms!",
+                draw(ctx, t) {
+                    // Antenna
+                    ctx.beginPath();
+                    ctx.moveTo(250, 75);
+                    ctx.lineTo(250, 75 - 30 * t);
+                    ctx.stroke();
+                    // Antenna bulb
+                    ctx.beginPath();
+                    ctx.arc(250, 75 - 35 * t, 6 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Left arm
+                    ctx.beginPath();
+                    ctx.moveTo(195, 245);
+                    ctx.lineTo(195 - 35 * t, 245 + 25 * t);
+                    ctx.stroke();
+                    // Left glove
+                    ctx.beginPath();
+                    ctx.arc(195 - 40 * t, 275, 8 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right arm
+                    ctx.beginPath();
+                    ctx.moveTo(305, 245);
+                    ctx.lineTo(305 + 35 * t, 245 + 25 * t);
+                    ctx.stroke();
+                    // Right glove
+                    ctx.beginPath();
+                    ctx.arc(305 + 40 * t, 275, 8 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add his alien eyes!",
+                voice: "B'ZORP has cool vertical alien eyes with yellow! Draw two eyes and color them yellow!",
+                draw(ctx, t) {
+                    // Left eye white (yellow sclera)
+                    ctx.beginPath();
+                    ctx.ellipse(225, 160, 12 * t, 16 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Left eye pupil (vertical)
+                    ctx.beginPath();
+                    ctx.ellipse(225, 160, 3 * t, 8 * t, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Right eye white
+                    ctx.beginPath();
+                    ctx.ellipse(275, 160, 12 * t, 16 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right eye pupil (vertical)
+                    ctx.beginPath();
+                    ctx.ellipse(275, 160, 3 * t, 8 * t, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Alien mouth
+                    ctx.beginPath();
+                    ctx.arc(250, 180, 8, 0.2 * Math.PI, 0.2 * Math.PI + 0.6 * Math.PI * t);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: 'Bright green skin!', voice: 'Color B\'ZORP\'s head bright green — an alien from space!', color: '#76FF03' },
+            { text: 'Glass dome!', voice: 'Paint the brain dome light blue or clear — like glass!', color: '#B3E5FC' },
+            { text: 'Orange space suit!', voice: 'Color the suit bright orange — futuristic and cool!', color: '#FF6F00' },
+            { text: 'Yellow eyes!', voice: 'Paint the eyes bright yellow — alien eyes!', color: '#FFD600' },
+            { text: 'Grey gloves and boots!', voice: 'Color the gloves and boots grey or silver!', color: '#9E9E9E' },
+            { text: 'Yellow scars!', voice: 'Add yellow scar marks on the face — battle-tested alien!', color: '#FFD600' }
+        ]
     }
 ];

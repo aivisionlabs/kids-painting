@@ -4185,5 +4185,682 @@ export const cartoon = [
                 color: '#FFC107'
             }
         ]
+    },
+
+    // ===== REZ (Beach Buggy Racing) =====
+    {
+        id: 'rez_beach_buggy',
+        name: 'REZ',
+        emoji: '🏁',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw the buggy body!",
+                voice: "Let's draw REZ's awesome beach buggy! Start with a big wide oval for the buggy body — nice and round like a watermelon on wheels!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(250, 252, 118 * t, 30 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add the big chunky tires!",
+                voice: "Beach buggies have huge chunky tires for zooming across the sand! Draw two big circles for the wheels, one on each side!",
+                draw(ctx, t) {
+                    // Left wheel
+                    ctx.beginPath();
+                    ctx.arc(170, 293, 37 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(170, 293, 13 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Right wheel
+                    ctx.beginPath();
+                    ctx.arc(330, 293, 37 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(330, 293, 13 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            },
+            {
+                text: "Draw the safety roll bar!",
+                voice: "Every cool beach buggy has a big safety hoop called a roll bar! Draw a big rainbow arch over the top of the buggy!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.moveTo(200, 236);
+                    ctx.bezierCurveTo(
+                        200, 236 - 72 * t,
+                        300, 236 - 72 * t,
+                        200 + 100 * t, 236
+                    );
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw REZ's head and spiky hair!",
+                voice: "Now let's draw REZ the fearless driver! Draw a round head inside the buggy, then add his wild spiky reddish-brown hair on top!",
+                draw(ctx, t) {
+                    // Head
+                    ctx.beginPath();
+                    ctx.arc(250, 198, 30 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Left hair spike
+                    ctx.beginPath();
+                    ctx.moveTo(230, 172);
+                    ctx.lineTo(223, 172 - 20 * t);
+                    ctx.lineTo(238, 172 - 6 * t);
+                    ctx.stroke();
+                    // Centre hair spike (tallest)
+                    ctx.beginPath();
+                    ctx.moveTo(248, 169);
+                    ctx.lineTo(250, 169 - 26 * t);
+                    ctx.lineTo(263, 169 - 7 * t);
+                    ctx.stroke();
+                    // Right hair spike
+                    ctx.beginPath();
+                    ctx.moveTo(266, 173);
+                    ctx.lineTo(274, 173 - 16 * t);
+                    ctx.lineTo(278, 173 - 3 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add eyes, smile and cool goggles!",
+                voice: "REZ is always smiling because racing is so fun! Draw his bright eyes, a big happy grin, and those awesome red racing goggles sitting on his forehead!",
+                draw(ctx, t) {
+                    // Eyes
+                    ctx.beginPath();
+                    ctx.arc(239, 200, 5 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(261, 200, 5 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Smile
+                    ctx.beginPath();
+                    ctx.arc(250, 203, 12, 0.1 * Math.PI, 0.1 * Math.PI + 0.8 * Math.PI * t);
+                    ctx.stroke();
+                    // Goggles — two oval lenses on forehead
+                    ctx.beginPath();
+                    ctx.ellipse(238, 186, 10 * t, 6 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(262, 186, 10 * t, 6 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Goggle bridge
+                    ctx.beginPath();
+                    ctx.moveTo(248, 186);
+                    ctx.lineTo(248 + 4 * t, 186);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: 'Red racing jacket!', voice: 'Color REZ\'s jacket bright red with bold black stripes — he means business on the track!', color: '#E53935' },
+            { text: 'Sandy buggy body!', voice: 'Paint the buggy body sandy tan or bright orange — classic beach buggy style!', color: '#FF8F00' },
+            { text: 'Black chunky tires!', voice: 'Make the tires jet black with grey hub caps — chunky and tough!', color: '#212121' },
+            { text: 'Silver roll bar!', voice: 'Paint the roll bar shiny silver — it keeps REZ safe at top speed!', color: '#9E9E9E' },
+            { text: 'Brown spiky hair!', voice: 'Color REZ\'s wild spiky hair reddish-brown — as wild as his driving!', color: '#6D4C41' },
+            { text: 'Red racing goggles!', voice: 'Paint his goggles bright red — they match his jacket perfectly!', color: '#F44336' }
+        ]
+    },
+
+    // ===== LEILANI (Beach Buggy Racing) =====
+    {
+        id: 'leilani_beach_buggy',
+        name: 'Leilani',
+        emoji: '🌺',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw Leilani's round face!",
+                voice: "Let's draw Leilani the island racer! Start with a big round oval for her pretty face!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(250, 138, 53 * t, 55 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add her long dark hair!",
+                voice: "Leilani has gorgeous long dark hair! Draw the hair dome on top and let it flow down both sides like a waterfall!",
+                draw(ctx, t) {
+                    // Hair dome
+                    ctx.beginPath();
+                    ctx.moveTo(200, 108);
+                    ctx.bezierCurveTo(215, 80, 285, 80, 200 + 100 * t, 108);
+                    ctx.stroke();
+                    // Left strand flows down
+                    ctx.beginPath();
+                    ctx.moveTo(196, 115);
+                    ctx.bezierCurveTo(185, 155, 183, 190, 196 - 8 * t, 115 + 100 * t);
+                    ctx.stroke();
+                    // Right strand flows down
+                    ctx.beginPath();
+                    ctx.moveTo(304, 115);
+                    ctx.bezierCurveTo(315, 155, 317, 190, 304 + 8 * t, 115 + 100 * t);
+                    ctx.stroke();
+                    // Bangs
+                    ctx.beginPath();
+                    ctx.moveTo(205, 122);
+                    ctx.bezierCurveTo(225, 138, 275, 138, 205 + 85 * t, 122);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add tropical flowers in her hair!",
+                voice: "Leilani always wears pretty pink tropical flowers! Draw some round petals — they look like little suns!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.arc(200, 110, 9 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(200, 99, 6 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(188, 113, 6 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(212, 113, 6 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw her island outfit!",
+                voice: "Leilani wears a cool tropical outfit! Draw her shoulders and a swishy leaf skirt below!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.moveTo(237, 190);
+                    ctx.lineTo(237, 190 + 20 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(263, 190);
+                    ctx.lineTo(263, 190 + 20 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(237, 210);
+                    ctx.lineTo(237 - 50 * t, 210 + 8 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(263, 210);
+                    ctx.lineTo(263 + 50 * t, 210 + 8 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(187, 218);
+                    ctx.lineTo(182, 218 + 50 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(313, 218);
+                    ctx.lineTo(318, 218 + 50 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(210, 270);
+                    ctx.bezierCurveTo(205, 295, 200, 315, 210, 270 + 60 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(250, 270);
+                    ctx.bezierCurveTo(248, 297, 248, 320, 250, 270 + 65 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(290, 270);
+                    ctx.bezierCurveTo(295, 295, 300, 315, 290, 270 + 60 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add her beautiful face!",
+                voice: "Now draw Leilani's happy face! Add her bright eyes, a cute nose, and a big tropical smile!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(225, 138, 10 * t, 7 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(225, 138, 4 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.ellipse(275, 138, 10 * t, 7 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(275, 138, 4 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(250, 150, 3 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(250, 160, 14, 0.1 * Math.PI, 0.1 * Math.PI + 0.8 * Math.PI * t);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: 'Warm brown skin!', voice: 'Color Leilani\'s skin warm golden brown — she loves island sun!', color: '#8D5524' },
+            { text: 'Dark flowing hair!', voice: 'Paint her hair dark brown or black — long and shiny!', color: '#3E2723' },
+            { text: 'Pink tropical flowers!', voice: 'Make the flowers bright pink — they match her tropical vibe!', color: '#E91E63' },
+            { text: 'Turquoise outfit!', voice: 'Paint her top turquoise or lilac — island colors!', color: '#26C6DA' },
+            { text: 'Green leaf skirt!', voice: 'Color the palm skirt fresh tropical green!', color: '#43A047' },
+            { text: 'Pink eyeshadow!', voice: 'Add soft pink eyeshadow — glamorous island style!', color: '#F48FB1' }
+        ]
+    },
+
+    // ===== BEACH BRO (Beach Buggy Racing) =====
+    {
+        id: 'beach_bro_bbr',
+        name: 'Beach Bro',
+        emoji: '🌊',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw Beach Bro's round head!",
+                voice: "Let's draw Beach Bro the chill dude! Start with a big round head — he's always happy and relaxed!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.arc(250, 160, 58 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add his straw beach hat!",
+                voice: "Beach Bro always wears a cool straw hat! Draw a flat-topped dome on his head — perfect for sunny days!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(250, 112, 70 * t, 35 * t, 0, Math.PI, 0);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(250, 127, 85 * t, 12 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw his blue Hawaiian shirt!",
+                voice: "Beach Bro wears a groovy blue Hawaiian shirt with white flowers! Draw his shirt with a collar!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.moveTo(240, 210);
+                    ctx.lineTo(240, 210 + 15 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(260, 210);
+                    ctx.lineTo(260, 210 + 15 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(240, 225);
+                    ctx.lineTo(240 - 15 * t, 225 + 8 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(260, 225);
+                    ctx.lineTo(260 + 15 * t, 225 + 8 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(190, 225);
+                    ctx.lineTo(190, 225 + 60 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(310, 225);
+                    ctx.lineTo(310, 225 + 60 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(190, 285);
+                    ctx.lineTo(190 + 120 * t, 285);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(210, 285);
+                    ctx.lineTo(210, 285 + 30 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(290, 285);
+                    ctx.lineTo(290, 285 + 30 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add cool sunglasses!",
+                voice: "Beach Bro never takes off his cool sunglasses! Draw two dark ovals for the shades with an orange tint!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(220, 160, 18 * t, 12 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(220, 160, 14 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.ellipse(280, 160, 18 * t, 12 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(280, 160, 14 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.moveTo(238, 160);
+                    ctx.lineTo(238 + 4 * t, 160);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(250, 175, 12, 0.1 * Math.PI, 0.1 * Math.PI + 0.8 * Math.PI * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add arms and flip-flops!",
+                voice: "Draw his arms and cozy brown flip-flops! Beach Bro is always ready to chill on the beach!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.moveTo(190, 235);
+                    ctx.lineTo(190 - 35 * t, 235 + 35 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(310, 235);
+                    ctx.lineTo(310 + 35 * t, 235 + 35 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(220, 315);
+                    ctx.lineTo(220 - 15 * t, 315 + 35 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(280, 315);
+                    ctx.lineTo(280 + 15 * t, 315 + 35 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(205, 345, 18 * t, 8 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(295, 345, 18 * t, 8 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: 'Light blue skin!', voice: 'Color Beach Bro\'s skin light blue — he\'s got that cool beach vibe!', color: '#81D4FA' },
+            { text: 'Straw hat tan!', voice: 'Paint the hat tan or golden brown — classic straw color!', color: '#D4A574' },
+            { text: 'Blue Hawaiian shirt!', voice: 'Color the shirt bright blue with white flower petals!', color: '#0277BD' },
+            { text: 'Orange shorts!', voice: 'Paint the shorts bright orange — super beach dude!', color: '#FF6F00' },
+            { text: 'Dark sunglasses!', voice: 'Make the shades dark brown or black with an orange tint!', color: '#424242' },
+            { text: 'Brown flip-flops!', voice: 'Color the flip-flops warm brown — perfect for beach walks!', color: '#6D4C41' }
+        ]
+    },
+
+    // ===== DISCO JIMMY (Beach Buggy Racing) =====
+    {
+        id: 'disco_jimmy_bbr',
+        name: 'Disco Jimmy',
+        emoji: '🕺',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw Disco Jimmy's head!",
+                voice: "Let's draw Disco Jimmy the groovy dancer! Start with a round head — he loves the 70s!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.arc(250, 150, 55 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add his cool brown afro!",
+                voice: "Disco Jimmy rocks a fantastic brown afro! Draw fluffy circles around his head for that disco style!",
+                draw(ctx, t) {
+                    // Top afro dome
+                    ctx.beginPath();
+                    ctx.ellipse(250, 110, 65 * t, 50 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Left afro bulge
+                    ctx.beginPath();
+                    ctx.ellipse(195, 145, 35 * t, 40 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right afro bulge
+                    ctx.beginPath();
+                    ctx.ellipse(305, 145, 35 * t, 40 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add purple groovy shades!",
+                voice: "Disco Jimmy never takes off his cool purple shades! Draw two ovals with a golden bridge!",
+                draw(ctx, t) {
+                    // Left lens
+                    ctx.beginPath();
+                    ctx.ellipse(220, 150, 16 * t, 11 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(220, 150, 12 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Right lens
+                    ctx.beginPath();
+                    ctx.ellipse(280, 150, 16 * t, 11 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(280, 150, 12 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Golden bridge
+                    ctx.beginPath();
+                    ctx.moveTo(236, 150);
+                    ctx.lineTo(236 + 8 * t, 150);
+                    ctx.stroke();
+                    // Smile
+                    ctx.beginPath();
+                    ctx.arc(250, 170, 10, 0.15 * Math.PI, 0.15 * Math.PI + 0.7 * Math.PI * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw his groovy purple shirt!",
+                voice: "Disco Jimmy wears a purple disco shirt with a white vest! Draw the shirt and vest outline!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.moveTo(240, 205);
+                    ctx.lineTo(240, 205 + 50 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(260, 205);
+                    ctx.lineTo(260, 205 + 50 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(190, 205);
+                    ctx.lineTo(190, 205 + 50 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(310, 205);
+                    ctx.lineTo(310, 205 + 50 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(190, 255);
+                    ctx.lineTo(190 + 120 * t, 255);
+                    ctx.stroke();
+                    // White vest diamond
+                    ctx.beginPath();
+                    ctx.moveTo(250, 215);
+                    ctx.lineTo(250 + 20 * t, 235);
+                    ctx.lineTo(250, 255);
+                    ctx.lineTo(250 - 20 * t, 235);
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add bell bottoms and peace belt!",
+                voice: "Draw his groovy white bell bottom jeans and a peace symbol belt buckle! Peace and love!",
+                draw(ctx, t) {
+                    // Left leg
+                    ctx.beginPath();
+                    ctx.moveTo(225, 255);
+                    ctx.lineTo(220 - 15 * t, 255 + 60 * t);
+                    ctx.stroke();
+                    // Right leg
+                    ctx.beginPath();
+                    ctx.moveTo(275, 255);
+                    ctx.lineTo(280 + 15 * t, 255 + 60 * t);
+                    ctx.stroke();
+                    // Left pant flare (bell bottom)
+                    ctx.beginPath();
+                    ctx.moveTo(220 - 15 * t, 315);
+                    ctx.lineTo(220 - 25 * t, 315);
+                    ctx.stroke();
+                    // Right pant flare
+                    ctx.beginPath();
+                    ctx.moveTo(280 + 15 * t, 315);
+                    ctx.lineTo(280 + 25 * t, 315);
+                    ctx.stroke();
+                    // Peace symbol belt buckle
+                    ctx.beginPath();
+                    ctx.arc(250, 260, 12 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Peace symbol inside
+                    ctx.beginPath();
+                    ctx.moveTo(250, 250);
+                    ctx.lineTo(250, 270);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(250, 265, 5 * t, 0.2 * Math.PI, 0.8 * Math.PI);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: 'Brown skin!', voice: 'Color Disco Jimmy\'s face and skin warm brown!', color: '#8D6E63' },
+            { text: 'Brown afro!', voice: 'Paint the afro dark brown — big and fluffy!', color: '#5D4037' },
+            { text: 'Purple shades!', voice: 'Color the shades purple with a golden frame!', color: '#7C4DFF' },
+            { text: 'Purple shirt!', voice: 'Paint the shirt bright purple — super groovy!', color: '#6A1B9A' },
+            { text: 'White vest and pants!', voice: 'Paint the vest white and the bell bottoms white too!', color: '#FFFFFF' },
+            { text: 'Purple accents!', voice: 'Add purple stripes on the pants — pure 70s disco style!', color: '#7C4DFF' }
+        ]
+    },
+
+    // ===== ROXIE ROLLER (Beach Buggy Racing) =====
+    {
+        id: 'roxie_roller_bbr',
+        name: 'Roxie Roller',
+        emoji: '🛼',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw Roxie's tough round head!",
+                voice: "Let's draw Roxie Roller the tough roller derby queen! Start with a strong round head!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.arc(250, 145, 52 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add pink edgy hair!",
+                voice: "Roxie has wild pink hair that sticks up! Draw spiky hair on top — she's tough and fearless!",
+                draw(ctx, t) {
+                    // Hair crown
+                    ctx.beginPath();
+                    ctx.ellipse(250, 105, 60 * t, 40 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Left spike
+                    ctx.beginPath();
+                    ctx.moveTo(210, 115);
+                    ctx.lineTo(200, 115 - 20 * t);
+                    ctx.lineTo(220, 110);
+                    ctx.stroke();
+                    // Middle spike
+                    ctx.beginPath();
+                    ctx.moveTo(250, 105);
+                    ctx.lineTo(250, 105 - 25 * t);
+                    ctx.lineTo(260, 105);
+                    ctx.stroke();
+                    // Right spike
+                    ctx.beginPath();
+                    ctx.moveTo(290, 115);
+                    ctx.lineTo(300, 115 - 20 * t);
+                    ctx.lineTo(280, 110);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw her roller derby outfit!",
+                voice: "Roxie wears cool roller derby gear! Draw her jacket and tough stance!",
+                draw(ctx, t) {
+                    // Neck
+                    ctx.beginPath();
+                    ctx.moveTo(240, 195);
+                    ctx.lineTo(240, 195 + 12 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(260, 195);
+                    ctx.lineTo(260, 195 + 12 * t);
+                    ctx.stroke();
+                    // Jacket
+                    ctx.beginPath();
+                    ctx.moveTo(190, 207);
+                    ctx.lineTo(190, 207 + 70 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(310, 207);
+                    ctx.lineTo(310, 207 + 70 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(190, 277);
+                    ctx.lineTo(190 + 120 * t, 277);
+                    ctx.stroke();
+                    // Zipper line
+                    ctx.beginPath();
+                    ctx.moveTo(250, 207);
+                    ctx.lineTo(250, 207 + 70 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add her tough face!",
+                voice: "Draw Roxie's tough expression with fierce eyes and attitude! She's ready to win!",
+                draw(ctx, t) {
+                    // Eyes
+                    ctx.beginPath();
+                    ctx.arc(225, 145, 6 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(275, 145, 6 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Tough line mouth
+                    ctx.beginPath();
+                    ctx.moveTo(235, 165);
+                    ctx.lineTo(235 + 30 * t, 165);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add her roller skates!",
+                voice: "Roxie wears cool roller skates! Draw wheels on her feet — she's ready to roll!",
+                draw(ctx, t) {
+                    // Left leg
+                    ctx.beginPath();
+                    ctx.moveTo(220, 277);
+                    ctx.lineTo(220, 277 + 35 * t);
+                    ctx.stroke();
+                    // Right leg
+                    ctx.beginPath();
+                    ctx.moveTo(280, 277);
+                    ctx.lineTo(280, 277 + 35 * t);
+                    ctx.stroke();
+                    // Left skate
+                    ctx.beginPath();
+                    ctx.ellipse(220, 310, 15 * t, 8 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(210, 310, 5 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(230, 310, 5 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right skate
+                    ctx.beginPath();
+                    ctx.ellipse(280, 310, 15 * t, 8 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(270, 310, 5 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(290, 310, 5 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: 'Peach skin!', voice: 'Color Roxie\'s skin peachy — tough roller derby queen!', color: '#FFCC99' },
+            { text: 'Pink wild hair!', voice: 'Paint her hair bright pink or magenta — edgy and fierce!', color: '#E91E63' },
+            { text: 'Black leather jacket!', voice: 'Color the jacket black or dark red — tough and cool!', color: '#212121' },
+            { text: 'Red accent stripes!', voice: 'Add red stripes on the jacket — match her Derby Dash speed!', color: '#D32F2F' },
+            { text: 'Purple skates!', voice: 'Paint the roller skates purple with golden wheels!', color: '#7C3AED' },
+            { text: 'Golden wheels!', voice: 'Color the wheels golden — ready to roll and race!', color: '#FFC107' }
+        ]
     }
 ];
