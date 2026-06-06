@@ -1803,6 +1803,88 @@ export const vehicles = [
             { text: "Color the fork and exhaust silver!", voice: "Metal parts are shiny silver! Color the front fork lines and the exhaust pipe with silver!", color: '#C0C0C0' },
             { text: "Paint the stripe and hubs white!", voice: "Add white to the racing stripe and the center circles of the wheels — now it looks like a champion!", color: '#FFFFFF' }
         ]
+    },
+    // ===== TANK =====
+    {
+        id: 'tank',
+        name: 'Tank',
+        emoji: '🪖',
+        category: 'vehicles',
+        steps: [
+            {
+                text: "Draw the tank's wide body!",
+                voice: "Let's build an awesome tank! Start with a big wide rectangle — that's the strong armored hull where the engine lives!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.rect(250 - 120 * t, 205 - 27 * t, 240 * t, 55 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add the big chunky tracks!",
+                voice: "Tanks have giant treads to roll over anything! Draw a wider rectangle underneath and add five round wheels inside!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.rect(250 - 145 * t, 245 - 18 * t, 290 * t, 36 * t);
+                    ctx.stroke();
+                    [-110, -55, 0, 55, 110].forEach(dx => {
+                        ctx.beginPath();
+                        ctx.arc(250 + dx, 245, 10 * t, 0, Math.PI * 2);
+                        ctx.stroke();
+                    });
+                }
+            },
+            {
+                text: "Draw the round turret on top!",
+                voice: "Now add the turret — that's the big round dome on top where the commander looks out! Draw a wide oval shape!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(225, 178, 62 * t, 36 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add the long cannon barrel!",
+                voice: "Time for the cannon! Stretch a long rectangle out to the right — whoosh, that is the tank's big powerful gun barrel!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.rect(285, 165, 130 * t, 14);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add cute eyes and a hatch!",
+                voice: "Let's make our tank friendly! Add big round eyes on the turret and a little oval hatch on top — our tank commander needs a peek hole!",
+                draw(ctx, t) {
+                    // Left eye
+                    ctx.beginPath();
+                    ctx.arc(197, 178, 10 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(199, 178, 4 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Right eye
+                    ctx.beginPath();
+                    ctx.arc(234, 174, 10 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(236, 174, 4 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Hatch on top of turret
+                    ctx.beginPath();
+                    ctx.ellipse(225, 151, 17 * t, 10 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: "Paint the hull army green!", voice: "Tanks are painted army green to hide in the forest — camouflage!", color: '#4A7C59' },
+            { text: "Paint the turret darker green!", voice: "The turret dome is a slightly darker green on top!", color: '#3D6B4A' },
+            { text: "Paint the tracks dark gray!", voice: "Heavy metal tracks are dark gray — they are super tough!", color: '#4A4A4A' },
+            { text: "Paint the wheels black!", voice: "Round black wheels rolling inside the tracks!", color: '#2F3542' },
+            { text: "Paint the cannon dark!", voice: "A dark metal cannon barrel — ready to make a big boom!", color: '#2F3542' },
+            { text: "Add a yellow star badge!", voice: "Add a bright yellow star on the side — every hero tank has a badge!", color: '#FFA502' }
+        ]
     }
 ];
 

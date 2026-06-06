@@ -4862,5 +4862,497 @@ export const cartoon = [
             { text: 'Purple skates!', voice: 'Paint the roller skates purple with golden wheels!', color: '#7C3AED' },
             { text: 'Golden wheels!', voice: 'Color the wheels golden — ready to roll and race!', color: '#FFC107' }
         ]
+    },
+
+    // ===== IRON MAN =====
+    {
+        id: 'ironman',
+        name: 'Iron Man',
+        emoji: '🦾',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw Iron Man's helmet!",
+                voice: "Let's make the mightiest hero ever! Start with Iron Man's big strong helmet — draw a tall oval for his armored head!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(250, 130, 52 * t, 58 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add the powerful chest armor!",
+                voice: "Iron Man wears super tough armor to protect himself! Draw a big round chest right below his helmet!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(250, 250, 60 * t, 62 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw the glowing visor and eyes!",
+                voice: "Now add Iron Man's most famous feature — his glowing eyes! Draw a line across his face, then two bright eye slits!",
+                draw(ctx, t) {
+                    // Visor line across helmet
+                    ctx.beginPath();
+                    ctx.moveTo(202, 127);
+                    ctx.lineTo(202 + 96 * t, 127);
+                    ctx.stroke();
+                    // Left eye slit (filled, angled ellipse)
+                    ctx.beginPath();
+                    ctx.ellipse(228, 113, 16 * t, 7 * t, -0.3, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Right eye slit (filled, mirrored)
+                    ctx.beginPath();
+                    ctx.ellipse(272, 113, 16 * t, 7 * t, 0.3, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Chin arc detail
+                    ctx.beginPath();
+                    ctx.arc(250, 158, 22 * t, 0.2, Math.PI - 0.2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add the glowing arc reactor!",
+                voice: "Iron Man's chest glows with the amazing arc reactor — it powers his whole suit! Draw a glowing circle in the middle of his chest!",
+                draw(ctx, t) {
+                    // Outer ring
+                    ctx.beginPath();
+                    ctx.arc(250, 238, 18 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Inner glow dot
+                    ctx.beginPath();
+                    ctx.arc(250, 238, 9 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Left chest panel line
+                    ctx.beginPath();
+                    ctx.moveTo(212, 218);
+                    ctx.lineTo(212, 218 + 38 * t);
+                    ctx.stroke();
+                    // Right chest panel line
+                    ctx.beginPath();
+                    ctx.moveTo(288, 218);
+                    ctx.lineTo(288, 218 + 38 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw Iron Man's strong arms!",
+                voice: "Iron Man's arms can shoot repulsor beams! Add two strong rounded arms on each side, with a glowing circle for the hand repulsor!",
+                draw(ctx, t) {
+                    // Left arm
+                    ctx.beginPath();
+                    ctx.ellipse(172, 250, 16 * t, 50 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Left repulsor hand
+                    ctx.beginPath();
+                    ctx.arc(172, 302, 11 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right arm
+                    ctx.beginPath();
+                    ctx.ellipse(328, 250, 16 * t, 50 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right repulsor hand
+                    ctx.beginPath();
+                    ctx.arc(328, 302, 11 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add the rocket boots and legs!",
+                voice: "Last step — draw Iron Man's legs and rocket boots! He uses those boots to fly through the sky at super speed!",
+                draw(ctx, t) {
+                    // Left leg
+                    ctx.beginPath();
+                    ctx.ellipse(220, 337, 18 * t, 40 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Left boot
+                    ctx.beginPath();
+                    ctx.ellipse(216, 377, 24 * t, 13 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right leg
+                    ctx.beginPath();
+                    ctx.ellipse(280, 337, 18 * t, 40 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right boot
+                    ctx.beginPath();
+                    ctx.ellipse(284, 377, 24 * t, 13 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: 'Paint the helmet red!', voice: 'Paint Iron Man\'s helmet bright red — his favorite color!', color: '#CC1100' },
+            { text: 'Color the body armor red!', voice: 'Paint the chest and legs red too — Iron Man is mostly red!', color: '#CC1100' },
+            { text: 'Add shiny gold details!', voice: 'Now paint the visor, chest panels, and arms with shiny gold!', color: '#FFD700' },
+            { text: 'Make the arc reactor glow blue!', voice: 'Paint the arc reactor with bright blue — it\'s glowing with power!', color: '#00BFFF' }
+        ]
+    },
+
+    // ===== HULK =====
+    {
+        id: 'hulk',
+        name: 'Hulk',
+        emoji: '💚',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw Hulk's big wide head!",
+                voice: "Hulk SMASH! Let's draw the incredible Hulk! Start with his huge wide head — Hulk has a giant blocky face!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(250, 112, 72 * t, 58 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw his massive muscular body!",
+                voice: "Hulk is the strongest there is! Draw a really wide body — super wide at the top with giant shoulders!",
+                draw(ctx, t) {
+                    const cx = 250;
+                    ctx.beginPath();
+                    ctx.moveTo(cx - 72 * t, 170);
+                    ctx.lineTo(cx + 72 * t, 170);
+                    ctx.lineTo(cx + 52 * t, 290);
+                    ctx.lineTo(cx - 52 * t, 290);
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add Hulk's giant powerful arms!",
+                voice: "Hulk has the biggest arms ever — like tree trunks! Draw two huge arms swinging out from his massive shoulders!",
+                draw(ctx, t) {
+                    // Left arm
+                    ctx.beginPath();
+                    ctx.moveTo(178, 195);
+                    ctx.bezierCurveTo(145, 230, 115, 258, 108, 290 * t + 5);
+                    ctx.stroke();
+                    // Left fist
+                    ctx.beginPath();
+                    ctx.arc(108, 300, 24 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right arm
+                    ctx.beginPath();
+                    ctx.moveTo(322, 195);
+                    ctx.bezierCurveTo(355, 230, 385, 258, 392, 290 * t + 5);
+                    ctx.stroke();
+                    // Right fist
+                    ctx.beginPath();
+                    ctx.arc(392, 300, 24 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw thick legs and big feet!",
+                voice: "Hulk wears purple shorts and has super strong legs! Draw two thick legs below his body with big stomping feet!",
+                draw(ctx, t) {
+                    // Shorts waistband
+                    ctx.beginPath();
+                    ctx.moveTo(250 - 50 * t, 295);
+                    ctx.lineTo(250 + 50 * t, 295);
+                    ctx.stroke();
+                    // Left leg outer
+                    ctx.beginPath();
+                    ctx.moveTo(200, 290);
+                    ctx.lineTo(200, 290 + 68 * t);
+                    ctx.stroke();
+                    // Left leg inner
+                    ctx.beginPath();
+                    ctx.moveTo(232, 290);
+                    ctx.lineTo(232, 290 + 68 * t);
+                    ctx.stroke();
+                    // Left foot
+                    ctx.beginPath();
+                    ctx.ellipse(216, 362, 22 * t, 10 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right leg inner
+                    ctx.beginPath();
+                    ctx.moveTo(268, 290);
+                    ctx.lineTo(268, 290 + 68 * t);
+                    ctx.stroke();
+                    // Right leg outer
+                    ctx.beginPath();
+                    ctx.moveTo(300, 290);
+                    ctx.lineTo(300, 290 + 68 * t);
+                    ctx.stroke();
+                    // Right foot
+                    ctx.beginPath();
+                    ctx.ellipse(284, 362, 22 * t, 10 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw Hulk's angry face!",
+                voice: "Hulk looks REALLY angry! Draw his squinting eyes, his big frowning eyebrows, a wide nose, and his roaring open mouth!",
+                draw(ctx, t) {
+                    // Left eye
+                    ctx.beginPath();
+                    ctx.ellipse(222, 108, 13 * t, 10 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right eye
+                    ctx.beginPath();
+                    ctx.ellipse(278, 108, 13 * t, 10 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Left angry brow (angles down toward center)
+                    ctx.beginPath();
+                    ctx.moveTo(208, 91);
+                    ctx.lineTo(208 + 26 * t, 91 + 9 * t);
+                    ctx.stroke();
+                    // Right angry brow
+                    ctx.beginPath();
+                    ctx.moveTo(292, 91);
+                    ctx.lineTo(292 - 26 * t, 91 + 9 * t);
+                    ctx.stroke();
+                    // Nose — two nostrils
+                    ctx.beginPath();
+                    ctx.arc(240, 128, 5 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(260, 128, 5 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Snarling mouth — top lip
+                    ctx.beginPath();
+                    ctx.moveTo(220, 143);
+                    ctx.lineTo(220 + 60 * t, 143);
+                    ctx.stroke();
+                    // Bottom lip
+                    ctx.beginPath();
+                    ctx.moveTo(222, 158);
+                    ctx.lineTo(222 + 56 * t, 158);
+                    ctx.stroke();
+                    // Teeth center divider
+                    ctx.beginPath();
+                    ctx.moveTo(250, 143);
+                    ctx.lineTo(250, 143 + 15 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add mighty muscles and knuckles!",
+                voice: "Hulk is the mightiest hero! Add muscle lines on his chest and arms, and knuckle marks on his giant fists!",
+                draw(ctx, t) {
+                    // Chest V muscle
+                    ctx.beginPath();
+                    ctx.moveTo(250, 195);
+                    ctx.lineTo(250 - 40 * t, 195 + 30 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(250, 195);
+                    ctx.lineTo(250 + 40 * t, 195 + 30 * t);
+                    ctx.stroke();
+                    // Left arm muscle line
+                    ctx.beginPath();
+                    ctx.moveTo(152, 240);
+                    ctx.lineTo(152 - 14 * t, 240 + 22 * t);
+                    ctx.stroke();
+                    // Right arm muscle line
+                    ctx.beginPath();
+                    ctx.moveTo(348, 240);
+                    ctx.lineTo(348 + 14 * t, 240 + 22 * t);
+                    ctx.stroke();
+                    // Left fist knuckles
+                    ctx.beginPath();
+                    ctx.moveTo(92, 295);
+                    ctx.lineTo(92 + 32 * t, 295);
+                    ctx.stroke();
+                    // Right fist knuckles
+                    ctx.beginPath();
+                    ctx.moveTo(376, 295);
+                    ctx.lineTo(376 + 32 * t, 295);
+                    ctx.stroke();
+                    // Shorts pattern line
+                    ctx.beginPath();
+                    ctx.moveTo(250 - 40 * t, 315);
+                    ctx.lineTo(250 + 40 * t, 315);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: 'Green skin!', voice: 'Color Hulk\'s whole body bright green — he\'s the incredible Hulk!', color: '#4CAF50' },
+            { text: 'Dark green muscles!', voice: 'Add darker green on his muscles — show how strong he is!', color: '#2E7D32' },
+            { text: 'Purple shorts!', voice: 'Color his shorts purple — that\'s Hulk\'s signature look!', color: '#7B1FA2' },
+            { text: 'Dark eyes and brows!', voice: 'Fill in Hulk\'s angry eyes and eyebrows with dark color!', color: '#212121' },
+            { text: 'White teeth!', voice: 'Color Hulk\'s teeth white — RAAARGH!', color: '#F5F5F5' }
+        ]
+    },
+
+    // ===== CAPTAIN AMERICA =====
+    {
+        id: 'captain_america',
+        name: 'Captain America',
+        emoji: '🛡️',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw Captain America's helmet!",
+                voice: "Avengers assemble! Let's start drawing Captain America! Begin with his brave round head and his famous blue helmet!",
+                draw(ctx, t) {
+                    // Head
+                    ctx.beginPath();
+                    ctx.ellipse(250, 105, 50 * t, 52 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Helmet visor line
+                    ctx.beginPath();
+                    ctx.moveTo(213, 100);
+                    ctx.lineTo(213 + 74 * t, 100);
+                    ctx.stroke();
+                    // Left helmet wing
+                    ctx.beginPath();
+                    ctx.moveTo(202, 92);
+                    ctx.lineTo(202 - 18 * t, 75);
+                    ctx.lineTo(202 - 5 * t, 108);
+                    ctx.stroke();
+                    // Right helmet wing
+                    ctx.beginPath();
+                    ctx.moveTo(298, 92);
+                    ctx.lineTo(298 + 18 * t, 75);
+                    ctx.lineTo(298 + 5 * t, 108);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw his powerful body!",
+                voice: "Captain America is super strong! Let's draw his wide chest and strong superhero body!",
+                draw(ctx, t) {
+                    // Neck sides
+                    ctx.beginPath();
+                    ctx.moveTo(236, 157);
+                    ctx.lineTo(236, 157 + 13 * t);
+                    ctx.moveTo(264, 157);
+                    ctx.lineTo(264, 157 + 13 * t);
+                    ctx.stroke();
+                    // Body trapezoid — broad shoulders narrow to waist
+                    ctx.beginPath();
+                    ctx.moveTo(250 - 65 * t, 170);
+                    ctx.lineTo(250 + 65 * t, 170);
+                    ctx.lineTo(250 + 48 * t, 305);
+                    ctx.lineTo(250 - 48 * t, 305);
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add strong arms!",
+                voice: "Captain America has super strong arms! Draw two mighty arms — one will hold the famous shield!",
+                draw(ctx, t) {
+                    // Left arm — free arm
+                    ctx.beginPath();
+                    ctx.moveTo(185, 175);
+                    ctx.lineTo(160, 175);
+                    ctx.lineTo(155, 175 + 100 * t);
+                    ctx.lineTo(180, 175 + 100 * t);
+                    ctx.closePath();
+                    ctx.stroke();
+                    // Right arm — shield arm, shorter
+                    ctx.beginPath();
+                    ctx.moveTo(315, 175);
+                    ctx.lineTo(340, 175);
+                    ctx.lineTo(345, 175 + 75 * t);
+                    ctx.lineTo(320, 175 + 75 * t);
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw the famous shield!",
+                voice: "Now the most exciting part — Captain America's amazing shield! Draw a big circle with three rings inside it!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.arc(362, 232, 58 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(362, 232, 46 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(362, 232, 30 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(362, 232, 16 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add legs and shield star!",
+                voice: "Draw two powerful legs so Cap can run super fast, then put a shining star right in the middle of the shield!",
+                draw(ctx, t) {
+                    // Left leg
+                    ctx.beginPath();
+                    ctx.moveTo(210, 305);
+                    ctx.lineTo(193, 305);
+                    ctx.lineTo(188, 305 + 75 * t);
+                    ctx.lineTo(205, 305 + 75 * t);
+                    ctx.closePath();
+                    ctx.stroke();
+                    // Right leg
+                    ctx.beginPath();
+                    ctx.moveTo(290, 305);
+                    ctx.lineTo(307, 305);
+                    ctx.lineTo(312, 305 + 75 * t);
+                    ctx.lineTo(295, 305 + 75 * t);
+                    ctx.closePath();
+                    ctx.stroke();
+                    // Shield star
+                    ctx.beginPath();
+                    for (let i = 0; i < 5; i++) {
+                        const angle = (i * 4 * Math.PI / 5) - Math.PI / 2;
+                        const x = 362 + 12 * t * Math.cos(angle);
+                        const y = 232 + 12 * t * Math.sin(angle);
+                        if (i === 0) ctx.moveTo(x, y);
+                        else ctx.lineTo(x, y);
+                    }
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw face, letter A and chest star!",
+                voice: "Almost done! Draw Captain America's eyes in his mask, the letter A on his helmet, and a big shining star on his chest — amazing work!",
+                draw(ctx, t) {
+                    // Left eye
+                    ctx.beginPath();
+                    ctx.ellipse(234, 116, 9 * t, 5 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right eye
+                    ctx.beginPath();
+                    ctx.ellipse(266, 116, 9 * t, 5 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Letter A — left stroke
+                    ctx.beginPath();
+                    ctx.moveTo(243, 98);
+                    ctx.lineTo(250, 98 - 20 * t);
+                    ctx.stroke();
+                    // Letter A — right stroke
+                    ctx.beginPath();
+                    ctx.moveTo(257, 98);
+                    ctx.lineTo(250, 98 - 20 * t);
+                    ctx.stroke();
+                    // Letter A — crossbar
+                    ctx.beginPath();
+                    ctx.moveTo(250 - 5 * t, 91);
+                    ctx.lineTo(250 + 5 * t, 91);
+                    ctx.stroke();
+                    // Chest star
+                    ctx.beginPath();
+                    for (let i = 0; i < 5; i++) {
+                        const angle = (i * 4 * Math.PI / 5) - Math.PI / 2;
+                        const x = 250 + 16 * t * Math.cos(angle);
+                        const y = 225 + 16 * t * Math.sin(angle);
+                        if (i === 0) ctx.moveTo(x, y);
+                        else ctx.lineTo(x, y);
+                    }
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: 'Blue helmet and suit!', voice: "Color Captain America's helmet and suit bright blue — he's America's hero!", color: '#1565C0' },
+            { text: 'Red stripes!', voice: 'Add red stripes to his suit — red, white and blue!', color: '#C62828' },
+            { text: 'Skin color face!', voice: 'Color his face and chin with a warm skin tone!', color: '#FFCC80' },
+            { text: 'Red and white shield!', voice: 'Color the shield rings red and white — so brave!', color: '#C62828' },
+            { text: 'Gold chest star!', voice: "Color the star on his chest shining gold — Captain America is ready for action!", color: '#FDD835' }
+        ]
     }
 ];
