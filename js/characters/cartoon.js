@@ -5354,5 +5354,254 @@ export const cartoon = [
             { text: 'Red and white shield!', voice: 'Color the shield rings red and white — so brave!', color: '#C62828' },
             { text: 'Gold chest star!', voice: "Color the star on his chest shining gold — Captain America is ready for action!", color: '#FDD835' }
         ]
+    },
+    {
+        id: 'snn_raj_greenbay',
+        name: 'SNN Raj Greenbay',
+        emoji: '🏊',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw the first tall tower!",
+                voice: "Welcome to SNN Raj Greenbay! Let's start with the big tower on the left — draw a tall rectangle standing up nice and straight!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.rect(90, 70, 170 * t, 190 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add its rooftop crown!",
+                voice: "This tower has a fancy pergola on its roof, like a little crown! Draw a rectangle on top with straight slats inside it!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.rect(120, 40, 110 * t, 30 * t);
+                    ctx.stroke();
+                    const xs = [135, 155, 175, 195, 215];
+                    ctx.beginPath();
+                    for (const x of xs) {
+                        ctx.moveTo(x, 40);
+                        ctx.lineTo(x, 40 + 30 * t);
+                    }
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Fill its walls with windows!",
+                voice: "So many apartments! Draw a big grid of little square windows across the tower — five columns and six floors!",
+                draw(ctx, t) {
+                    const cols = [110, 140, 170, 200, 230];
+                    const rows = [95, 125, 155, 185, 215, 245];
+                    for (const cy of rows) {
+                        for (const cx of cols) {
+                            ctx.beginPath();
+                            ctx.rect(cx - 9 * t, cy - 8 * t, 18 * t, 16 * t);
+                            ctx.stroke();
+                        }
+                    }
+                }
+            },
+            {
+                text: "Add balconies on the sides!",
+                voice: "Some floors get little balconies to enjoy the sunshine! Draw small ledges sticking out on the left and right with railing bars!",
+                draw(ctx, t) {
+                    const floors = [125, 185];
+                    for (const cy of floors) {
+                        ctx.beginPath();
+                        ctx.moveTo(90, cy - 8);
+                        ctx.lineTo(90 - 12 * t, cy - 8);
+                        ctx.lineTo(90 - 12 * t, cy + 8);
+                        ctx.lineTo(90, cy + 8);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.moveTo(90 - 6 * t, cy - 8);
+                        ctx.lineTo(90 - 6 * t, cy + 8);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.moveTo(260, cy - 8);
+                        ctx.lineTo(260 + 12 * t, cy - 8);
+                        ctx.lineTo(260 + 12 * t, cy + 8);
+                        ctx.lineTo(260, cy + 8);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.moveTo(260 + 6 * t, cy - 8);
+                        ctx.lineTo(260 + 6 * t, cy + 8);
+                        ctx.stroke();
+                    }
+                }
+            },
+            {
+                text: "Draw the second tower!",
+                voice: "There's another tower right next door! Draw a second tall rectangle beside the first one, standing a little shorter!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.rect(310, 50, 150 * t, 210 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Fill in the second tower's windows!",
+                voice: "This tower is full of windows too! Draw neat rows of little squares marching down the wall!",
+                draw(ctx, t) {
+                    const cols = [325, 355, 385, 415, 445];
+                    const rows = [70, 100, 130, 160, 190, 220, 250];
+                    for (const cy of rows) {
+                        for (const cx of cols) {
+                            ctx.beginPath();
+                            ctx.rect(cx - 7 * t, cy - 6 * t, 14 * t, 12 * t);
+                            ctx.stroke();
+                        }
+                    }
+                }
+            },
+            {
+                text: "Plant leafy trees around the towers!",
+                voice: "Every good building needs trees! Draw a trunk and a round leafy top beside each tower!",
+                draw(ctx, t) {
+                    const trees = [[65, 260], [295, 258], [478, 258]];
+                    for (const [tx, ty] of trees) {
+                        ctx.beginPath();
+                        ctx.moveTo(tx, ty);
+                        ctx.lineTo(tx, ty + 18 * t);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.arc(tx, ty - 10, 14 * t, 0, Math.PI * 2);
+                        ctx.stroke();
+                    }
+                }
+            },
+            {
+                text: "Draw the pool deck!",
+                voice: "Time for the best part — the swimming pool! First draw a big wide rectangle for the tiled pool deck at the bottom!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.rect(20, 265, 460 * t, 120 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Fill the pool with sparkling water!",
+                voice: "Now draw the pool of water sitting inside the deck, and add some wavy ripple lines to show it splashing!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.rect(40, 280, 420 * t, 90 * t);
+                    ctx.stroke();
+                    const rippleY = [300, 320, 340, 360];
+                    for (const ry of rippleY) {
+                        ctx.beginPath();
+                        ctx.moveTo(60, ry);
+                        ctx.bezierCurveTo(150, ry - 12 * t, 250, ry + 12 * t, 350, ry - 12 * t);
+                        ctx.lineTo(420, ry);
+                        ctx.stroke();
+                    }
+                }
+            },
+            {
+                text: "Add sun loungers and the poolside railing!",
+                voice: "Add two comfy sun loungers by the pool for resting after a swim, and a shiny railing post near the tower for safety!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.rect(25, 378, 45 * t, 12 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(30, 378);
+                    ctx.lineTo(30, 378 - 15 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.rect(85, 378, 45 * t, 12 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(90, 378);
+                    ctx.lineTo(90, 378 - 15 * t);
+                    ctx.stroke();
+                    const postsX = [455, 470, 485];
+                    ctx.beginPath();
+                    for (const px of postsX) {
+                        ctx.moveTo(px, 265);
+                        ctx.lineTo(px, 265 - 20 * t);
+                    }
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(450, 245);
+                    ctx.lineTo(450 + 40 * t, 245);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add entrance doors and bushes!",
+                voice: "Every tower needs a welcoming entrance! Draw a big arched door at the bottom of each tower, and round bushes beside them!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.moveTo(155, 260);
+                    ctx.lineTo(155, 240 - 8 * t);
+                    ctx.arc(175, 240 - 8 * t, 20 * t, Math.PI, 0);
+                    ctx.lineTo(195, 260);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(370, 260);
+                    ctx.lineTo(370, 238 - 6 * t);
+                    ctx.arc(385, 238 - 6 * t, 15 * t, Math.PI, 0);
+                    ctx.lineTo(400, 260);
+                    ctx.stroke();
+                    const bushX = [95, 255, 315, 455];
+                    for (const bx of bushX) {
+                        ctx.beginPath();
+                        ctx.arc(bx, 260, 12 * t, Math.PI, 0);
+                        ctx.stroke();
+                    }
+                }
+            },
+            {
+                text: "Finish with sun, clouds and flags!",
+                voice: "Last touches! Draw a bright sun with rays, some fluffy clouds floating by, and flags waving on both rooftops!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.arc(40, 30, 18 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    for (let i = 0; i < 8; i++) {
+                        const angle = i * Math.PI / 4;
+                        ctx.beginPath();
+                        ctx.moveTo(40 + 22 * Math.cos(angle), 30 + 22 * Math.sin(angle));
+                        ctx.lineTo(40 + (22 + 10 * t) * Math.cos(angle), 30 + (22 + 10 * t) * Math.sin(angle));
+                        ctx.stroke();
+                    }
+                    const clouds = [[150, 25], [360, 18]];
+                    for (const [cx, cy] of clouds) {
+                        ctx.beginPath();
+                        ctx.arc(cx - 10, cy, 10 * t, 0, Math.PI * 2);
+                        ctx.arc(cx + 6, cy - 4, 12 * t, 0, Math.PI * 2);
+                        ctx.arc(cx + 18, cy, 9 * t, 0, Math.PI * 2);
+                        ctx.stroke();
+                    }
+                    ctx.beginPath();
+                    ctx.moveTo(175, 40);
+                    ctx.lineTo(175, 40 - 20 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(175, 20);
+                    ctx.lineTo(175 + 14 * t, 20 + 5 * t);
+                    ctx.lineTo(175, 20 + 10 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(385, 50);
+                    ctx.lineTo(385, 50 - 20 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(385, 30);
+                    ctx.lineTo(385 + 14 * t, 30 + 5 * t);
+                    ctx.lineTo(385, 30 + 10 * t);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: 'Mustard yellow towers!', voice: 'Color both apartment towers a warm mustard yellow, just like the real building!', color: '#D9A441' },
+            { text: 'Cool grey windows!', voice: 'Color all the little windows a cool grey — imagine the sky reflecting in the glass!', color: '#78909C' },
+            { text: 'Sparkling blue pool!', voice: 'Color the swimming pool water a bright sparkling blue!', color: '#1E88E5' },
+            { text: 'Sandy wood deck!', voice: 'Color the pool deck a warm sandy wood tone, just like real poolside decking!', color: '#C9A876' },
+            { text: 'Green trees and bushes!', voice: 'Color all the trees and bushes a fresh leafy green!', color: '#66BB6A' },
+            { text: 'Sunny sky!', voice: 'Color the sun bright yellow and the sky a lovely sunny blue!', color: '#4FC3F7' },
+            { text: 'Red flags!', voice: 'Color the rooftop flags a proud bright red!', color: '#E53935' }
+        ]
     }
 ];
