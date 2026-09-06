@@ -5603,5 +5603,259 @@ export const cartoon = [
             { text: 'Sunny sky!', voice: 'Color the sun bright yellow and the sky a lovely sunny blue!', color: '#4FC3F7' },
             { text: 'Red flags!', voice: 'Color the rooftop flags a proud bright red!', color: '#E53935' }
         ]
+    },
+    {
+        id: 'nirvan_family_greenbay',
+        name: "Nirvan's Family at SNN Raj Greenbay",
+        emoji: '👨‍👩‍👦',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw the two apartment towers!",
+                voice: "This is Nirvan's home, SNN Raj Greenbay! Draw two tall towers standing side by side in the background!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.rect(60, 50, 140 * t, 170 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.rect(300, 60, 140 * t, 160 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Fill both towers with windows!",
+                voice: "So many happy homes! Draw neat little square windows across both towers, row after row!",
+                draw(ctx, t) {
+                    const colsA = [75, 100, 125, 150, 175];
+                    const rowsA = [70, 95, 120, 145, 170, 195];
+                    for (const cy of rowsA) {
+                        for (const cx of colsA) {
+                            ctx.beginPath();
+                            ctx.rect(cx - 6 * t, cy - 5 * t, 12 * t, 10 * t);
+                            ctx.stroke();
+                        }
+                    }
+                    const colsB = [315, 340, 365, 390, 415];
+                    const rowsB = [80, 105, 130, 155, 180, 205];
+                    for (const cy of rowsB) {
+                        for (const cx of colsB) {
+                            ctx.beginPath();
+                            ctx.rect(cx - 6 * t, cy - 5 * t, 12 * t, 10 * t);
+                            ctx.stroke();
+                        }
+                    }
+                }
+            },
+            {
+                text: "Draw the swimming pool!",
+                voice: "Everyone loves the swimming pool! Draw the tiled pool deck, the water inside it, and some wavy ripple lines!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.rect(20, 305, 460 * t, 90 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.rect(40, 318, 420 * t, 64 * t);
+                    ctx.stroke();
+                    const rippleY = [335, 352, 368];
+                    for (const ry of rippleY) {
+                        ctx.beginPath();
+                        ctx.moveTo(55, ry);
+                        ctx.bezierCurveTo(140, ry - 8 * t, 250, ry + 8 * t, 350, ry - 8 * t);
+                        ctx.lineTo(440, ry);
+                        ctx.stroke();
+                    }
+                }
+            },
+            {
+                text: "Draw Papa!",
+                voice: "Here comes Papa! Draw his round head, a tall body, two arms and two legs, then write his name above him!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.arc(170, 210, 17 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(170, 250, 19 * t, 28 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(170, 235);
+                    ctx.lineTo(170 - 25 * t, 265);
+                    ctx.moveTo(170, 235);
+                    ctx.lineTo(170 + 25 * t, 265);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(162, 276);
+                    ctx.lineTo(162 - 6 * t, 296);
+                    ctx.moveTo(178, 276);
+                    ctx.lineTo(178 + 6 * t, 296);
+                    ctx.stroke();
+                    ctx.fillStyle = '#000';
+                    ctx.textAlign = 'center';
+                    ctx.font = `bold ${14 * t}px Arial, sans-serif`;
+                    ctx.fillText('Papa', 170, 188);
+                }
+            },
+            {
+                text: "Draw Mummy!",
+                voice: "Now let's draw Mummy! Give her a round head and a pretty triangle dress, with two arms and legs, then write her name above her!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.arc(250, 215, 15 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(250, 230);
+                    ctx.lineTo(250 - 22 * t, 278);
+                    ctx.lineTo(250 + 22 * t, 278);
+                    ctx.closePath();
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(250, 240);
+                    ctx.lineTo(250 - 22 * t, 262);
+                    ctx.moveTo(250, 240);
+                    ctx.lineTo(250 + 22 * t, 262);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(242, 278);
+                    ctx.lineTo(242 - 5 * t, 296);
+                    ctx.moveTo(258, 278);
+                    ctx.lineTo(258 + 5 * t, 296);
+                    ctx.stroke();
+                    ctx.fillStyle = '#000';
+                    ctx.textAlign = 'center';
+                    ctx.font = `bold ${14 * t}px Arial, sans-serif`;
+                    ctx.fillText('Mummy', 250, 195);
+                }
+            },
+            {
+                text: "Draw Nirvan!",
+                voice: "And here's Nirvan! Draw his cheerful round head and small body with little arms and legs, then write his name above him!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.arc(330, 225, 12 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(330, 258, 13 * t, 20 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(330, 245);
+                    ctx.lineTo(330 - 18 * t, 262);
+                    ctx.moveTo(330, 245);
+                    ctx.lineTo(330 + 18 * t, 262);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(324, 276);
+                    ctx.lineTo(324 - 4 * t, 292);
+                    ctx.moveTo(336, 276);
+                    ctx.lineTo(336 + 4 * t, 292);
+                    ctx.stroke();
+                    ctx.fillStyle = '#000';
+                    ctx.textAlign = 'center';
+                    ctx.font = `bold ${13 * t}px Arial, sans-serif`;
+                    ctx.fillText('Nirvan', 330, 206);
+                }
+            },
+            {
+                text: "Add happy faces and holding hands!",
+                voice: "The whole family is smiling and holding hands together! Draw eyes and smiles on each face, and lines joining their hands!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.arc(164, 207, 2 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(176, 207, 2 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(170, 213, 8, 0.15 * Math.PI, 0.85 * Math.PI * t + 0.15 * Math.PI * (1 - t));
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(245, 212, 2 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(255, 212, 2 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(250, 217, 7, 0.15 * Math.PI, 0.85 * Math.PI * t + 0.15 * Math.PI * (1 - t));
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(326, 222, 2 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(334, 222, 2 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(330, 227, 6, 0.15 * Math.PI, 0.85 * Math.PI * t + 0.15 * Math.PI * (1 - t));
+                    ctx.stroke();
+                    const hand1 = [195, 265, 228, 262];
+                    const hand2 = [272, 262, 312, 262];
+                    ctx.beginPath();
+                    ctx.moveTo(hand1[0], hand1[1]);
+                    ctx.lineTo(hand1[0] + (hand1[2] - hand1[0]) * t, hand1[1] + (hand1[3] - hand1[1]) * t);
+                    ctx.moveTo(hand2[0], hand2[1]);
+                    ctx.lineTo(hand2[0] + (hand2[2] - hand2[0]) * t, hand2[1] + (hand2[3] - hand2[1]) * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add trees, bushes, sun and a cloud!",
+                voice: "Let's make it a beautiful day outside! Draw leafy trees and round bushes by the towers, a bright sun, and a fluffy cloud!",
+                draw(ctx, t) {
+                    const trees = [[30, 220], [470, 215]];
+                    for (const [tx, ty] of trees) {
+                        ctx.beginPath();
+                        ctx.moveTo(tx, ty);
+                        ctx.lineTo(tx, ty + 18 * t);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.arc(tx, ty - 10, 13 * t, 0, Math.PI * 2);
+                        ctx.stroke();
+                    }
+                    const bushX = [80, 180, 320, 420];
+                    for (const bx of bushX) {
+                        ctx.beginPath();
+                        ctx.arc(bx, 220, 10 * t, Math.PI, 0);
+                        ctx.stroke();
+                    }
+                    ctx.beginPath();
+                    ctx.arc(35, 25, 14 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    for (let i = 0; i < 8; i++) {
+                        const angle = i * Math.PI / 4;
+                        ctx.beginPath();
+                        ctx.moveTo(35 + 16 * Math.cos(angle), 25 + 16 * Math.sin(angle));
+                        ctx.lineTo(35 + (16 + 8 * t) * Math.cos(angle), 25 + (16 + 8 * t) * Math.sin(angle));
+                        ctx.stroke();
+                    }
+                    ctx.beginPath();
+                    ctx.arc(445, 22, 9 * t, 0, Math.PI * 2);
+                    ctx.arc(461, 18, 11 * t, 0, Math.PI * 2);
+                    ctx.arc(473, 22, 8 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Hang up the SNN Raj Greenbay sign!",
+                voice: "Last step! Draw a welcome banner at the very top and write 'SNN Raj Greenbay' on it so everyone knows this is home!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.rect(130, 8, 240 * t, 26 * t);
+                    ctx.stroke();
+                    ctx.fillStyle = '#000';
+                    ctx.textAlign = 'center';
+                    ctx.font = `bold ${16 * t}px Arial, sans-serif`;
+                    ctx.fillText('SNN Raj Greenbay', 250, 26);
+                }
+            }
+        ],
+        paintSteps: [
+            { text: 'Mustard yellow towers!', voice: 'Color both apartment towers a warm mustard yellow!', color: '#D9A441' },
+            { text: 'Cool grey windows!', voice: 'Color all the little windows a cool grey!', color: '#78909C' },
+            { text: 'Sparkling blue pool!', voice: 'Color the swimming pool water a bright sparkling blue!', color: '#1E88E5' },
+            { text: 'Sandy wood deck!', voice: 'Color the pool deck a warm sandy wood tone!', color: '#C9A876' },
+            { text: 'Warm skin tone!', voice: "Color Papa, Mummy and Nirvan's faces and hands a warm skin tone!", color: '#FFCC80' },
+            { text: "Papa's navy shirt!", voice: "Color Papa's shirt a smart navy blue!", color: '#3949AB' },
+            { text: "Mummy's pink dress!", voice: "Color Mummy's dress a lovely bright pink!", color: '#EC407A' },
+            { text: "Nirvan's orange shirt!", voice: "Color Nirvan's shirt a cheerful bright orange!", color: '#FB8C00' },
+            { text: 'Green trees!', voice: 'Color the trees and bushes a fresh leafy green!', color: '#66BB6A' },
+            { text: 'Sunny yellow sun!', voice: 'Color the sun a bright cheerful yellow!', color: '#FDD835' }
+        ]
     }
 ];
