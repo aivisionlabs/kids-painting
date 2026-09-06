@@ -5857,5 +5857,188 @@ export const cartoon = [
             { text: 'Green trees!', voice: 'Color the trees and bushes a fresh leafy green!', color: '#66BB6A' },
             { text: 'Sunny yellow sun!', voice: 'Color the sun a bright cheerful yellow!', color: '#FDD835' }
         ]
+    },
+    {
+        id: 'nirvan_sports_star',
+        name: 'Nirvan the Sports Star (#99)',
+        emoji: '🏀',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw the basketball court!",
+                voice: "Let's build a sports day for Nirvan! First draw the basketball court with a big rectangle, a center circle, and the key lines near the hoop!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.rect(20, 40, 210 * t, 110 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(125, 95, 18 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.rect(95, 40, 60 * t, 35 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(20, 95);
+                    ctx.lineTo(20 + 210 * t, 95);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add the basketball hoop!",
+                voice: "Every court needs a hoop! Draw the square backboard, the round rim, and a little net hanging underneath!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.rect(110, 15, 30 * t, 18 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(125, 36, 7 * t, 3 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    const netX = [119, 125, 131];
+                    ctx.beginPath();
+                    for (const nx of netX) {
+                        ctx.moveTo(nx, 37);
+                        ctx.lineTo(nx, 37 + 8 * t);
+                    }
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw the tennis court!",
+                voice: "Next to it, draw the tennis court! Make a rectangle, then add a net across the middle with two tall posts!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.rect(270, 40, 210 * t, 110 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(375, 40);
+                    ctx.lineTo(375, 40 + 110 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(300, 75);
+                    ctx.lineTo(300 + 150 * t, 75);
+                    ctx.moveTo(300, 115);
+                    ctx.lineTo(300 + 150 * t, 115);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(375, 75);
+                    ctx.lineTo(375, 75 + 40 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw Nirvan's head and jersey!",
+                voice: "Here's our sports star, Nirvan! Draw his round head, then his sporty jersey body below it, and write his name up top!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.arc(250, 195, 27 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.rect(200, 222, 100 * t, 80 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(235, 222);
+                    ctx.lineTo(250, 222 + 15 * t);
+                    ctx.lineTo(265, 222);
+                    ctx.stroke();
+                    ctx.fillStyle = '#000';
+                    ctx.textAlign = 'center';
+                    ctx.font = `bold ${16 * t}px Arial, sans-serif`;
+                    ctx.fillText('Nirvan', 250, 160);
+                }
+            },
+            {
+                text: "Add his shorts, legs and shoes!",
+                voice: "Add his sporty shorts, two strong legs, and a pair of shoes ready to run and play!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.rect(210, 302, 80 * t, 38 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(222, 340);
+                    ctx.lineTo(222, 340 + 38 * t);
+                    ctx.moveTo(278, 340);
+                    ctx.lineTo(278, 340 + 38 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(222, 382, 12 * t, 6 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(278, 382, 12 * t, 6 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add his arms and basketball!",
+                voice: "Nirvan is dribbling! Draw one arm reaching down to bounce the basketball, and the other arm swinging by his side!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.moveTo(205, 232);
+                    ctx.lineTo(205 + (175 - 205) * t, 232 + (272 - 232) * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(295, 232);
+                    ctx.lineTo(295 + (315 - 295) * t, 232 + (275 - 232) * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(175, 288, 16 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(175, 272);
+                    ctx.lineTo(175, 272 + 32 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(175, 288, 16, 0.3 * Math.PI, 0.3 * Math.PI + 1.4 * Math.PI * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Write his lucky number 99!",
+                voice: "Now for the best part — write the big number 99 right on the front of Nirvan's jersey, his favorite lucky number!",
+                draw(ctx, t) {
+                    ctx.fillStyle = '#000';
+                    ctx.textAlign = 'center';
+                    ctx.font = `bold ${34 * t}px Arial, sans-serif`;
+                    ctx.fillText('99', 250, 272);
+                }
+            },
+            {
+                text: "Add his happy face and finishing touches!",
+                voice: "Finish up with two bright eyes, a big excited smile, a headband, and a sunny sky above the courts!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.arc(241, 190, 3 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(259, 190, 3 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(250, 198, 12, 0.15 * Math.PI, 0.85 * Math.PI * t + 0.15 * Math.PI * (1 - t));
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.rect(224, 172, 52 * t, 10 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(455, 25, 15 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    for (let i = 0; i < 8; i++) {
+                        const angle = i * Math.PI / 4;
+                        ctx.beginPath();
+                        ctx.moveTo(455 + 17 * Math.cos(angle), 25 + 17 * Math.sin(angle));
+                        ctx.lineTo(455 + (17 + 8 * t) * Math.cos(angle), 25 + (17 + 8 * t) * Math.sin(angle));
+                        ctx.stroke();
+                    }
+                }
+            }
+        ],
+        paintSteps: [
+            { text: 'Orange basketball court!', voice: 'Color the basketball court floor a bright basketball orange!', color: '#F57C00' },
+            { text: 'Green tennis court!', voice: 'Color the tennis court a fresh grass green!', color: '#43A047' },
+            { text: "Nirvan's red jersey!", voice: "Color Nirvan's jersey a bold sporty red!", color: '#E53935' },
+            { text: 'White shorts!', voice: 'Color his shorts crisp white!', color: '#FAFAFA' },
+            { text: 'Warm skin tone!', voice: "Color Nirvan's face, arms and legs a warm skin tone!", color: '#FFCC80' },
+            { text: 'Orange basketball!', voice: 'Color the basketball its classic bright orange!', color: '#FB8C00' },
+            { text: 'White sports shoes!', voice: 'Color his shoes bright white, ready to run fast!', color: '#FFFFFF' },
+            { text: 'Sunny yellow sun!', voice: 'Color the sun a bright cheerful yellow shining over the courts!', color: '#FDD835' }
+        ]
     }
 ];
