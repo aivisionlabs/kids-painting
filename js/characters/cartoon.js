@@ -6040,5 +6040,440 @@ export const cartoon = [
             { text: 'White sports shoes!', voice: 'Color his shoes bright white, ready to run fast!', color: '#FFFFFF' },
             { text: 'Sunny yellow sun!', voice: 'Color the sun a bright cheerful yellow shining over the courts!', color: '#FDD835' }
         ]
+    },
+    {
+        id: 'greenbay_playtime',
+        name: 'Playtime at SNN Raj Greenbay',
+        emoji: '🚴',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw the sky, sun and welcome sign!",
+                voice: "It's playtime at SNN Raj Greenbay! Start with a welcome banner at the top, a bright sun, and write the name of the building!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.rect(140, 6, 220 * t, 22 * t);
+                    ctx.stroke();
+                    ctx.fillStyle = '#000';
+                    ctx.textAlign = 'center';
+                    ctx.font = `bold ${13 * t}px Arial, sans-serif`;
+                    ctx.fillText('SNN Raj Greenbay', 250, 21);
+                    ctx.beginPath();
+                    ctx.arc(30, 25, 14 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    for (let i = 0; i < 8; i++) {
+                        const angle = i * Math.PI / 4;
+                        ctx.beginPath();
+                        ctx.moveTo(30 + 16 * Math.cos(angle), 25 + 16 * Math.sin(angle));
+                        ctx.lineTo(30 + (16 + 7 * t) * Math.cos(angle), 25 + (16 + 7 * t) * Math.sin(angle));
+                        ctx.stroke();
+                    }
+                }
+            },
+            {
+                text: "Draw the two towers in the background!",
+                voice: "Behind everything stand the two apartment towers, home to all the kids! Draw two small towers with tiny windows!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.rect(40, 35, 50 * t, 45 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.rect(410, 30, 50 * t, 50 * t);
+                    ctx.stroke();
+                    const colsA = [48, 63, 78];
+                    const rowsA = [45, 60, 73];
+                    for (const cy of rowsA) {
+                        for (const cx of colsA) {
+                            ctx.beginPath();
+                            ctx.rect(cx - 3.5 * t, cy - 3.5 * t, 7 * t, 7 * t);
+                            ctx.stroke();
+                        }
+                    }
+                    const colsB = [418, 433, 448];
+                    for (const cy of rowsA) {
+                        for (const cx of colsB) {
+                            ctx.beginPath();
+                            ctx.rect(cx - 3.5 * t, cy - 3.5 * t, 7 * t, 7 * t);
+                            ctx.stroke();
+                        }
+                    }
+                }
+            },
+            {
+                text: "Draw the basketball court and hoop!",
+                voice: "On the left, draw the basketball court with its center circle and key, plus a hoop with a backboard and net!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.rect(15, 90, 150 * t, 90 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(90, 135, 14 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.rect(60, 90, 60 * t, 30 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.rect(78, 70, 24 * t, 14 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(90, 86, 5 * t, 2 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    const netX = [84, 90, 96];
+                    ctx.beginPath();
+                    for (const nx of netX) {
+                        ctx.moveTo(nx, 87);
+                        ctx.lineTo(nx, 87 + 6 * t);
+                    }
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw the tennis court and net!",
+                voice: "On the right, draw the tennis court with a net across the middle and the service lines!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.rect(335, 90, 150 * t, 90 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(410, 90);
+                    ctx.lineTo(410, 90 + 90 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(355, 115);
+                    ctx.lineTo(355 + 110 * t, 115);
+                    ctx.moveTo(355, 155);
+                    ctx.lineTo(355 + 110 * t, 155);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(410, 115);
+                    ctx.lineTo(410, 115 + 40 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw the cycling path!",
+                voice: "Between the courts, draw a long cycling path with a dashed line down the middle for the kids to ride on!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.moveTo(0, 195);
+                    ctx.lineTo(500 * t, 195);
+                    ctx.moveTo(0, 240);
+                    ctx.lineTo(500 * t, 240);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    for (let x = 20; x < 480 * t; x += 40) {
+                        ctx.moveTo(x, 217);
+                        ctx.lineTo(Math.min(x + 20, 480 * t), 217);
+                    }
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add trees and bushes around the park!",
+                voice: "Let's green up the park! Draw two tall trees at the edges and little bushes along the bottom!",
+                draw(ctx, t) {
+                    const trees = [[10, 260], [490, 260]];
+                    for (const [tx, ty] of trees) {
+                        ctx.beginPath();
+                        ctx.moveTo(tx, ty);
+                        ctx.lineTo(tx, ty + 20 * t);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.arc(tx, ty - 12, 15 * t, 0, Math.PI * 2);
+                        ctx.stroke();
+                    }
+                    const bushX = [50, 150, 250, 350, 450];
+                    for (const bx of bushX) {
+                        ctx.beginPath();
+                        ctx.arc(bx, 395, 12 * t, Math.PI, 0);
+                        ctx.stroke();
+                    }
+                }
+            },
+            {
+                text: "Draw Pranav playing basketball!",
+                voice: "Meet Pranav! Draw his round head and small body on the basketball court, then write his name above him!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.arc(55, 148, 8 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(55, 166, 6 * t, 10 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(55, 158);
+                    ctx.lineTo(45, 172 * t + 158 * (1 - t));
+                    ctx.moveTo(55, 158);
+                    ctx.lineTo(65, 172 * t + 158 * (1 - t));
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(50, 176);
+                    ctx.lineTo(48, 176 + 14 * t);
+                    ctx.moveTo(60, 176);
+                    ctx.lineTo(62, 176 + 14 * t);
+                    ctx.stroke();
+                    ctx.fillStyle = '#000';
+                    ctx.textAlign = 'center';
+                    ctx.font = `bold ${9 * t}px Arial, sans-serif`;
+                    ctx.fillText('Pranav', 55, 128);
+                }
+            },
+            {
+                text: "Draw Ayansh with the basketball!",
+                voice: "Here's Ayansh, ready to shoot! Draw his head and body, and a little basketball in his hands, with his name on top!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.arc(125, 148, 8 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(125, 166, 6 * t, 10 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(125, 158);
+                    ctx.lineTo(115, 172 * t + 158 * (1 - t));
+                    ctx.moveTo(125, 158);
+                    ctx.lineTo(135, 172 * t + 158 * (1 - t));
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(120, 176);
+                    ctx.lineTo(118, 176 + 14 * t);
+                    ctx.moveTo(130, 176);
+                    ctx.lineTo(132, 176 + 14 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(140, 160, 6 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.fillStyle = '#000';
+                    ctx.textAlign = 'center';
+                    ctx.font = `bold ${9 * t}px Arial, sans-serif`;
+                    ctx.fillText('Ayansh', 125, 128);
+                }
+            },
+            {
+                text: "Draw Ved playing tennis!",
+                voice: "On the tennis court, draw Ved with his head, body and a tennis racket in his hand, and write his name above him!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.arc(365, 148, 8 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(365, 166, 6 * t, 10 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(365, 158);
+                    ctx.lineTo(355, 170 * t + 158 * (1 - t));
+                    ctx.moveTo(365, 158);
+                    ctx.lineTo(375, 170 * t + 158 * (1 - t));
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(360, 176);
+                    ctx.lineTo(358, 176 + 14 * t);
+                    ctx.moveTo(370, 176);
+                    ctx.lineTo(372, 176 + 14 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(375, 170);
+                    ctx.lineTo(375 + (385 - 375) * t, 170 + (158 - 170) * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(387, 155, 4 * t, 6 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.fillStyle = '#000';
+                    ctx.textAlign = 'center';
+                    ctx.font = `bold ${9 * t}px Arial, sans-serif`;
+                    ctx.fillText('Ved', 365, 128);
+                }
+            },
+            {
+                text: "Draw Krishna on the other side of the net!",
+                voice: "Across the net, draw Krishna ready to hit the ball back, holding his racket high, with his name above him!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.arc(445, 148, 8 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(445, 166, 6 * t, 10 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(445, 158);
+                    ctx.lineTo(435, 170 * t + 158 * (1 - t));
+                    ctx.moveTo(445, 158);
+                    ctx.lineTo(455, 170 * t + 158 * (1 - t));
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(440, 176);
+                    ctx.lineTo(438, 176 + 14 * t);
+                    ctx.moveTo(450, 176);
+                    ctx.lineTo(452, 176 + 14 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(435, 170);
+                    ctx.lineTo(435 + (425 - 435) * t, 170 + (158 - 170) * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(423, 155, 4 * t, 6 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.fillStyle = '#000';
+                    ctx.textAlign = 'center';
+                    ctx.font = `bold ${9 * t}px Arial, sans-serif`;
+                    ctx.fillText('Krishna', 445, 128);
+                }
+            },
+            {
+                text: "Draw Nirvan's bicycle!",
+                voice: "Now for Nirvan's bicycle! Draw the two round wheels and the triangle frame connecting them, ready to speed off!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.arc(110, 222, 16 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(190, 222, 16 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(110, 222);
+                    ctx.lineTo(110 + (140 - 110) * t, 222 + (195 - 222) * t);
+                    ctx.moveTo(140, 195);
+                    ctx.lineTo(140 + (190 - 140) * t, 195 + (222 - 195) * t);
+                    ctx.moveTo(110, 222);
+                    ctx.lineTo(110 + (150 - 110) * t, 222);
+                    ctx.moveTo(150, 222);
+                    ctx.lineTo(150 + (190 - 150) * t, 222);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(190, 222);
+                    ctx.lineTo(190 + (178 - 190) * t, 222 + (203 - 222) * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(171, 203);
+                    ctx.lineTo(171 + 14 * t, 203);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(150, 222, 4 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw Nirvan riding, wearing jersey 99!",
+                voice: "There's Nirvan, pedaling super fast in his jersey with the number 99! Draw him leaning forward on his bike, with his name above him and speed lines behind!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.arc(140, 175, 13 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(140, 190, 9 * t, 11 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(140, 182);
+                    ctx.lineTo(140 + (178 - 140) * t, 182 + (203 - 182) * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(140, 199);
+                    ctx.lineTo(140 + (150 - 140) * t, 199 + (222 - 199) * t);
+                    ctx.moveTo(140, 199);
+                    ctx.lineTo(140 + (132 - 140) * t, 199 + (215 - 199) * t);
+                    ctx.stroke();
+                    ctx.fillStyle = '#000';
+                    ctx.textAlign = 'center';
+                    ctx.font = `bold ${11 * t}px Arial, sans-serif`;
+                    ctx.fillText('Nirvan', 140, 155);
+                    ctx.font = `bold ${9 * t}px Arial, sans-serif`;
+                    ctx.fillText('99', 140, 193);
+                    const speedY = [208, 218, 228, 238];
+                    for (const sy of speedY) {
+                        ctx.beginPath();
+                        ctx.moveTo(90, sy);
+                        ctx.lineTo(90 - 25 * t, sy);
+                        ctx.stroke();
+                    }
+                }
+            },
+            {
+                text: "Draw Aarush's bicycle behind Nirvan!",
+                voice: "Right behind him is Aarush on his own bicycle! Draw a slightly smaller bike with two wheels and a frame further down the path!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.arc(300, 224, 13 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(360, 224, 13 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(300, 224);
+                    ctx.lineTo(300 + (325 - 300) * t, 224 + (202 - 224) * t);
+                    ctx.moveTo(325, 202);
+                    ctx.lineTo(325 + (360 - 325) * t, 202 + (224 - 202) * t);
+                    ctx.moveTo(300, 224);
+                    ctx.lineTo(300 + (360 - 300) * t, 224);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(360, 224);
+                    ctx.lineTo(360 + (348 - 360) * t, 224 + (206 - 224) * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(341, 206);
+                    ctx.lineTo(341 + 10 * t, 206);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw Aarush riding along!",
+                voice: "Finally, draw Aarush himself riding his bike, chasing after Nirvan with a big smile, and write his name above him!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.arc(325, 183, 10 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.ellipse(325, 196, 7 * t, 9 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(325, 190);
+                    ctx.lineTo(325 + (348 - 325) * t, 190 + (206 - 190) * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(325, 204);
+                    ctx.lineTo(325 + (332 - 325) * t, 204 + (222 - 204) * t);
+                    ctx.moveTo(325, 204);
+                    ctx.lineTo(325 + (318 - 325) * t, 204 + (218 - 204) * t);
+                    ctx.stroke();
+                    ctx.fillStyle = '#000';
+                    ctx.textAlign = 'center';
+                    ctx.font = `bold ${10 * t}px Arial, sans-serif`;
+                    ctx.fillText('Aarush', 325, 165);
+                }
+            },
+            {
+                text: "Finish with clouds and birds in the sky!",
+                voice: "Last touches! Draw a fluffy cloud floating by and two little birds flying above the fun-filled park!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.arc(220, 22, 9 * t, 0, Math.PI * 2);
+                    ctx.arc(236, 18, 11 * t, 0, Math.PI * 2);
+                    ctx.arc(248, 22, 8 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(200, 15, 6 * t, Math.PI * 0.9, Math.PI * 0.1, true);
+                    ctx.arc(212, 15, 6 * t, Math.PI * 0.9, Math.PI * 0.1, true);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(285, 10, 5 * t, Math.PI * 0.9, Math.PI * 0.1, true);
+                    ctx.arc(295, 10, 5 * t, Math.PI * 0.9, Math.PI * 0.1, true);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: 'Orange basketball court!', voice: 'Color the basketball court a bright basketball orange!', color: '#F57C00' },
+            { text: 'Green tennis court!', voice: 'Color the tennis court a fresh grass green!', color: '#43A047' },
+            { text: 'Grey cycling path!', voice: 'Color the cycling path a smooth road grey!', color: '#9E9E9E' },
+            { text: 'Mustard towers!', voice: 'Color the two towers in the background a warm mustard yellow!', color: '#D9A441' },
+            { text: "Nirvan's red jersey!", voice: "Color Nirvan's jersey a bold sporty red!", color: '#E53935' },
+            { text: "Aarush's blue jersey!", voice: "Color Aarush's shirt a cool bright blue!", color: '#1E88E5' },
+            { text: "Pranav's green shirt!", voice: "Color Pranav's shirt a fresh green!", color: '#66BB6A' },
+            { text: "Ayansh's purple shirt!", voice: "Color Ayansh's shirt a fun bright purple!", color: '#8E24AA' },
+            { text: "Ved's yellow shirt!", voice: "Color Ved's shirt a sunny yellow!", color: '#FDD835' },
+            { text: "Krishna's orange shirt!", voice: "Color Krishna's shirt a lively orange!", color: '#FB8C00' },
+            { text: 'Warm skin tone!', voice: "Color everyone's faces, arms and legs a warm skin tone!", color: '#FFCC80' },
+            { text: 'Green trees and bushes!', voice: 'Color all the trees and bushes a fresh leafy green!', color: '#4CAF50' }
+        ]
     }
 ];
