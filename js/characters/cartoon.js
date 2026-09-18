@@ -6902,5 +6902,123 @@ export const cartoon = [
             { text: 'Leafy green trees!', voice: 'Color both trees a fresh leafy green and the ground grassy green too!', color: '#66BB6A' },
             { text: 'Bright yellow sun!', voice: 'Color the sun a big bright cheerful yellow!', color: '#FDD835' }
         ]
+    },
+    {
+        id: 'roblox_noob',
+        name: 'Roblox Blocky Hero',
+        emoji: '🟦',
+        category: 'cartoon',
+        steps: [
+            {
+                text: 'Draw the blocky head!',
+                voice: "Let's build a Roblox hero! Everything is made of blocks. Start with a big square head, like a yellow box!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.rect(210, 70, 80 * t, 62 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: 'Add the big square body!',
+                voice: 'Now draw a bigger box under the head. That is the body, and it will be a bright blue shirt!',
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.rect(202, 142, 96 * t, 90 * t);
+                    ctx.stroke();
+                    // little neck block
+                    ctx.beginPath();
+                    ctx.rect(238, 132, 24 * t, 10 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: 'Two long block arms!',
+                voice: 'Time for arms! Draw a tall thin box on each side of the body. Roblox arms are straight and blocky!',
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.rect(164, 142, 34 * t, 84 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.rect(302, 142, 34 * t, 84 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: 'Two stomping block legs!',
+                voice: 'Now add two boxes underneath for the legs. Stomp stomp! Our blocky hero can walk around the game now!',
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.rect(206, 240, 42 * t, 78 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.rect(252, 240, 42 * t, 78 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: 'Draw the happy smiley face!',
+                voice: 'Every Roblox hero has a big happy grin! Draw two oval eyes and a wide smiling mouth on the square head.',
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.ellipse(232, 96, 6 * t, 9 * t, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.ellipse(268, 96, 6 * t, 9 * t, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                    // wide grin
+                    ctx.beginPath();
+                    ctx.arc(250, 100, 24, 0.18 * Math.PI, 0.18 * Math.PI + 0.64 * Math.PI * t);
+                    ctx.stroke();
+                    // smile corners
+                    ctx.beginPath();
+                    ctx.moveTo(227, 108);
+                    ctx.lineTo(227, 108 + 6 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(273, 108);
+                    ctx.lineTo(273, 108 + 6 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: 'Add the floating game block!',
+                voice: 'Last of all, float a magic building block above the head, and draw a stripe on the shirt. Your Roblox hero is ready to play!',
+                draw(ctx, t) {
+                    ctx.save();
+                    ctx.translate(250, 38);
+                    ctx.rotate(0.22);
+                    ctx.beginPath();
+                    ctx.rect(-14 * t, -14 * t, 28 * t, 28 * t);
+                    ctx.stroke();
+                    ctx.restore();
+                    // shirt collar stripe
+                    ctx.beginPath();
+                    ctx.moveTo(202, 162);
+                    ctx.lineTo(202 + 96 * t, 162);
+                    ctx.stroke();
+                    // belt
+                    ctx.beginPath();
+                    ctx.rect(218, 222, 64 * t, 10 * t);
+                    ctx.stroke();
+                    // hands
+                    ctx.beginPath();
+                    ctx.moveTo(164, 210);
+                    ctx.lineTo(164 + 34 * t, 210);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(302, 210);
+                    ctx.lineTo(302 + 34 * t, 210);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: 'Sunny yellow head and arms!', voice: 'Color the square head and both block arms a bright sunny yellow!', color: '#FFD426' },
+            { text: 'Blue blocky shirt!', voice: 'Color the body a cool bright blue, just like the classic Roblox shirt!', color: '#2196F3' },
+            { text: 'Green legs!', voice: 'Color both leg blocks a fresh grassy green!', color: '#4CAF50' },
+            { text: 'Black smiley face!', voice: 'Color the eyes and the big happy grin black so the smile really pops!', color: '#212121' },
+            { text: 'Red floating block!', voice: 'Color the magic floating building block a bright red!', color: '#E53935' },
+            { text: 'Dark belt!', voice: 'Color the belt a strong dark grey to finish your blocky hero!', color: '#455A64' }
+        ]
     }
 ];
