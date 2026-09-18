@@ -6475,5 +6475,432 @@ export const cartoon = [
             { text: 'Warm skin tone!', voice: "Color everyone's faces, arms and legs a warm skin tone!", color: '#FFCC80' },
             { text: 'Green trees and bushes!', voice: 'Color all the trees and bushes a fresh leafy green!', color: '#4CAF50' }
         ]
+    },
+    {
+        id: 'charizard',
+        name: 'Charizard',
+        emoji: '🔥',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw Charizard's head and horns!",
+                voice: "Roar! Let's draw Charizard, the flying fire dragon! Start with a long head, then add two pointy horns at the back!",
+                draw(ctx, t) {
+                    // Head (long dragon snout, tilted)
+                    ctx.beginPath();
+                    ctx.ellipse(165, 112, 48 * t, 32 * t, -0.12, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Back horns
+                    ctx.beginPath();
+                    ctx.moveTo(200, 92);
+                    ctx.lineTo(200 + 46 * t, 92 - 26 * t);
+                    ctx.lineTo(200 + 14 * t, 92 + 12 * t);
+                    ctx.closePath();
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(203, 116);
+                    ctx.lineTo(203 + 48 * t, 116 - 4 * t);
+                    ctx.lineTo(203 + 16 * t, 116 + 14 * t);
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add the neck, body and cream belly!",
+                voice: "Now draw a long curvy neck coming down to a big strong body, and a soft cream tummy in the middle!",
+                draw(ctx, t) {
+                    // Neck, front edge
+                    ctx.beginPath();
+                    ctx.moveTo(142, 140);
+                    ctx.bezierCurveTo(146, 140 + 30 * t, 160, 140 + 45 * t, 178, 140 + 58 * t);
+                    ctx.stroke();
+                    // Neck, back edge
+                    ctx.beginPath();
+                    ctx.moveTo(200, 138);
+                    ctx.bezierCurveTo(212, 138 + 22 * t, 232, 138 + 30 * t, 246, 138 + 42 * t);
+                    ctx.stroke();
+                    // Body
+                    ctx.beginPath();
+                    ctx.ellipse(215, 248, 62 * t, 66 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Cream belly
+                    ctx.beginPath();
+                    ctx.ellipse(198, 258, 38 * t, 48 * t, 0.1, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Give Charizard his huge wings!",
+                voice: "Time for the best part! Draw two giant bat wings spreading out wide so Charizard can zoom through the sky!",
+                draw(ctx, t) {
+                    // Far wing
+                    const ax = 250, ay = 196;
+                    ctx.beginPath();
+                    ctx.moveTo(ax, ay);
+                    ctx.lineTo(ax + 60 * t, ay - 112 * t);
+                    ctx.lineTo(ax + 168 * t, ay - 78 * t);
+                    ctx.lineTo(ax + 140 * t, ay - 18 * t);
+                    ctx.lineTo(ax + 60 * t, ay + 6 * t);
+                    ctx.closePath();
+                    ctx.stroke();
+                    // Wing bones
+                    ctx.beginPath();
+                    ctx.moveTo(ax + 60 * t, ay - 112 * t);
+                    ctx.lineTo(ax + 118 * t, ay - 26 * t);
+                    ctx.stroke();
+                    // Near wing (smaller, tucked behind body)
+                    const bx = 262, by = 214;
+                    ctx.beginPath();
+                    ctx.moveTo(bx, by);
+                    ctx.lineTo(bx + 30 * t, by - 86 * t);
+                    ctx.lineTo(bx - 34 * t, by - 66 * t);
+                    ctx.lineTo(bx - 46 * t, by - 14 * t);
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add the arms and strong legs!",
+                voice: "Charizard needs little arms with tiny claws, and two big powerful legs to stand on. Draw them now!",
+                draw(ctx, t) {
+                    // Left arm
+                    ctx.beginPath();
+                    ctx.ellipse(162, 228, 24 * t, 12 * t, 0.5, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Claw hand
+                    ctx.beginPath();
+                    ctx.moveTo(146, 244);
+                    ctx.lineTo(146 - 14 * t, 244 + 8 * t);
+                    ctx.moveTo(146, 244);
+                    ctx.lineTo(146 - 12 * t, 244 + 16 * t);
+                    ctx.stroke();
+                    // Left leg
+                    ctx.beginPath();
+                    ctx.ellipse(188, 316, 22 * t, 34 * t, 0.05, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Left foot
+                    ctx.beginPath();
+                    ctx.ellipse(180, 348, 30 * t, 12 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right leg
+                    ctx.beginPath();
+                    ctx.ellipse(246, 318, 22 * t, 32 * t, -0.05, 0, Math.PI * 2);
+                    ctx.stroke();
+                    // Right foot
+                    ctx.beginPath();
+                    ctx.ellipse(252, 348, 30 * t, 12 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw the long tail with a fire flame!",
+                voice: "Every Charizard has a burning tail! Draw a long curvy tail, and a bright flame dancing right on the tip!",
+                draw(ctx, t) {
+                    // Tail top edge
+                    ctx.beginPath();
+                    ctx.moveTo(272, 286);
+                    ctx.bezierCurveTo(330, 286 + 20 * t, 372, 286 - 22 * t, 386, 286 - 48 * t);
+                    ctx.stroke();
+                    // Tail bottom edge
+                    ctx.beginPath();
+                    ctx.moveTo(266, 308);
+                    ctx.bezierCurveTo(334, 308 + 22 * t, 392, 308 - 8 * t, 404, 308 - 44 * t);
+                    ctx.stroke();
+                    // Flame
+                    ctx.beginPath();
+                    ctx.moveTo(386, 238);
+                    ctx.bezierCurveTo(374, 238 - 30 * t, 396, 238 - 52 * t, 400, 238 - 72 * t);
+                    ctx.bezierCurveTo(414, 238 - 48 * t, 420, 238 - 30 * t, 404, 238 - 2 * t);
+                    ctx.closePath();
+                    ctx.stroke();
+                    // Inner flame
+                    ctx.beginPath();
+                    ctx.moveTo(392, 232);
+                    ctx.bezierCurveTo(388, 232 - 22 * t, 398, 232 - 32 * t, 400, 232 - 44 * t);
+                    ctx.bezierCurveTo(408, 232 - 28 * t, 408, 232 - 16 * t, 400, 232 - 2 * t);
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Finish the face — eyes, nose and teeth!",
+                voice: "Last step! Add a brave eye, two little nostrils, a wide mouth and sharp teeth. Charizard is ready to fly!",
+                draw(ctx, t) {
+                    // Eye
+                    ctx.beginPath();
+                    ctx.ellipse(168, 100, 11 * t, 9 * t, 0, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(170, 101, 5 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Brow
+                    ctx.beginPath();
+                    ctx.moveTo(155, 88);
+                    ctx.lineTo(155 + 26 * t, 88 - 4 * t);
+                    ctx.stroke();
+                    // Nostrils
+                    ctx.beginPath();
+                    ctx.arc(124, 104, 3 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(126, 113, 3 * t, 0, Math.PI * 2);
+                    ctx.fill();
+                    // Mouth line
+                    ctx.beginPath();
+                    ctx.moveTo(120, 124);
+                    ctx.lineTo(120 + 72 * t, 124 + 6 * t);
+                    ctx.stroke();
+                    // Teeth
+                    ctx.beginPath();
+                    ctx.moveTo(136, 126);
+                    ctx.lineTo(141, 126 + 10 * t);
+                    ctx.lineTo(146, 126);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(156, 128);
+                    ctx.lineTo(161, 128 + 10 * t);
+                    ctx.lineTo(166, 128);
+                    ctx.stroke();
+                }
+            }
+        ],
+        paintSteps: [
+            { text: 'Orange body!', voice: "Color Charizard's head, body, arms and legs a bright fiery orange!", color: '#F57C00' },
+            { text: 'Cream tummy!', voice: 'Color the tummy a soft creamy yellow, just like a real Charizard!', color: '#FFE0B2' },
+            { text: 'Teal wings!', voice: 'Color the inside of the big wings a cool blue-green teal!', color: '#26A69A' },
+            { text: 'Orange wing edges!', voice: 'Color the edges of the wings orange to match his body!', color: '#EF6C00' },
+            { text: 'Yellow flame!', voice: 'Color the middle of the tail flame a glowing yellow!', color: '#FDD835' },
+            { text: 'Red-orange fire!', voice: 'Color the outside of the flame a hot red-orange!', color: '#E53935' },
+            { text: 'Cream horns and claws!', voice: 'Color the horns, teeth and claws a pale cream color!', color: '#FFF3E0' }
+        ]
+    },
+    {
+        id: 'nirvan_family_shivpuri',
+        name: "Nirvan and His Family at Shivpuri",
+        emoji: '🏡',
+        category: 'cartoon',
+        steps: [
+            {
+                text: "Draw the Shivpuri family house!",
+                voice: "Welcome to Shivpuri, where the whole family lives together! Draw a big house with a pointy roof, a door and two windows!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.rect(160, 55, 180 * t, 75 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(145, 55);
+                    ctx.lineTo(145 + 105 * t, 55 - 43 * t);
+                    ctx.moveTo(355, 55);
+                    ctx.lineTo(355 - 105 * t, 55 - 43 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.rect(236, 98, 28 * t, 32 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.rect(183, 66, 30 * t, 24 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.rect(287, 66, 30 * t, 24 * t);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(20, 132);
+                    ctx.lineTo(20 + 460 * t, 132);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Draw the seven grown-ups!",
+                voice: "Here comes the whole family! Draw seven round heads in a row, with bodies for the uncles and papas, and pretty dresses for the aunties and mummies!",
+                draw(ctx, t) {
+                    const men = [40, 110, 250, 390];
+                    for (const mx of men) {
+                        ctx.beginPath();
+                        ctx.arc(mx, 168, 13 * t, 0, Math.PI * 2);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.ellipse(mx, 202, 15 * t, 22 * t, 0, 0, Math.PI * 2);
+                        ctx.stroke();
+                    }
+                    const women = [180, 320, 460];
+                    for (const wx of women) {
+                        ctx.beginPath();
+                        ctx.arc(wx, 168, 13 * t, 0, Math.PI * 2);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.moveTo(wx, 182);
+                        ctx.lineTo(wx - 20 * t, 224);
+                        ctx.lineTo(wx + 20 * t, 224);
+                        ctx.closePath();
+                        ctx.stroke();
+                    }
+                }
+            },
+            {
+                text: "Add their arms, legs and names!",
+                voice: "Now give every grown-up two arms and two legs, and write their names above them so nobody is forgotten!",
+                draw(ctx, t) {
+                    const all = [40, 110, 180, 250, 320, 390, 460];
+                    for (const ax of all) {
+                        ctx.beginPath();
+                        ctx.moveTo(ax, 192);
+                        ctx.lineTo(ax - 22 * t, 214);
+                        ctx.moveTo(ax, 192);
+                        ctx.lineTo(ax + 22 * t, 214);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.moveTo(ax - 7, 224);
+                        ctx.lineTo(ax - 9 * t, 244);
+                        ctx.moveTo(ax + 7, 224);
+                        ctx.lineTo(ax + 9 * t, 244);
+                        ctx.stroke();
+                    }
+                    const names = ['Dadu', 'Bade Papa', 'Badi Mummy', 'Papa', 'Mummy', 'Chotu Chachu', 'Siya Chachi'];
+                    ctx.fillStyle = '#000';
+                    ctx.textAlign = 'center';
+                    ctx.font = `bold ${10 * t}px Arial, sans-serif`;
+                    for (let i = 0; i < all.length; i++) {
+                        ctx.fillText(names[i], all[i], 149);
+                    }
+                }
+            },
+            {
+                text: "Draw Nirvan, D2 and Prisha!",
+                voice: "In front stand the three little stars! Draw Nirvan, D2 and Prisha with small round heads, little bodies, arms, legs and their names!",
+                draw(ctx, t) {
+                    const boys = [175, 250];
+                    for (const bx of boys) {
+                        ctx.beginPath();
+                        ctx.arc(bx, 262, 11 * t, 0, Math.PI * 2);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.ellipse(bx, 291, 12 * t, 18 * t, 0, 0, Math.PI * 2);
+                        ctx.stroke();
+                    }
+                    ctx.beginPath();
+                    ctx.arc(325, 262, 11 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(325, 274);
+                    ctx.lineTo(325 - 17 * t, 309);
+                    ctx.lineTo(325 + 17 * t, 309);
+                    ctx.closePath();
+                    ctx.stroke();
+                    const kids = [175, 250, 325];
+                    for (const kx of kids) {
+                        ctx.beginPath();
+                        ctx.moveTo(kx, 283);
+                        ctx.lineTo(kx - 18 * t, 301);
+                        ctx.moveTo(kx, 283);
+                        ctx.lineTo(kx + 18 * t, 301);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.moveTo(kx - 6, 309);
+                        ctx.lineTo(kx - 8 * t, 330);
+                        ctx.moveTo(kx + 6, 309);
+                        ctx.lineTo(kx + 8 * t, 330);
+                        ctx.stroke();
+                    }
+                    const kidNames = ['Nirvan', 'D2', 'Prisha'];
+                    ctx.fillStyle = '#000';
+                    ctx.textAlign = 'center';
+                    ctx.font = `bold ${11 * t}px Arial, sans-serif`;
+                    for (let i = 0; i < kids.length; i++) {
+                        ctx.fillText(kidNames[i], kids[i], 243);
+                    }
+                }
+            },
+            {
+                text: "Give everyone a happy smile!",
+                voice: "Everybody say cheese! Draw two dot eyes and a big curvy smile on all ten faces, and give Dadu his glasses and walking stick!",
+                draw(ctx, t) {
+                    const grownX = [40, 110, 180, 250, 320, 390, 460];
+                    for (const gx of grownX) {
+                        ctx.beginPath();
+                        ctx.arc(gx - 5, 165, 2 * t, 0, Math.PI * 2);
+                        ctx.fill();
+                        ctx.beginPath();
+                        ctx.arc(gx + 5, 165, 2 * t, 0, Math.PI * 2);
+                        ctx.fill();
+                        ctx.beginPath();
+                        ctx.arc(gx, 170, 6, 0.15 * Math.PI, 0.15 * Math.PI + 0.7 * Math.PI * t);
+                        ctx.stroke();
+                    }
+                    const kidX = [175, 250, 325];
+                    for (const kx of kidX) {
+                        ctx.beginPath();
+                        ctx.arc(kx - 4, 259, 2 * t, 0, Math.PI * 2);
+                        ctx.fill();
+                        ctx.beginPath();
+                        ctx.arc(kx + 4, 259, 2 * t, 0, Math.PI * 2);
+                        ctx.fill();
+                        ctx.beginPath();
+                        ctx.arc(kx, 264, 5, 0.15 * Math.PI, 0.15 * Math.PI + 0.7 * Math.PI * t);
+                        ctx.stroke();
+                    }
+                    ctx.beginPath();
+                    ctx.arc(35, 165, 5 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(46, 165, 5 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(18, 200);
+                    ctx.lineTo(18, 200 + 44 * t);
+                    ctx.stroke();
+                }
+            },
+            {
+                text: "Add the sun, trees and the Shivpuri sign!",
+                voice: "Last step! Draw a shining sun, two leafy trees, a fluffy cloud, and a sign on the house that says Shivpuri — this is home!",
+                draw(ctx, t) {
+                    ctx.beginPath();
+                    ctx.arc(45, 32, 14 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    for (let i = 0; i < 8; i++) {
+                        const angle = i * Math.PI / 4;
+                        ctx.beginPath();
+                        ctx.moveTo(45 + 17 * Math.cos(angle), 32 + 17 * Math.sin(angle));
+                        ctx.lineTo(45 + (17 + 8 * t) * Math.cos(angle), 32 + (17 + 8 * t) * Math.sin(angle));
+                        ctx.stroke();
+                    }
+                    ctx.beginPath();
+                    ctx.arc(430, 28, 9 * t, 0, Math.PI * 2);
+                    ctx.arc(447, 24, 11 * t, 0, Math.PI * 2);
+                    ctx.arc(462, 28, 8 * t, 0, Math.PI * 2);
+                    ctx.stroke();
+                    const trees = [[110, 132], [400, 132]];
+                    for (const [tx, ty] of trees) {
+                        ctx.beginPath();
+                        ctx.moveTo(tx, ty);
+                        ctx.lineTo(tx, ty - 24 * t);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.arc(tx, ty - 36, 16 * t, 0, Math.PI * 2);
+                        ctx.stroke();
+                    }
+                    ctx.beginPath();
+                    ctx.rect(215, 64, 70 * t, 20 * t);
+                    ctx.stroke();
+                    ctx.fillStyle = '#000';
+                    ctx.textAlign = 'center';
+                    ctx.font = `bold ${13 * t}px Arial, sans-serif`;
+                    ctx.fillText('Shivpuri', 250, 79);
+                }
+            }
+        ],
+        paintSteps: [
+            { text: 'Sunny yellow house!', voice: 'Color the walls of the Shivpuri house a warm sunny yellow!', color: '#F9C74F' },
+            { text: 'Red roof!', voice: 'Color the pointy roof a bright brick red, just like a real village home!', color: '#D94F3D' },
+            { text: 'Brown door!', voice: 'Color the front door a lovely wooden brown!', color: '#8D6E63' },
+            { text: 'Warm skin tone!', voice: 'Color every face, arm and leg a warm skin tone!', color: '#FFCC80' },
+            { text: "Dadu's white kurta!", voice: "Color Dadu's clothes a clean crisp white, and his hair silver-grey!", color: '#ECEFF1' },
+            { text: "Papas in blue!", voice: "Color Bade Papa, Papa and Chotu Chachu's shirts a smart blue!", color: '#3949AB' },
+            { text: 'Pink and green sarees!', voice: "Color Badi Mummy, Mummy and Siya Chachi's dresses a lovely bright pink!", color: '#EC407A' },
+            { text: "Nirvan's orange shirt!", voice: "Color Nirvan's shirt a cheerful bright orange!", color: '#FB8C00' },
+            { text: "D2's green shirt!", voice: "Color D2's shirt a fresh happy green!", color: '#43A047' },
+            { text: "Prisha's purple frock!", voice: "Color Prisha's frock a pretty purple!", color: '#AB47BC' },
+            { text: 'Leafy green trees!', voice: 'Color both trees a fresh leafy green and the ground grassy green too!', color: '#66BB6A' },
+            { text: 'Bright yellow sun!', voice: 'Color the sun a big bright cheerful yellow!', color: '#FDD835' }
+        ]
     }
 ];
